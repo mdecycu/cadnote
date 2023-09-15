@@ -143,8 +143,27 @@ img.add_border {
           
         </header>
     <div id="tipue_search_content">任務一 << <a href='任務一.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分<br /><h1>Replit</h1>
+<p>Replit Documentation: <a href="https://docs.replit.com/">https://docs.replit.com/</a> </p>
+<p><a href="https://docs.replit.com/getting-started/intro-replit">Intro to Replit</a></p>
+<p>從 Github 將倉儲導入 Replit 的手冊: <a href="https://docs.replit.com/category/using-git-on-replit">https://docs.replit.com/category/using-git-on-replit</a> </p>
+<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/connect-github-to-replit">Connect Github to Replit</a></p>
+<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/import-repository">Import repository to Replit</a></p>
+<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/running-github-repositories-replit">Run Github repository on Replit</a></p>
+<hr/>
+<p>2023.09.15 下午 2a 上課時所使用的 <a href="https://github.com/mdecycu/cmsite/tree/bda028e87bdf4e5764aedf67d5559c76c6178a0c">cmsite 版本</a>, 其中的 .replit 與 Replit.nix 必須移除才能使用最新版本的 Python, 因此若當時已經採用作為 Template 的倉儲必須進行修改或重新建立.</p>
+<p>另外, 一個 Replit 免費帳號只能與一個 Github 帳號綁定.</p>
+<hr/>
+<p>Repl 為 Replit 網際服務系統中的專案, 一旦選定對應 Language, 當專案以 Run 執行時, 系統將會試著安裝所需模組, 只是 Replit import from Github 並不會取下子模組, 使用者必須自行以 git 指令取得子模組內容.</p>
+<p>Replit 專案的設定檔案位於 .replit 與 Replit.nix 等兩個檔案.</p>
 <p>希望利用 Replit (Web-based IDE, Intergrated Development Environment) 來維護個人網站.</p>
-<p>將倉儲 Import 至 Replit, 在 Replit 啟動 cmsimde 網站進行內容編輯之後, 轉為靜態, git commit and git push.</p><br />任務一 << <a href='任務一.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分</div>
+<p>將倉儲 Import 至 Replit, 在 Replit 啟動 cmsimde 網站進行內容編輯之後, 轉為靜態, git commit and git push.</p>
+<p>導入畫面中選擇以 Python 作為專案程式語言, 如下圖所示, 導入 scrum-2/scrum-2.github.io 倉儲.</p>
+<p><img alt="" class="add_border" height="226" src="./../images/Replit_import_from_github.png" width="400"/></p>
+<p>將 scrum-2.github.io 倉儲導入 Replit 之後, 必須手動取下倉儲對應的子模組 (因為 Replit 的 import 功能並不會自動將倉儲所屬的子模組導入).</p>
+<p>在既有倉儲所處的電腦中導入子模組的指令為:</p>
+<p style="padding-left: 30px;">git submodule update --init</p>
+<p>此一指令必須在 Replit 的 Shell tool 頁面中執行.</p>
+<p></p><br />任務一 << <a href='任務一.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分</div>
         
     <!-- footer -->
       <div class="container">

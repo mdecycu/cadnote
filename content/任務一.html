@@ -148,7 +148,7 @@ img.add_border {
 <p>在 Replit Python 環境中就是內建 Python3, 因此安裝模組必須使用 pip 而非一般 Linux 環境中使用的 pip3:</p>
 <p>以 import 將倉儲從 github 導入後, 必須使用 git submodule update --init 取下 cmsimde 子模組內容 (因為 Replit import 不會自動取下倉儲對應的子模組).</p>
 <p>取下子模組之後, 以 Run 嘗試以 Python3 執行 main.py, 讓 Replit 自行調適所需的 Python3 環境, 結果會顯示缺少啟動 cmsimde 網站的模組, 再以下列指令在 Shell 頁面安裝所需模組:</p>
-<p style="padding-left: 30px;">pip install flask flask_cors bs4 lxml markdown pelican gevent</p>
+<p style="padding-left: 30px;">pip3 install flask flask_cors bs4 lxml markdown pelican gevent</p>
 <p>其中 flask 為 Python 網際框架, flask_cors 則允許跨網域擷取資料的 flask 延伸模組, bs4 與 lxml 用於超文件分頁, markdown 與 pelican 則允許使用者採 Markdown 格式編寫網誌內容, 並且利用 Pelican 套件轉為 html 格式的網誌文章. 至於 gevent 則是 Replit 內建使用的同步網路程式庫.</p>
 <p>手動載下倉儲子模組, 試以 Run 執行之後再安裝 cmsimde 編輯網站所需模組, 應該就可以利用 Run 啟動倉儲對應的動態網站.</p>
 <p>最後, 為了保全網站登入的管理者密碼編碼, 還需要在 Secrets 頁面中建立 config 變數, 並將近端 config/config 所修改的管理者密碼編碼登錄至 config 變數.</p>
