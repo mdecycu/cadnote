@@ -15,6 +15,8 @@
 <li>self-study (自學)</li>
 </ol>
 <p>第一階段任務:</p>
+<p>手機建議安裝以下 Apps:</p>
+<p style="padding-left: 30px;">ChatGPT, Github mobile, Replit, Authy, Teams, Onshape</p>
 <p>完成本節中的各項任務後, 表示你將可以登入:</p>
 <ol>
 <li>學校 email 帳號郵箱</li>
@@ -83,15 +85,16 @@
 <p>Robotics:</p>
 <p style="padding-left: 30px;">RoboDK: <a href="https://robodk.com/">https://robodk.com/</a>, <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robodk">robodk</a> and <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robolink">robolink</a> (integrated into robodk), <a href="https://www.parallemic.org/RoKiSim.html">https://www.parallemic.org/RoKiSim.html</a> </p>
 <p>References:</p>
-<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p>
-<h3>任務一</h3>
+<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p><h3>任務一</h3>
 <hr/>
 <p>2023.09.14 上午 2b 上課時段, 之所以沒有 IPv6 網路連線的原因是: <span style="background-color: #ffff00;">BGA-0810-S 網管集線器的 port 24 硬體故障</span>, 無法從工作站室取得機械設計系網路主幹訊號.</p>
 <p>在 Replit Python 環境中就是內建 Python3, 因此安裝模組必須使用 pip 而非一般 Linux 環境中使用的 pip3:</p>
 <p>以 import 將倉儲從 github 導入後, 必須使用 git submodule update --init 取下 cmsimde 子模組內容 (因為 Replit import 不會自動取下倉儲對應的子模組).</p>
 <p>取下子模組之後, 以 Run 嘗試以 Python3 執行 main.py, 讓 Replit 自行調適所需的 Python3 環境, 結果會顯示缺少啟動 cmsimde 網站的模組, 再以下列指令在 Shell 頁面安裝所需模組:</p>
 <p style="padding-left: 30px;">pip install flask flask_cors bs4 lxml markdown pelican gevent</p>
-<p>之後應該就可以執行 Run 啟動所需的網頁編輯器.</p>
+<p>其中 flask 為 Python 網際框架, flask_cors 則允許跨網域擷取資料的 flask 延伸模組, bs4 與 lxml 用於超文件分頁, markdown 與 pelican 則允許使用者採 Markdown 格式編寫網誌內容, 並且利用 Pelican 套件轉為 html 格式的網誌文章. 至於 gevent 則是 Replit 內建使用的同步網路程式庫.</p>
+<p>手動載下倉儲子模組, 試以 Run 執行之後再安裝 cmsimde 編輯網站所需模組, 應該就可以利用 Run 啟動倉儲對應的動態網站.</p>
+<p>最後, 為了保全網站登入的管理者密碼編碼, 還需要在 Secrets 頁面中建立 config 變數, 並將近端 config/config 所修改的管理者密碼編碼登錄至 config 變數.</p>
 <hr/>
 <p>請自選 CAD 套件, 依照下列圖示, 以能將此系統放在電腦桌上為參考尺寸, 繪製所需的零組件, 並將各零組件檔案與畫面上傳至個人的 Onedrive, 或以 Onshape 上的公開連結展示所完成的資料.</p>
 <p>最後在個人的 帳號.github.io 網站上呈現任務一所完成的結果 (請以 H1 且標題為任務一建立網頁).</p>
