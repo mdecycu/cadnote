@@ -4,7 +4,7 @@
 <p>課程內容將包含機電整合範例系統中 3D 零組件的電腦輔助設計繪圖，以及實體模型製作之前所需的機電控制系統設計與模擬。</p>
 <p>電腦輔助設計繪圖將採用可在 Windows 操作系統中可㩦運作的 Siemens Solid Edge 與 Solvespace，業界普遍採用的 Dassault Solidworks 與 Siemens NX，以及能直接在 PC Web Browser 及手機或平板 App 中使用的 Onshape。</p>
 <p>控制系統設計將採用最簡單的 PID 自動控制流程，並配合將 3D 零組件模型導入 Coppeliasim，以 Python ZeroMQ Remote API 程式跨網路進行控制後，再利用 Websocket 將機電系統控制與模擬結果，呈現於 PC 、平板或手機的 Web Browser 上，以便在之後的協同産品設計課程中進行應用。</p>
-<h2>上課內容</h2>
+<h1>上課內容</h1>
 <p>112 學年度第一學期 (2023 Fall) 機械設計工程系 - <span style="background-color: #ccffcc;">電腦輔助設計與實習</span>課程的上課內容與進度.</p>
 <p>首先說明<a href="https://mde.tw/cadnote/content/%E8%AA%B2%E7%A8%8B%E8%A9%95%E5%88%86.html">課程評分方式</a></p>
 <p>Teaching Methods (教學方法):</p>
@@ -85,7 +85,8 @@
 <p>Robotics:</p>
 <p style="padding-left: 30px;">RoboDK: <a href="https://robodk.com/">https://robodk.com/</a>, <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robodk">robodk</a> and <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robolink">robolink</a> (integrated into robodk), <a href="https://www.parallemic.org/RoKiSim.html">https://www.parallemic.org/RoKiSim.html</a> </p>
 <p>References:</p>
-<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p><h3>任務一</h3>
+<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p>
+<h2>任務一</h2>
 <hr/>
 <p>2023.09.14 上午 2b 上課時段, 之所以沒有 IPv6 網路連線的原因是: <span style="background-color: #ffff00;">BGA-0810-S 網管集線器的 port 24 硬體故障</span>, 無法從工作站室取得機械設計系網路主幹訊號.</p>
 <p>在 Replit Python 環境中就是內建 Python3, 因此安裝模組必須使用 pip 而非一般 Linux 環境中使用的 pip3:</p>
@@ -98,27 +99,29 @@
 <hr/>
 <p>請自選 CAD 套件, 依照下列圖示, 以能將此系統放在電腦桌上作為參考尺寸, 繪製所需的零組件, 並將各零組件檔案與畫面上傳至個人的 Onedrive, 或以 Onshape 上的公開連結展示所完成的資料.</p>
 <p>最後在個人的 帳號.github.io 網站上呈現任務一所完成的結果 (請以 H1 且標題為任務一建立網頁).</p>
-<p><img alt="" height="264" src="https://mde.tw/cadnote/images/electromagnetic_activated_cyclic_circulation_motion_system.gif" width="400"/></p><h3>Replit</h3>
+<p><img alt="" height="264" src="https://mde.tw/cadnote/images/electromagnetic_activated_cyclic_circulation_motion_system.gif" width="400"/></p>
+<h2>Replit</h2>
 <p>Replit Documentation: <a href="https://docs.replit.com/">https://docs.replit.com/</a> </p>
 <p><a href="https://docs.replit.com/getting-started/intro-replit">Intro to Replit</a></p>
 <p>從 Github 將倉儲導入 Replit 的手冊: <a href="https://docs.replit.com/category/using-git-on-replit">https://docs.replit.com/category/using-git-on-replit</a> </p>
-<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/connect-github-to-replit">Connect Github to Replit</a></p>
-<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/import-repository">Import repository to Replit</a></p>
-<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/running-github-repositories-replit">Run Github repository on Replit</a></p>
+<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/connect-github-to-replit">Connect Github to Replit</a> (目的在讓導入 Replit 的倉儲具有推回 (git push) Github 對應帳號的權限)</p>
+<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/import-repository">Import repository to Replit</a> (選擇倉儲所使用的程式 Python 語言, 可以直接在 Replit 執行網頁編輯程式)</p>
+<p><a href="https://docs.replit.com/programming-ide/using-git-on-replit/running-github-repositories-replit">Run Github repository on Replit</a> (由於從 Github 導入 Replit, 並沒有倉儲子模組的內容必須手動導入, 且以 pip 安裝執行 cmsimde 網頁編輯程式所需的模組, 其中包括 flask flask_cors bs4 lxml markdown pelican gevent 等)</p>
 <hr/>
 <p>2023.09.15 下午 2a 上課時所使用的 <a href="https://github.com/mdecycu/cmsite/tree/bda028e87bdf4e5764aedf67d5559c76c6178a0c">cmsite 版本</a>, 其中的 .replit 與 Replit.nix 必須移除才能使用最新版本的 Python, 因此若當時已經採用作為 Template 的倉儲必須進行修改或重新建立.</p>
-<p>另外, 一個 Replit 免費帳號只能與一個 Github 帳號綁定.</p>
+<p>另外, 一個 Replit 免費帳號只能與一個 Github 帳號綁定. 以下說明將利用 scrum2 At mde dot tw 對應的 Gmail 登入 Replit 後, 其帳號設定為 scrum2, 並與 Github 帳號 scrum-2 進行綁定.</p>
 <hr/>
 <p>Repl 為 Replit 網際服務系統中的專案, 一旦選定對應 Language, 當專案以 Run 執行時, 系統將會試著安裝所需模組, 只是 Replit import from Github 並不會取下子模組, 使用者必須自行以 git 指令取得子模組內容.</p>
 <p>Replit 專案的設定檔案位於 .replit 與 Replit.nix 等兩個檔案.</p>
-<p>希望利用 Replit (Web-based IDE, Intergrated Development Environment) 來維護個人網站.</p>
+<p>希望利用 Replit (Web-based IDE, Integrated Development Environment) 來維護個人網站.</p>
 <p>將倉儲 Import 至 Replit, 在 Replit 啟動 cmsimde 網站進行內容編輯之後, 轉為靜態, git commit and git push.</p>
 <p>導入畫面中選擇以 Python 作為專案程式語言, 如下圖所示, 導入 scrum-2/scrum-2.github.io 倉儲.</p>
 <p><img alt="" class="add_border" height="226" src="/images/Replit_import_from_github.png" width="400"/></p>
 <p>將 scrum-2.github.io 倉儲導入 Replit 之後, 必須手動取下倉儲對應的子模組 (因為 Replit 的 import 功能並不會自動將倉儲所屬的子模組導入).</p>
 <p>在既有倉儲所處的電腦中導入子模組的指令為:</p>
 <p style="padding-left: 30px;">git submodule update --init</p>
-<p>此一指令必須在 Replit 的 Shell tool 頁面中執行.</p>
+<p>此一指令必須在 Replit 的 Shell tool 頁面中執行. 之後再以 pip install flask flask_cors bs4 lxml markdown pelican gevent 安裝所需模組.</p>
+<p>當 .replit 中設定 run = "python3 main.py" 之後, 使用者就可以點擊 Run 按鈕執行 main.py</p>
 <p></p><h1>課程評分</h1>
 <p>課程評分:</p>
 <p style="padding-left: 30px;">線上測驗、期中網站與簡報、期末網站與簡報.</p>
@@ -131,7 +134,8 @@
 <p>期中成績計算:</p>
 <p style="padding-left: 30px;">期中考與之前各週線上測驗成績平均</p>
 <p>學期成績計算:</p>
-<p style="padding-left: 30px;">(期中成績與之後各週線上測驗成績平均)*60%+(期中網站與簡報成績)*20%+(期末網站與簡報成績)*20%</p><h1>課程主題</h1>
+<p style="padding-left: 30px;">(期中成績與之後各週線上測驗成績平均)*60%+(期中網站與簡報成績)*20%+(期末網站與簡報成績)*20%</p>
+<h1>課程主題</h1>
 <ol>
 <li>設計繪圖</li>
 <li>系統模擬</li>
@@ -173,7 +177,8 @@
 <p style="padding-left: 30px;">虛實整合彈珠台機電系統:</p>
 <p style="padding-left: 60px;">設計一組如下圖所示的虛實整合彈珠台, 使用實體按鈕 (電腦鍵盤按鈕或 Arduino based 硬體) 結合網際 Coppeliasim 模擬環境建立.</p>
 <p style="padding-left: 30px;"><img alt="" height="417" src="/images/pinscape.png" width="400"/></p>
-<p style="padding-left: 30px;">(<a href="http://mjrnet.org/pinscape/BuildGuideV2/BuildGuide.php">above image file source</a>)</p><h2>系統模擬</h2>
+<p style="padding-left: 30px;">(<a href="http://mjrnet.org/pinscape/BuildGuideV2/BuildGuide.php">above image file source</a>)</p>
+<h2>系統模擬</h2>
 <p>Loop the loop</p>
 <p style="padding-left: 30px;">循環繞圈運動系統:</p>
 <p style="padding-left: 60px;">設計一組機電模擬系統, 可以讓鋼球在以下圖示的圓盤孔洞落下後, 沿著軌道運動並回到圓盤上, 以進行重複循環繞圈運動.</p>
@@ -198,7 +203,8 @@
 <p style="padding-left: 30px;">虛實整合彈珠台機電系統:</p>
 <p style="padding-left: 60px;">設計一組如下圖所示的虛實整合彈珠台, 使用實體按鈕 (電腦鍵盤按鈕或 Arduino based 硬體) 結合網際 Coppeliasim 模擬環境建立.</p>
 <p style="padding-left: 30px;"><img alt="" height="417" src="/images/pinscape.png" width="400"/></p>
-<p style="padding-left: 30px;">(<a href="http://mjrnet.org/pinscape/BuildGuideV2/BuildGuide.php">above image file source</a>)</p><h2>課程總結</h2>
+<p style="padding-left: 30px;">(<a href="http://mjrnet.org/pinscape/BuildGuideV2/BuildGuide.php">above image file source</a>)</p>
+<h2>課程總結</h2>
 <p>3. 課程總結</p>
 <p>錄製簡報影片</p>
 <p style="padding-left: 30px;">mp4</p>
