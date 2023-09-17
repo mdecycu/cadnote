@@ -92,15 +92,14 @@
 <p>在 Replit Python 環境中就是內建 Python3, 因此安裝模組必須使用 pip 而非一般 Linux 環境中使用的 pip3:</p>
 <p>以 import 將倉儲從 github 導入後, 必須使用 git submodule update --init 取下 cmsimde 子模組內容 (因為 Replit import 不會自動取下倉儲對應的子模組).</p>
 <p>取下子模組之後, 以 Run 嘗試以 Python3 執行 main.py, 讓 Replit 自行調適所需的 Python3 環境, 結果會顯示缺少啟動 cmsimde 網站的模組, 再以下列指令在 Shell 頁面安裝所需模組:</p>
-<p style="padding-left: 30px;">pip3 install flask flask_cors bs4 lxml markdown pelican gevent</p>
+<p style="padding-left: 30px;">pip install flask flask_cors bs4 lxml markdown pelican gevent</p>
 <p>其中 flask 為 Python 網際框架, flask_cors 則允許跨網域擷取資料的 flask 延伸模組, bs4 與 lxml 用於超文件分頁, markdown 與 pelican 則允許使用者採 Markdown 格式編寫網誌內容, 並且利用 Pelican 套件轉為 html 格式的網誌文章. 至於 gevent 則是 Replit 內建使用的同步網路程式庫.</p>
 <p>手動載下倉儲子模組, 試以 Run 執行之後再安裝 cmsimde 編輯網站所需模組, 應該就可以利用 Run 啟動倉儲對應的動態網站.</p>
 <p>最後, 為了保全網站登入的管理者密碼編碼, 還需要在 Secrets 頁面中建立 config 變數, 並將近端 config/config 所修改的管理者密碼編碼登錄至 config 變數.</p>
 <hr/>
 <p>請自選 CAD 套件, 依照下列圖示, 以能將此系統放在電腦桌上作為參考尺寸, 繪製所需的零組件, 並將各零組件檔案與畫面上傳至個人的 Onedrive, 或以 Onshape 上的公開連結展示所完成的資料.</p>
 <p>最後在個人的 帳號.github.io 網站上呈現任務一所完成的結果 (請以 H1 且標題為任務一建立網頁).</p>
-<p><img alt="" height="264" src="https://mde.tw/cadnote/images/electromagnetic_activated_cyclic_circulation_motion_system.gif" width="400"/></p>
-<h2>Replit</h2>
+<p><img alt="" height="264" src="https://mde.tw/cadnote/images/electromagnetic_activated_cyclic_circulation_motion_system.gif" width="400"/></p><h2>Replit</h2>
 <p>使用 Replit 維護 cmsimde 網站內容時, 可以利用 <a href="https://docs.replit.com/programming-ide/workspace-features/secrets">secrets 環境變數</a> Tool 保全免費 Replit 帳號 (只能建立完全公開的 Repls) 下的管理者密碼編碼字串.</p>
 <hr/>
 <p>Replit Documentation: <a href="https://docs.replit.com/">https://docs.replit.com/</a> </p>
