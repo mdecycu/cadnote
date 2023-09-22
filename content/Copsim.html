@@ -2,6 +2,7 @@
         <head>
         <title>cadnote</title>
         <meta charset="utf-8">
+<meta property="head" content="H3">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -141,12 +142,66 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content"> <a href='上課內容.html'>Next</a> >> 上課內容<br /><h1>About</h1>
-<p><a href="https://mde.tw/cadnote">https://mde.tw/cadnote</a></p>
-<p>這是國立虎尾科技大學 (National Formosa University, Taiwan) 機械設計工程系大二電腦輔助設計與實習課堂筆記網站，本課程承接大一的計算機程式，並為隨後協同産品設計課程提供必要的零組件設計繪圖與 Web-based 機電系統模擬基礎。</p>
-<p>課程內容將包含機電整合範例系統中 3D 零組件的電腦輔助設計繪圖，以及實體模型製作之前所需的機電控制系統設計與模擬。</p>
-<p>電腦輔助設計繪圖將採用可在 Windows 操作系統中可㩦運作的 Siemens Solid Edge 與 Solvespace，業界普遍採用的 Dassault Solidworks 與 Siemens NX，以及能直接在 PC Web Browser 及手機或平板 App 中使用的 Onshape。</p>
-<p>控制系統設計將採用最簡單的 PID 自動控制流程，並配合將 3D 零組件模型導入 Coppeliasim，以 Python ZeroMQ Remote API 程式跨網路進行控制後，再利用 Websocket 將機電系統控制與模擬結果，呈現於 PC 、平板或手機的 Web Browser 上，以便在之後的協同産品設計課程中進行應用。</p><br /> <a href='上課內容.html'>Next</a> >> 上課內容</div>
+    <div id="tipue_search_content">Git << <a href='Git.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分<br /><h1>Copsim</h1>
+<p>CoppeliaSim 4.5.1 for IPv6:</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
+<p>addOns\simAddOnZMQ remote API server.lua 對原版的修改:</p>
+<p style="padding-left: 30px;">讓 zmqRemoteApi server 開啟 CoppeliaSim 時即啟動.</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function zmqRemoteApi.verbose()
+    -- return sim.getNamedInt32Param('zmqRemoteApi.verbose') or 0
+	-- autoStart
+	return sim.getNamedInt32Param('zmqRemoteApi.verbose') or 1
+end</pre>
+<p style="padding-left: 30px;">讓 zmqRemoteApi server 支援 IPv6.</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    if not simZMQ then
+        sim.addLog(sim.verbosity_errors,'zmqRemoteApi: the ZMQ plugin is not available')
+        return {cmd='cleanup'}
+    end
+    simZMQ.__raiseErrors(true) -- so we don't need to check retval with every call
+    rpcPort=sim.getNamedInt32Param('zmqRemoteApi.rpcPort') or 23000
+    cntPort=sim.getNamedInt32Param('zmqRemoteApi.cntPort') or (rpcPort+1)
+    maxTimeSlot=sim.getNamedFloatParam('zmqRemoteApi.maxTimeSlot') or 0.005
+    if zmqRemoteApi.verbose()&gt;0 then
+        sim.addLog(sim.verbosity_scriptinfos,string.format('ZeroMQ Remote API server starting (rpcPort=%d, cntPort=%d)...',rpcPort,cntPort))
+    end
+    -- cbor=require 'cbor' -- encodes strings as buffers, always. DO NOT USE!!
+    cbor=require'org.conman.cbor'
+    context=simZMQ.ctx_new()
+    rpcSocket=simZMQ.socket(context,simZMQ.REP)
+	-- enable IPv6 for ZMQ, default is false to IPv6
+	simZMQ.setsockopt(rpcSocket,simZMQ.IPV6,sim.packUInt32Table{1})
+	-- ZMQ IPv4ONLY default is true: http://api.zeromq.org/4-2:zmq-setsockopt
+	simZMQ.setsockopt(rpcSocket,simZMQ.IPV4ONLY,sim.packUInt32Table{0})
+	--simZMQ.bind(rpcSocket,string.format('tcp://[%s]:%d', '*', rpcPort))
+	-- original IPv4 setup
+    simZMQ.bind(rpcSocket,string.format('tcp://*:%d',rpcPort))
+    cntSocket=simZMQ.socket(context,simZMQ.PUB)
+    simZMQ.setsockopt(cntSocket,simZMQ.CONFLATE,sim.packUInt32Table{1})
+    simZMQ.bind(cntSocket,string.format('tcp://*:%d',cntPort))
+    if zmqRemoteApi.verbose()&gt;0 then
+        sim.addLog(sim.verbosity_scriptinfos,'ZeroMQ Remote API server started')
+    end
+    simulationTimeStepCount=0
+    steppingClients={}
+    steppedClients={}
+end</pre>
+<p>addOns\simAddOnWS remote API server.lua 檔案的修改:</p>
+<p style="padding-left: 30px;">讓 WebSocket server 在 CoppeliaSim 開啟時即啟動.</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function wsRemoteApi.verbose()
+    -- return sim.getNamedInt32Param('wsRemoteApi.verbose') or 0
+	-- autoStart
+	return sim.getNamedInt32Param('wsRemoteApi.verbose') or 1
+end</pre>
+<p>addOns\simAddOnVisualization stream.lua 檔案的修改:</p>
+<p style="padding-left: 30px;">讓 Virtualization Stream server 在 CoppeliaSim 開啟時即啟動:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_info()
+    autoStart=sim.getNamedBoolParam('visualizationStream.autoStart')
+    if autoStart==nil then autoStart=true end
+    return {autoStart=autoStart,menu='Connectivity\nVisualization stream'}
+end</pre>
+<p></p><br />Git << <a href='Git.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分</div>
         
     <!-- footer -->
       <div class="container">

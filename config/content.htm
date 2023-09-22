@@ -179,6 +179,7 @@ Set-DnsClientServerAddress -InterfaceAlias "*" -ServerAddresses "2001:b000:168::
 <p style="padding-left: 30px;">電磁力未啟動下的 perpetual motion simulator CoppeliaSim 場景模擬:</p>
 <p style="padding-left: 30px;"><img alt="" height="303" src="/images/perpetual_motion_simulator.gif" width="400"/></p>
 <p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=650b848e93b8b544db72a044">Images and part files in Onshape</a> (STL file import into CoppeliaSim 尺寸由 mm 放大10 倍至 cm, 且 z 軸向上, 場景中圓球直徑為 12.825 cm, 平台圓孔直徑為 20 cm)</p>
+<p>有關如何在 Onshape 繪製零組件, 轉出 STL 檔案, 轉入 CoppeliaSim 並進行組件 divide and group, 請參考這個<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EQkDoYGPTlRBi4iK288VMXQB4dH92ieYRUf1c4h5IjHU0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=wYUHv2">教學影片</a>.</p>
 <p>以下 Python 程式可在 CoppeliaSim 場景檔案中建立所需的模擬組件:</p>
 <p>啟動 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼), 然後以 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EQTW-mq62DpFtw5It9ao-PIBPXW7z5z8oVsW5gd8zbDXOQ?e=q6gHgf">Portable_2023_fall_1.3g_5g.7z</a> (需要下載密碼) 可攜環境執行下列 zmqRemoteAPI IPv6 程式, 將滑鼠在場景中點擊後, 按下 q 鍵即可終止場景模擬:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># zmqRemoteApi_IPv6 為將 zmq 通訊協定修改為 IPv4 與 IPv6 相容
@@ -379,6 +380,65 @@ end</pre>
 <p style="padding-left: 60px;"><a href="https://ihower.tw/git/">Git 版本控制</a></p>
 <p style="padding-left: 60px;"></p>
 <p style="padding-left: 30px;"></p>
+<p></p><h3>Copsim</h3>
+<p>CoppeliaSim 4.5.1 for IPv6:</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
+<p>addOns\simAddOnZMQ remote API server.lua 對原版的修改:</p>
+<p style="padding-left: 30px;">讓 zmqRemoteApi server 開啟 CoppeliaSim 時即啟動.</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function zmqRemoteApi.verbose()
+    -- return sim.getNamedInt32Param('zmqRemoteApi.verbose') or 0
+	-- autoStart
+	return sim.getNamedInt32Param('zmqRemoteApi.verbose') or 1
+end</pre>
+<p style="padding-left: 30px;">讓 zmqRemoteApi server 支援 IPv6.</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+    if not simZMQ then
+        sim.addLog(sim.verbosity_errors,'zmqRemoteApi: the ZMQ plugin is not available')
+        return {cmd='cleanup'}
+    end
+    simZMQ.__raiseErrors(true) -- so we don't need to check retval with every call
+    rpcPort=sim.getNamedInt32Param('zmqRemoteApi.rpcPort') or 23000
+    cntPort=sim.getNamedInt32Param('zmqRemoteApi.cntPort') or (rpcPort+1)
+    maxTimeSlot=sim.getNamedFloatParam('zmqRemoteApi.maxTimeSlot') or 0.005
+    if zmqRemoteApi.verbose()&gt;0 then
+        sim.addLog(sim.verbosity_scriptinfos,string.format('ZeroMQ Remote API server starting (rpcPort=%d, cntPort=%d)...',rpcPort,cntPort))
+    end
+    -- cbor=require 'cbor' -- encodes strings as buffers, always. DO NOT USE!!
+    cbor=require'org.conman.cbor'
+    context=simZMQ.ctx_new()
+    rpcSocket=simZMQ.socket(context,simZMQ.REP)
+	-- enable IPv6 for ZMQ, default is false to IPv6
+	simZMQ.setsockopt(rpcSocket,simZMQ.IPV6,sim.packUInt32Table{1})
+	-- ZMQ IPv4ONLY default is true: http://api.zeromq.org/4-2:zmq-setsockopt
+	simZMQ.setsockopt(rpcSocket,simZMQ.IPV4ONLY,sim.packUInt32Table{0})
+	--simZMQ.bind(rpcSocket,string.format('tcp://[%s]:%d', '*', rpcPort))
+	-- original IPv4 setup
+    simZMQ.bind(rpcSocket,string.format('tcp://*:%d',rpcPort))
+    cntSocket=simZMQ.socket(context,simZMQ.PUB)
+    simZMQ.setsockopt(cntSocket,simZMQ.CONFLATE,sim.packUInt32Table{1})
+    simZMQ.bind(cntSocket,string.format('tcp://*:%d',cntPort))
+    if zmqRemoteApi.verbose()&gt;0 then
+        sim.addLog(sim.verbosity_scriptinfos,'ZeroMQ Remote API server started')
+    end
+    simulationTimeStepCount=0
+    steppingClients={}
+    steppedClients={}
+end</pre>
+<p>addOns\simAddOnWS remote API server.lua 檔案的修改:</p>
+<p style="padding-left: 30px;">讓 WebSocket server 在 CoppeliaSim 開啟時即啟動.</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function wsRemoteApi.verbose()
+    -- return sim.getNamedInt32Param('wsRemoteApi.verbose') or 0
+	-- autoStart
+	return sim.getNamedInt32Param('wsRemoteApi.verbose') or 1
+end</pre>
+<p>addOns\simAddOnVisualization stream.lua 檔案的修改:</p>
+<p style="padding-left: 30px;">讓 Virtualization Stream server 在 CoppeliaSim 開啟時即啟動:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_info()
+    autoStart=sim.getNamedBoolParam('visualizationStream.autoStart')
+    if autoStart==nil then autoStart=true end
+    return {autoStart=autoStart,menu='Connectivity\nVisualization stream'}
+end</pre>
 <p></p><h1>課程評分</h1>
 <p>課程評分:</p>
 <p style="padding-left: 30px;">線上測驗、期中網站與簡報、期末網站與簡報.</p>
