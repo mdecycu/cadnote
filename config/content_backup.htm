@@ -96,6 +96,7 @@
 <p style="padding-left: 30px;">RoboDK: <a href="https://robodk.com/">https://robodk.com/</a>, <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robodk">robodk</a> and <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robolink">robolink</a> (integrated into robodk), <a href="https://www.parallemic.org/RoKiSim.html">https://www.parallemic.org/RoKiSim.html</a> </p>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p><h2>網路設定</h2>
+<p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">echo "disable ipv4 and setup proxy for ipv6"
@@ -117,7 +118,9 @@ exit</pre>
 "ProxyOverride"="localhost;192.168.1.0/24"</pre>
 <p>1_disable_ipv4.ps1</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Disable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip
-Enable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6</pre>
+Enable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6
+Set-DnsClientServerAddress -InterfaceAlias "*" -ServerAddresses "2001:b000:168::1"
+</pre>
 <p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EU-PdLegiEFAoTlO_yKCXTcB6iUdp0beiWj-9_DIWMoSgQ?e=qCEtYU">cad2023_network_setup.7z</a> (需要下載密碼), 必須以管理者身分執行批次檔案, 因為要藉此身分關閉 IPv4 網路協定.</p><h2>任務一</h2>
 <hr/>
 <p>2023.09.14 上午 2b 上課時段, 之所以沒有 IPv6 網路連線的原因是: <span style="background-color: #ffff00;">BGA-0810-S 網管集線器的 port 24 硬體故障</span>, 無法從工作站室取得機械設計系網路主幹訊號.</p>
@@ -232,7 +235,63 @@ while True:
 
 # 終止模擬
 sim.stopSimulation()</pre>
-<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p><h3>馬達推動</h3>
+<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
+<p>在 <a href="https://github.com/CoppeliaRobotics/scenes/raw/master/otherScenes/simpleMagnetDemo.ttt">simpleMagnetDemo.ttt</a> 中利用 Lua 以 proximity sensor 感測與物體的距離後, 產生電磁吸引力的範例程式:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+     -- 初始化 callback 函數，在模擬開始時執行
+     sensor = sim.getObject('./sensor')
+     -- 取得命名為 'sensor' 的物件 handle。 此處使用 proximity 感測器，用於檢測物體之間的距離
+     shape = sim.getObject('.')
+     -- 取得目前 script 所依附的物件 handle，即包含此 script 的物件 handle
+     sim.setObjectInt32Param(shape, sim.shapeintparam_static, 0)
+     -- 將物體設定為非靜態，讓其在模擬中發生動態運動
+     nominalForce = 0.001
+     -- 設定電磁吸引力的標準值
+     enabled = true
+     -- 啟用電磁吸引力
+     previousPos = sim.getObjectPosition(shape, sim.handle_world)
+     -- 取得物體的初始位置並儲存在 previousPos 變數中，用於偵測物體是否移動
+end
+
+function sysCall_actuation()
+     -- 驅動 callback 函數，在每個模擬步驟中執行
+     if enabled then
+         -- 如果啟用電磁吸引力，執行下列程式碼
+         local r, dist, pt, obj = sim.handleProximitySensor(sensor)
+         -- 使用 proximity 感測器偵測物體是否接近
+         if r &gt; 0 then
+             -- 如果偵測到物體
+             dist = dist + 0.02
+             -- 增加一個 offset，以避免物體接觸時產生無限大的吸引力
+             local force = nominalForce / (dist * dist)
+             -- 計算吸引力的大小，與距離的平方成反比
+             local m = sim.getObjectMatrix(shape, sim.handle_world)
+             m[4] = 0
+             m[8] = 0
+             m[12] = 0
+             -- 取得物體的轉換矩陣，不考慮平移部分
+             local forceVector = sim.multiplyVector(m, {0, 0, force})
+             -- 將力向量從局部座標系轉換為絕對座標系
+             sim.addForceAndTorque(shape, forceVector, {0, 0, 0})
+             -- 將計算得到的力應用於物體的質心，持續一個 time step
+             if notFirstPass then
+                 local p = sim.getObjectPosition(shape, sim.handle_world)
+                 local dx = {p[1] - previousPos[1], p[2] - previousPos[2], p[3] - previousPos[3]}
+                 local d = math.sqrt(dx[1] * dx[1] + dx[2] * dx[2] + dx[3] * dx[3])
+                 -- 計算物體是否移動
+                 if d &lt; 0.0001 then
+                     sim.setObjectInt32Param(shape, sim.shapeintparam_static, 1)
+                     sim.resetDynamicObject(shape)
+                     enabled = false
+                     -- 如果物體沒有移動，將其設為靜態
+                 end
+                 previousPos = p
+             end
+         end
+     end
+     notFirstPass = true
+end</pre>
+<p></p><h3>馬達推動</h3>
 <p>除了利用磁力吸引, 讓鋼球在軌道運動時能具備足夠動能返回圓形平台外, 另外一種設計是在鋼球 (或其他非鐵材質的圓球) 離開圓形平台孔洞之後, 設法利用隱藏式的馬達帶動機構, 以滾動方式加速圓球, 以便讓圓球返回平台.</p>
 <p>有關馬達推動設計, 請參考: <a href="https://www.instructables.com/Marblevator-Perpetual/">https://www.instructables.com/Marblevator-Perpetual/</a> 或<a href="https://youtu.be/xVVpSp6_4iA?si=bpHoiIf-syLPORvT">這個影片</a>.</p>
 <p>機電模擬系統:</p>
@@ -244,7 +303,7 @@ sim.stopSimulation()</pre>
 <p><a href="https://docs.replit.com/getting-started/intro-replit">Intro to Replit</a></p>
 <p>從 Github 將倉儲導入 Replit 的手冊: <a href="https://docs.replit.com/category/using-git-on-replit">https://docs.replit.com/category/using-git-on-replit</a> </p>
 <hr/>
-<p>利用 Replit 維護 Github 倉儲網站的步驟:</p>
+<p>利用 Replit 維護 Github 倉儲網站的步驟 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EbBUvIkbWOdHm8gi8Dk19CsBGQnmR0S3N0hagyjrwOD77w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=4OgSTw">操作說明</a>):</p>
 <ol>
 <li><a href="https://docs.replit.com/programming-ide/using-git-on-replit/connect-github-to-replit">Connect Github to Replit</a> (目的在讓導入 Replit 的倉儲具有推回 (git push) Github 對應帳號的權限)</li>
 <li><a href="https://docs.replit.com/programming-ide/using-git-on-replit/import-repository">Import repository to Replit</a> (選擇倉儲所使用的程式 Python 語言, 可以直接在 Replit 執行網頁編輯程式)</li>

@@ -236,7 +236,63 @@ while True:
 
 # 終止模擬
 sim.stopSimulation()</pre>
-<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p><br />任務一 << <a href='任務一.html'>Previous</a> <a href='馬達推動.html'>Next</a> >> 馬達推動</div>
+<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
+<p>在 <a href="https://github.com/CoppeliaRobotics/scenes/raw/master/otherScenes/simpleMagnetDemo.ttt">simpleMagnetDemo.ttt</a> 中利用 Lua 以 proximity sensor 感測與物體的距離後, 產生電磁吸引力的範例程式:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+     -- 初始化 callback 函數，在模擬開始時執行
+     sensor = sim.getObject('./sensor')
+     -- 取得命名為 'sensor' 的物件 handle。 此處使用 proximity 感測器，用於檢測物體之間的距離
+     shape = sim.getObject('.')
+     -- 取得目前 script 所依附的物件 handle，即包含此 script 的物件 handle
+     sim.setObjectInt32Param(shape, sim.shapeintparam_static, 0)
+     -- 將物體設定為非靜態，讓其在模擬中發生動態運動
+     nominalForce = 0.001
+     -- 設定電磁吸引力的標準值
+     enabled = true
+     -- 啟用電磁吸引力
+     previousPos = sim.getObjectPosition(shape, sim.handle_world)
+     -- 取得物體的初始位置並儲存在 previousPos 變數中，用於偵測物體是否移動
+end
+
+function sysCall_actuation()
+     -- 驅動 callback 函數，在每個模擬步驟中執行
+     if enabled then
+         -- 如果啟用電磁吸引力，執行下列程式碼
+         local r, dist, pt, obj = sim.handleProximitySensor(sensor)
+         -- 使用 proximity 感測器偵測物體是否接近
+         if r &gt; 0 then
+             -- 如果偵測到物體
+             dist = dist + 0.02
+             -- 增加一個 offset，以避免物體接觸時產生無限大的吸引力
+             local force = nominalForce / (dist * dist)
+             -- 計算吸引力的大小，與距離的平方成反比
+             local m = sim.getObjectMatrix(shape, sim.handle_world)
+             m[4] = 0
+             m[8] = 0
+             m[12] = 0
+             -- 取得物體的轉換矩陣，不考慮平移部分
+             local forceVector = sim.multiplyVector(m, {0, 0, force})
+             -- 將力向量從局部座標系轉換為絕對座標系
+             sim.addForceAndTorque(shape, forceVector, {0, 0, 0})
+             -- 將計算得到的力應用於物體的質心，持續一個 time step
+             if notFirstPass then
+                 local p = sim.getObjectPosition(shape, sim.handle_world)
+                 local dx = {p[1] - previousPos[1], p[2] - previousPos[2], p[3] - previousPos[3]}
+                 local d = math.sqrt(dx[1] * dx[1] + dx[2] * dx[2] + dx[3] * dx[3])
+                 -- 計算物體是否移動
+                 if d &lt; 0.0001 then
+                     sim.setObjectInt32Param(shape, sim.shapeintparam_static, 1)
+                     sim.resetDynamicObject(shape)
+                     enabled = false
+                     -- 如果物體沒有移動，將其設為靜態
+                 end
+                 previousPos = p
+             end
+         end
+     end
+     notFirstPass = true
+end</pre>
+<p></p><br />任務一 << <a href='任務一.html'>Previous</a> <a href='馬達推動.html'>Next</a> >> 馬達推動</div>
         
     <!-- footer -->
       <div class="container">
