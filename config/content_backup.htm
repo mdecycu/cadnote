@@ -95,7 +95,13 @@
 <p>Robotics:</p>
 <p style="padding-left: 30px;">RoboDK: <a href="https://robodk.com/">https://robodk.com/</a>, <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robodk">robodk</a> and <a href="https://github.com/RoboDK/RoboDK-API/tree/master/Python/robolink">robolink</a> (integrated into robodk), <a href="https://www.parallemic.org/RoKiSim.html">https://www.parallemic.org/RoKiSim.html</a> </p>
 <p>References:</p>
-<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p><h2>網路設定</h2>
+<p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p><h2>w4</h2>
+<p>第四週任務:</p>
+<p style="padding-left: 30px;">建立線上考試帳號</p>
+<p style="padding-left: 30px;">自行建立 Github 帳號下的 cad2023 倉儲, 並設定 Github Pages</p>
+<p style="padding-left: 30px;">利用 Replit 啟動 Github 帳號下的 cad2023 內容編輯網站, 並設法將改版內容推向 Github</p>
+<p style="padding-left: 30px;">利用自選 CAD 套件完成任務一的零組件設計繪圖</p>
+<p style="padding-left: 30px;">將任務一所完成的零組件轉入 CoppeliaSim, 並進行系統模擬設計</p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
@@ -383,6 +389,7 @@ end</pre>
 <p></p><h3>Copsim</h3>
 <p>CoppeliaSim 4.5.1 for IPv6:</p>
 <p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
 <p>addOns\simAddOnZMQ remote API server.lua 對原版的修改:</p>
 <p style="padding-left: 30px;">讓 zmqRemoteApi server 開啟 CoppeliaSim 時即啟動.</p>
 <pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function zmqRemoteApi.verbose()
