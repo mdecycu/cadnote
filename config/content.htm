@@ -172,7 +172,7 @@ Set-DnsClientServerAddress -InterfaceAlias "*" -ServerAddresses "2001:b000:168::
 <p>有關利用 Arduino 控制卡與相關電路設計產生電磁力控制的模擬, 請參考 <a href="https://mde.tw/cad2023/content/PICSimLab.html">PICSimLab</a> 頁面中的說明.</p>
 <p>一旦完成 CoppeliaSim 與 Arduino 電路設計等機電資系統整合模擬, 就可以進一步利用 3D printer 列印出所需零組件, 結合實體電路設計完成此一系統的虛實整合.</p>
 <p>機電模擬系統:</p>
-<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
+<p style="padding-left: 30px;">下載支援 IPv6 網路協定版本 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/">CoppeliaSim 使用者手冊</a>, <a href="https://mde.tw/pjcopsim">CoppeliaSim 4.3.0 使用手冊網站</a></p>
 <p style="padding-left: 30px;">模擬磁力的<a href="https://forum.coppeliarobotics.com/viewtopic.php?t=3923">討論</a>, <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=1501">1</a>, <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=7187">2</a></p>
 <p style="padding-left: 30px;"><a href="https://studywolf.wordpress.com/2016/04/18/using-vrep-for-simulation-of-force-controlled-models/">Force Control Modeling</a></p>
@@ -185,9 +185,11 @@ Set-DnsClientServerAddress -InterfaceAlias "*" -ServerAddresses "2001:b000:168::
 <p style="padding-left: 30px;">電磁力未啟動下的 perpetual motion simulator CoppeliaSim 場景模擬:</p>
 <p style="padding-left: 30px;"><img alt="" height="303" src="/images/perpetual_motion_simulator.gif" width="400"/></p>
 <p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=650b848e93b8b544db72a044">Images and part files in Onshape</a> (STL file import into CoppeliaSim 尺寸由 mm 放大10 倍至 cm, 且 z 軸向上, 場景中圓球直徑為 12.825 cm, 平台圓孔直徑為 20 cm)</p>
+<p style="padding-left: 30px;"><img alt="" height="329" src="/images/perpetual_motion_simulator_scene.gif" width="400"/></p>
+<p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=651e2855dd2e77079352b937">Perpetual Motion Simulator in Onshape</a>, 轉入 CoppeliaSim 後放大 10 倍, 且 z 軸向上之模擬場景, 下載<a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVInN4wwqbpAuAv14NeTfpIB-7Q3hshxyaR38R9fd9fbkw?e=jZhpZQ">perpetual motion simulator stage2.7z</a> (需要下載密碼)</p>
 <p>有關如何在 Onshape 繪製零組件, 轉出 STL 檔案, 轉入 CoppeliaSim 並進行組件 divide and group, 請參考這個<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EQkDoYGPTlRBi4iK288VMXQB4dH92ieYRUf1c4h5IjHU0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=wYUHv2">教學影片</a>.</p>
 <p>以下 Python 程式可在 CoppeliaSim 場景檔案中建立所需的模擬組件:</p>
-<p>啟動 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼), 然後以 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EQTW-mq62DpFtw5It9ao-PIBPXW7z5z8oVsW5gd8zbDXOQ?e=q6gHgf">Portable_2023_fall_1.3g_5g.7z</a> (需要下載密碼) 可攜環境執行下列 zmqRemoteAPI IPv6 程式, 將滑鼠在場景中點擊後, 按下 q 鍵即可終止場景模擬:</p>
+<p>啟動 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (支援 IPv6 網路協定版本, 需要下載密碼), 然後在 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EQTW-mq62DpFtw5It9ao-PIBPXW7z5z8oVsW5gd8zbDXOQ?e=q6gHgf">Portable_2023_fall_1.3g_5g.7z</a> (需要下載密碼) 可攜環境啟動後, 以 pip install pyzmq cbor keyboard 安裝所需模組, 然後執行下列 zmqRemoteAPI IPv6 程式, 將滑鼠在場景中點擊後, 按下 q 鍵即可終止場景模擬:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># zmqRemoteApi_IPv6 為將 zmq 通訊協定修改為 IPv4 與 IPv6 相容
 # pip install pyzmq cbor keyboard
 from zmqRemoteApi_IPv6 import RemoteAPIClient
@@ -315,6 +317,134 @@ function sysCall_actuation()
      end
      notFirstPass = true
 end</pre>
+<p></p><h3>magnet</h3>
+<p>利用 Lua 模擬磁力的程式碼:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+
+-- This line defines the beginning of a function called sysCall_init(). This function is a special callback function in CoppeliaSim that gets called once when the simulation starts.
+
+    sensor = sim.getObject('./sensor')
+
+-- In this line, the script is getting a reference to an object named "sensor" in the simulation scene. This object is expected to exist within the same hierarchy as the script.
+
+    shape = sim.getObject('.')
+
+-- Here, the script is getting a reference to the object where the script is attached. The dot . represents the current object.
+
+    sim.setObjectInt32Param(shape, sim.shapeintparam_static, 0)
+
+-- This line is setting an integer parameter for the "shape" object. Specifically, it's setting the sim.shapeintparam_static parameter to 0. This means that the "shape" object is initially not considered as a static object.
+
+    nominalForce = 0.001
+
+-- This line sets a variable nominalForce to a value of 0.001. It appears to represent a constant force value used in the script.
+
+    enabled = true
+
+-- This line initializes a boolean variable enabled to true. This variable seems to control whether the script should apply forces or not.
+
+    previousPos = sim.getObjectPosition(shape, sim.handle_world)
+
+-- Here, the script is getting the initial position of the "shape" object in the world coordinate system and storing it in the previousPos variable. This will be used later for checking if the object has moved.
+
+-- The sysCall_init function sets up initial parameters and conditions for the script. It's executed once at the beginning of the simulation.
+
+-- Now, let's move on to the sysCall_actuation function:
+
+function sysCall_actuation()
+
+-- This line defines the beginning of another special callback function in CoppeliaSim called sysCall_actuation(). This function gets called repeatedly during the simulation to perform actions in each time step.
+
+    if enabled then
+
+-- This line checks if the enabled variable is true. If it's true, it means the script should apply forces. If it's false, the script won't apply any forces.
+
+        local r, dist, pt, obj = sim.handleProximitySensor(sensor)
+
+-- Here, the script is using the sim.handleProximitySensor function to check if the proximity sensor (defined earlier as "sensor") is detecting any objects nearby. It returns information about the detected object.
+
+        if r &gt; 0 then
+
+-- This line checks if r (the return value of the proximity sensor function) is greater than 0. If it is, it means the sensor has detected an object nearby.
+
+            dist = dist + 0.02
+
+-- This line adds an offset of 0.02 to the dist variable. This offset is added to prevent an infinite force when objects are in direct contact. It's a safety measure.
+
+            local force = nominalForce / (dist * dist)
+
+-- Here, the script calculates the force to be applied based on the nominalForce and the squared distance (dist) between the object and the detected object. This seems to be a simple inverse square law force calculation.
+
+            local m = sim.getObjectMatrix(shape, sim.handle_world)
+            m[4] = 0
+            m[8] = 0
+            m[12] = 0
+
+-- These lines retrieve the transformation matrix (m) of the "shape" object with respect to the world coordinate system and set its translational components to 0. This effectively extracts the rotational part of the transformation matrix.
+
+            local forceVector = sim.multiplyVector(m, {0, 0, force})
+
+-- This line multiplies the modified transformation matrix m by a force vector {0, 0, force} to obtain a force vector in absolute world coordinates.
+
+            sim.addForceAndTorque(shape, forceVector, {0, 0, 0})
+
+-- Here, the script applies the computed forceVector to the "shape" object using sim.addForceAndTorque. This function applies the force to the center of mass of the object for one simulation time step.
+
+            if notFirstPass then
+
+-- This line checks if the notFirstPass variable is true. It's used to ensure that this part of the script is executed after the first simulation step.
+
+                local p = sim.getObjectPosition(shape, sim.handle_world)
+
+-- Here, the script is getting the current position of the "shape" object in the world coordinate system.
+
+                local dx = {p[1] - previousPos[1], p[2] - previousPos[2], p[3] - previousPos[3]}
+
+-- This line calculates the difference in position (dx) between the current position (p) and the previous position (previousPos) of the object in world coordinates.
+
+                local d = math.sqrt(dx[1] * dx[1] + dx[2] * dx[2] + dx[3] * dx[3])
+
+-- The script calculates the Euclidean distance d based on the differences in position components dx. This distance is used to check if the object has moved significantly.
+
+                if d &lt; 0.0001 then
+
+-- This line checks if the object has moved by comparing d to a small threshold value (0.0001). If d is less than the threshold, it means the object hasn't moved significantly.
+
+                    sim.setObjectInt32Param(shape, sim.shapeintparam_static, 1)
+
+-- If the object hasn't moved significantly, this line sets the sim.shapeintparam_static parameter to 1, making the object static in the simulation.
+
+                    sim.resetDynamicObject(shape)
+
+-- This line resets the dynamics of the object. It might be necessary to reset the object's dynamics after making it static to avoid any issues.
+
+                    enabled = false
+
+-- Finally, this line sets the enabled variable to false, which will prevent the script from applying further forces since the object is now considered static and not moving.
+
+                end
+
+-- The if block is closed.
+
+                previousPos = p
+
+-- Regardless of whether the object has become static or not, the previousPos variable is updated with the current position for use in the next iteration of the sysCall_actuation function.
+
+            end
+
+-- The if notFirstPass block is closed.
+
+        end
+
+-- The if r &gt; 0 block is closed.
+
+    end
+
+-- The if enabled block is closed.
+
+    notFirstPass = true
+
+-- This line sets the notFirstPass variable to `true</pre>
 <p></p><h3>馬達推動</h3>
 <p>除了利用磁力吸引, 讓鋼球在軌道運動時能具備足夠動能返回圓形平台外, 另外一種設計是在鋼球 (或其他非鐵材質的圓球) 離開圓形平台孔洞之後, 設法利用隱藏式的馬達帶動機構, 以滾動方式加速圓球, 以便讓圓球返回平台.</p>
 <p>有關馬達推動設計, 請參考: <a href="https://www.instructables.com/Marblevator-Perpetual/">https://www.instructables.com/Marblevator-Perpetual/</a> 或<a href="https://youtu.be/xVVpSp6_4iA?si=bpHoiIf-syLPORvT">這個影片</a>.</p>
