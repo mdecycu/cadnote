@@ -101,7 +101,7 @@
 <ol>
 <li>建立線上考試帳號.</li>
 <li>自行建立 Github 帳號下的 cad2023 倉儲, 並設定 Github Pages.</li>
-<li>利用 Replit 啟動 Github 帳號下的 cad2023 內容編輯網站, 並設法將改版內容推向 Github.</li>
+<li>利用 Replit 啟動 Github 帳號下的 cad2023 內容編輯網站, 並設法將改版內容推向 Github (<a href="https://mde.tw/cpnote/content/w2-w4.html">cp2023 參考內容</a>).</li>
 <li>利用自選 CAD 套件 (Solidworks, Solid Edge, Inventor, NX, Creo, Onshape, Solvespace 或其他套件) 完成任務一的零組件設計繪圖.</li>
 <li>參考 <a href="https://mde.tw/pjcopsim">pjcopsim</a> 與 <a href="https://www.coppeliarobotics.com/resources">resources</a>, 將任務一所完成的零組件轉入 CoppeliaSim, 並進行系統模擬設計.</li>
 </ol>
@@ -109,7 +109,50 @@
 <p style="padding-left: 30px;"><img alt="" height="329" src="/images/perpetual_motion_simulator_scene.gif" width="400"/></p>
 <p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=651e2855dd2e77079352b937">Perpetual Motion Simulator in Onshape</a>, 轉入 CoppeliaSim 後放大 10 倍, 且 z 軸向上之模擬場景, 下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVInN4wwqbpAuAv14NeTfpIB-7Q3hshxyaR38R9fd9fbkw?e=jZhpZQ">perpetual motion simulator stage2.7z</a> (需要下載密碼)</p>
 <p style="padding-left: 30px;">希望達成的系統模擬結果:</p>
-<p style="padding-left: 30px;"><img alt="" height="352" src="/images/perpetual_motion_simulator_red_marble.gif" width="400"/></p><h3>solidworks</h3>
+<p style="padding-left: 30px;"><img alt="" height="352" src="/images/perpetual_motion_simulator_red_marble.gif" width="400"/></p>
+<p>請各學員自行利用 <a href="https://github.com/mdecycu/cmsite">https://github.com/mdecycu/cmsite</a> 作為 Template 建立 cad2023, 或者自行從空倉儲, 以 <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> 作為子模組建立 cad2023.</p>
+<p>利用 cmsite 倉儲內容作為 Template 建立 cad2023 倉儲:</p>
+<ol>
+<li>登入 Github 帳號</li>
+<li>連線至 <a href="https://github.com/mdecycu/cmsite">https://github.com/mdecycu/cmsite</a>, 選擇 <span style="background-color: #00ff00;">Use this template</span> 下方的 Create a new repository, 建立 cad2023 倉儲</li>
+</ol>
+<p>利用空倉儲建立 cad2023 倉儲:</p>
+<p>必須在近端 Windows、Linux 或 Mac 操作系統中的命令列中執行 git 指令</p>
+<div class="container">
+<div class="line number1 index0 alt2"><span style="background-color: #ccffcc;"><code class="js plain">mkdir cad2023<br/></code></span></div>
+<div class="line number1 index0 alt2"><span style="background-color: #ccffcc;"><code class="js plain">cd cad2023</code></span></div>
+<div class="line number2 index1 alt1"><span style="background-color: #ccffcc;"><code class="js plain">git init</code></span></div>
+<div class="line number2 index1 alt1"><code class="js plain">利用 SciTE 建立 README.md 檔案, 放入後續在 Replit 會需要的 git submodule update 以及 pip install 指令</code></div>
+<div class="line number3 index2 alt2"><span style="background-color: #ccffcc;"><code class="js plain">git add README.md</code></span></div>
+<div class="line number4 index3 alt1"><span style="background-color: #ccffcc;"><code class="js plain">git commit -m </code><code class="js string">"add README.md"</code></span></div>
+<div class="line number4 index3 alt1"><code class="js string">利用下列指令將 cmsimde 倉儲設定為本倉儲的子模組且放入 cmsimde 目錄中</code></div>
+<div class="line number5 index4 alt2"><span style="background-color: #ccffcc;"><code class="js plain">git submodule add https:</code><code class="js comments">//github.com/mdecycu/cmsimde.git cmsimde</code></span></div>
+<div class="line number7 index6 alt2"><code class="js plain">將 cmsimde 目錄中的 up_dir 內容複製到倉儲根目錄</code></div>
+<div class="line number7 index6 alt2"><code class="js plain">納入所有變更的內容</code></div>
+<div class="line number9 index8 alt2"><span style="background-color: #ccffcc;"><code class="js plain">git add .</code></span></div>
+<div class="line number11 index10 alt2"><span style="background-color: #ccffcc;"><code class="js plain">git commit -m </code><code class="js string">"add cmsimde as submodule"</code></span></div>
+<div class="line number11 index10 alt2"><code class="js string">建立 main 分支, 且設為主分支</code></div>
+<div class="line number13 index12 alt2"><span style="background-color: #ccffcc;"><code class="js plain">git branch -M main</code></span></div>
+<div class="line number15 index14 alt2"><code class="js plain">設定 putty session 名稱為 github.com, 且能以 SSH 連線至 github.com 主機</code></div>
+<div class="line number17 index16 alt2"><span style="background-color: #ccffcc;"><code class="js plain">git remote add origin git@github.com:scrum-1/cad2023.git</code></span></div>
+<div class="line number18 index17 alt1"><span style="background-color: #ccffcc;"><code class="js plain">git push -u origin main</code></span></div>
+<div class="line number18 index17 alt1"><span style="background-color: #ccffcc;"><code class="js plain"></code></span></div>
+<div class="line number18 index17 alt1"><code class="js plain">過程中若出現 git 從 github.com 連線時產生 Error, 則可能是因為 Windows SChannel API 取用沒有設定對應 key 資料, 此時可以設法使用 OpenSSL 進行連線 handshake, 而不使用 SChannel API 進行認證.</code></div>
+<div class="line number18 index17 alt1"><code class="js plain"></code></div>
+<div class="line number18 index17 alt1"><code class="js plain">參考的 .gitconfig 設定如下:</code></div>
+<div class="line number18 index17 alt1">
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">[user]
+    name = scrum-1
+    email = scrum1@mde.tw
+[http]
+    proxy = http://[2001:288:6004:17::4]:3128
+ 
+; Switching to openssl
+; https://github.com/desktop/desktop/issues/3260
+[http "https://github.com"]
+sslVerify = false</pre>
+<code class="js plain"><br/></code></div>
+</div><h3>solidworks</h3>
 <p><span style="background-color: #ffff00;">SOLIDWORKS</span> 是目前全球機械業界使用最普遍的設計與繪圖套件 (估計全球有超過 300 萬名工程師用戶). 有關 CAD 的發展歷史, 請參考<a href="https://www.youtube.com/watch?v=mcwIMsh_g3o">這個影片</a>. 有關 SOLIDWORKS 的起源以及相關歷史資料, 請參考<a href="https://www.youtube.com/watch?v=BXMPY36xWJY">影片一</a>、<a href="https://www.youtube.com/watch?v=zqnIVRCMeSA">影片二</a>、<a href="https://www.youtube.com/watch?v=6vxLejTtSJw">影片三</a>、<a href="https://www.youtube.com/watch?v=-r2T-nV5eVc">影片四</a>與<a href="https://www.youtube.com/watch?v=RgUSsXdLjvc">影片五</a>的介紹.</p>
 <p>其他與 SOLIDWORKS 有關的參考資料:</p>
 <p style="padding-left: 30px;"><span>SOLIDWORKS 是由 <a href="https://en.wikipedia.org/wiki/Jon_Hirschtick">Jon Hirschtick</a> 在1993 年創立的。他運用作為 <a href="https://en.wikipedia.org/wiki/MIT_Blackjack_Team">MIT Blackjack Team</a> (<a href="https://en.wikipedia.org/wiki/21_(2008_film)">決勝 21 點電影</a>) 成員之一所賺到的 100 萬美元創辦該公司。SOLIDWORKS 首次於1995 年與 Windows 95 同時發布. <a href="https://dev.co/solidworks">(source</a>)</span></p>
