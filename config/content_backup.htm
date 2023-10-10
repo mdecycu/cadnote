@@ -50,7 +50,7 @@
 <p style="padding-left: 90px;">4. 至於手機中的 Authenticator 也可以再利用 Pin 密碼、指紋或人臉辨識流程加入安全保護, 一旦手機或手錶毀損, 就可以藉以登入 Github 帳號修改設定.</p>
 <p>Github 帳號在電腦輔助設計與實習課程中的用途:</p>
 <ol>
-<li>領取 <a href="https://classroom.github.com">Github Classroom</a> 系統所指定的作業</li>
+<li><span><span style="text-decoration: line-through;">領取 <a href="https://classroom.github.com/">Github Classroom</a> 系統所指定的作業</span> (為了整合 Replit, 本課程將放棄使用 Github Classroom)</span>, 因為 GitHub Classroom 作業倉儲的使用與 Replit 的結合應用流程, 將加重管理者的負擔, 因此本課程的評分網站將改由學員自行在 GitHub 帳號下, 建立名稱為 cad2023 的評分倉儲, 且透過 GitHub Pages 伺服器呈現網站內容.</li>
 <li>建立個人網站: <a href="https://github_帳號.github.io">https://github_帳號.github.io</a></li>
 <li>將電腦輔助設計與實習課程中所編寫的程式與相關資料存入 Github 帳號下的 Gist</li>
 </ol>
@@ -97,6 +97,8 @@
 <p style="padding-left: 30px;">Robot report podcast: <a href="https://soundcloud.com/robot-report-podcast">https://soundcloud.com/robot-report-podcast</a></p>
 <p>References:</p>
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/">http://wcm.cycu.org:88/github/</a> (只能在機械設計系 IPv6 網段連結)</p><h2>w4</h2>
+<p>本課程所謂個人網站, 即 github帳號.github.io, 可由使用者自行設定內容, 建議長期維護後可用於研究所推甄, 或求職時使用.</p>
+<p>本課程所謂評分網站, 即 github帳號.github.io/cad2023, 內容及維護歴程資料將用於課程評分.</p>
 <p>第四週任務:</p>
 <ol>
 <li>建立線上考試帳號.</li>
@@ -110,14 +112,14 @@
 <p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=651e2855dd2e77079352b937">Perpetual Motion Simulator in Onshape</a>, 轉入 CoppeliaSim 後放大 10 倍, 且 z 軸向上之模擬場景, 下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVInN4wwqbpAuAv14NeTfpIB-7Q3hshxyaR38R9fd9fbkw?e=jZhpZQ">perpetual motion simulator stage2.7z</a> (需要下載密碼)</p>
 <p style="padding-left: 30px;">希望達成的系統模擬結果:</p>
 <p style="padding-left: 30px;"><img alt="" height="352" src="/images/perpetual_motion_simulator_red_marble.gif" width="400"/></p>
-<p>請各學員自行利用 <a href="https://github.com/mdecycu/cmsite">https://github.com/mdecycu/cmsite</a> 作為 Template 建立 cad2023, 或者自行從空倉儲, 以 <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> 作為子模組建立 cad2023.</p>
-<p>利用 cmsite 倉儲內容作為 Template 建立 cad2023 倉儲:</p>
+<p>請各學員自行利用 <a href="https://github.com/mdecycu/cmsite">https://github.com/mdecycu/cmsite</a> 作為 Template 建立 cad2023 評分倉儲, 或者自行從空倉儲, 以 <a href="https://github.com/mdecycu/cmsimde">https://github.com/mdecycu/cmsimde</a> 作為子模組建立 cad2023 評分倉儲.</p>
+<p><span style="background-color: #ffff00;">利用 cmsite 倉儲內容作為 Template 建立 cad2023 倉儲</span>:</p>
 <ol>
 <li>登入 Github 帳號</li>
 <li>連線至 <a href="https://github.com/mdecycu/cmsite">https://github.com/mdecycu/cmsite</a>, 選擇 <span style="background-color: #00ff00;">Use this template</span> 下方的 Create a new repository, 建立 cad2023 倉儲</li>
 </ol>
-<p>利用空倉儲建立 cad2023 倉儲:</p>
-<p>必須在近端 Windows、Linux 或 Mac 操作系統中的命令列中執行 git 指令</p>
+<p><span style="background-color: #ffff00;">利用空倉儲建立 cad2023 倉儲</span>:</p>
+<p>必須在近端 Windows、Linux 或 Mac 操作系統中的命令列中執行 git 指令, 淺綠色部分為需要輸入的指令.</p>
 <div class="container">
 <div class="line number1 index0 alt2"><span style="background-color: #ccffcc;"><code class="js plain">mkdir cad2023<br/></code></span></div>
 <div class="line number1 index0 alt2"><span style="background-color: #ccffcc;"><code class="js plain">cd cad2023</code></span></div>
@@ -941,7 +943,7 @@ doc["add1to100"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- ########################################## -->
+<!-- editor1 結束 --><hr><!-- ########################################## -->
 <p>從 1 累加到 100 part2:</p>
 <p><button id="add1to100part2">1 add to 100</button><button id="cango_three_gears">cango_three_gears</button><button id="bsnake">BSnake</button><button id="aitetris">AI Tetris</button><button id="threejsblock">Rotating Block</button></p>
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
@@ -1060,7 +1062,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr/>
+<!-- editor2 結束 --><hr>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p>
+</p></hr></hr>
