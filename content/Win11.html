@@ -142,8 +142,44 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">siemens << <a href='siemens.html'>Previous</a> <a href='ptc.html'>Next</a> >> ptc<br /><h1>autodesk</h1>
-<p><span>AutoDesk 公司旗下的電腦輔助機械設計套件都提供<a href="https://www.autodesk.com/education/edu-software/overview">免付費教育版</a>. 其中 Inventor 可<a href="https://software.nfu.edu.tw/Autodesk/autodesk2022.pdf">直接從學校網站下載</a>, 且<a href="https://accounts.autodesk.com/register">教育版的 A360</a> 可在雲端或近端啟動, 但近端必須安裝對應套件.</span></p><br />siemens << <a href='siemens.html'>Previous</a> <a href='ptc.html'>Next</a> >> ptc</div>
+    <div id="tipue_search_content">w6-w7 << <a href='w6-w7.html'>Previous</a> <a href='網路設定.html'>Next</a> >> 網路設定<br /><h1>Win11</h1>
+<p>為了讓 cd2023 內容管理系統在近端 Python 3.12.0 環境啟動時, 能夠順利透過 start_static 模擬靜態系統, 目前的 start_static 原始碼改為:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">@app.route('/start_static/')
+def start_static():
+
+    """Start local static server
+    """
+
+    if isAdmin():
+        server_address = get_wan_address() or 'localhost'
+        server_port = static_port
+
+        # Determine address family based on server_address
+        address_family = socket.AF_INET if ':' not in server_address else socket.AF_INET6
+
+        httpd = http.server.HTTPServer((server_address, server_port), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
+        httpd.socket = socket.socket(address_family, socket.SOCK_STREAM)
+        httpd.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+        if address_family == socket.AF_INET6:
+            httpd.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+            httpd.socket.bind((server_address, server_port, 0, 0))
+        else:
+            httpd.socket.bind((server_address, server_port))
+        # for Python 3.12.0 need to use ssl create context first
+        # https://docs.python.org/3/library/ssl.html#ssl-security
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(certfile='./localhost.crt', keyfile='./localhost.key')
+        httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
+        httpd.server_activate()
+        httpd.serve_forever()
+    else:
+        return redirect("/login")
+</pre>
+<p>其中當 start_static 執行時, 經由 openssl 指令:</p>
+<p>Y:\portablegit\usr\bin\openssl s_client -connect [Windows 11's IPv6 address]:8445 -tls1_3</p>
+<p>檢查, 發現目前採用 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER) 設定中的 <span>ssl.PROTOCOL_TLS_SERVER, 採用的認證版本可為 tls 1.2 與 1.3 版, 但是</span>如同<a href="https://learn.microsoft.com/en-us/answers/questions/708734/tls-1-3-doesnt-work-on-windows-11-through-schannel">這裡的敘述</a>, 伺服器發出的 tls 1.3 版可以被 Windows 10 操作系統接受, 但卻無法在 Windows 11 操作系統中正確連結採用上述程式碼的靜態網頁伺服器.</p>
+<p>另外, 透過 Windows 11 搜尋輸入 inetcpl.cpl 可以發現 tls 1.3 已經啟用. 因此目前無法得知為何 start_static 啟動後, 無法在 Windows 11 連線到虛擬的系統靜態網站.</p><br />w6-w7 << <a href='w6-w7.html'>Previous</a> <a href='網路設定.html'>Next</a> >> 網路設定</div>
         
     <!-- footer -->
       <div class="container">

@@ -258,10 +258,47 @@ sslVerify = false</pre>
 <p>維護 cad2023 倉儲與網站的方法:</p>
 <ol>
 <li>Replit + Github</li>
-<li>可攜環境 + Github (下載包含 Python 3.12.0, Tiny C Compiler 與 CoppeliaSim 4.5.1 的 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVv87jPTxf5Aqj68CR7IgoEBMkz_9-Xq6_DckCLKJeCgqA?e=wNGNOx">portable_2024_cp_wcms_cad_cd_w_ebooks.7z</a>, 1.2GB 解開後 3.3GB, 需要下載密碼)</li>
+<li>可攜環境 + Github (下載包含 Python 3.12.0, Tiny C Compiler 與 CoppeliaSim 4.5.1 的 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVv87jPTxf5Aqj68CR7IgoEBMkz_9-Xq6_DckCLKJeCgqA?e=wNGNOx">portable_2024_cp_wcms_cad_cd_w_ebooks.7z</a>, 1.2GB 解開後 3.3GB, 需要下載密碼), 維護倉儲與網站說明<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EeRJ5iW8_YRIpWXFY4v1wtsBeU6nXBvm5ERNFkn2Po_-rQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=G10STK">之一</a>, 之二.</li>
 <li>自架伺服器 + Github</li>
 </ol>
-<p></p><h2>網路設定</h2>
+<p></p><h3>Win11</h3>
+<p>為了讓 cd2023 內容管理系統在近端 Python 3.12.0 環境啟動時, 能夠順利透過 start_static 模擬靜態系統, 目前的 start_static 原始碼改為:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">@app.route('/start_static/')
+def start_static():
+
+    """Start local static server
+    """
+
+    if isAdmin():
+        server_address = get_wan_address() or 'localhost'
+        server_port = static_port
+
+        # Determine address family based on server_address
+        address_family = socket.AF_INET if ':' not in server_address else socket.AF_INET6
+
+        httpd = http.server.HTTPServer((server_address, server_port), http.server.SimpleHTTPRequestHandler, bind_and_activate=False)
+        httpd.socket = socket.socket(address_family, socket.SOCK_STREAM)
+        httpd.socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
+        if address_family == socket.AF_INET6:
+            httpd.socket.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 0)
+            httpd.socket.bind((server_address, server_port, 0, 0))
+        else:
+            httpd.socket.bind((server_address, server_port))
+        # for Python 3.12.0 need to use ssl create context first
+        # https://docs.python.org/3/library/ssl.html#ssl-security
+        context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+        context.load_cert_chain(certfile='./localhost.crt', keyfile='./localhost.key')
+        httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
+        httpd.server_activate()
+        httpd.serve_forever()
+    else:
+        return redirect("/login")
+</pre>
+<p>其中當 start_static 執行時, 經由 openssl 指令:</p>
+<p>Y:\portablegit\usr\bin\openssl s_client -connect [Windows 11's IPv6 address]:8445 -tls1_3</p>
+<p>檢查, 發現目前採用 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER) 設定中的 <span>ssl.PROTOCOL_TLS_SERVER, 採用的認證版本可為 tls 1.2 與 1.3 版, 但是</span>如同<a href="https://learn.microsoft.com/en-us/answers/questions/708734/tls-1-3-doesnt-work-on-windows-11-through-schannel">這裡的敘述</a>, 伺服器發出的 tls 1.3 版可以被 Windows 10 操作系統接受, 但卻無法在 Windows 11 操作系統中正確連結採用上述程式碼的靜態網頁伺服器.</p>
+<p>另外, 透過 Windows 11 搜尋輸入 inetcpl.cpl 可以發現 tls 1.3 已經啟用.</p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
