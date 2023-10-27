@@ -255,6 +255,12 @@ sslVerify = false</pre>
 <li>Fusion 360, 請在校網或使用 VPN <a href="https://dl.appstreaming.autodesk.com/production/installers/Fusion%20360%20Admin%20Install.exe">下載</a>, Fusion 360 Admin Install.exe 安裝檔案 GB.</li>
 </ol>
 <p><img alt="" height="264" src="/images/electromagnetic_activated_cyclic_circulation_motion_system.gif" width="400"/></p>
+<p>維護 cad2023 倉儲與網站的方法:</p>
+<ol>
+<li>Replit + Github</li>
+<li>可攜環境 + Github (下載包含 Python 3.12.0 與 Tiny C Compiler 的 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVv87jPTxf5Aqj68CR7IgoEBMkz_9-Xq6_DckCLKJeCgqA?e=wNGNOx">portable_2024_cp_wcms_cad_cd_w_ebooks.7z</a>, 1.2GB 解開後 3.3GB, 需要下載密碼)</li>
+<li>自架伺服器 + Github</li>
+</ol>
 <p></p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
@@ -308,7 +314,10 @@ $interfaces | ForEach{
 Write-Host "IPv6 Address: $ipv6Address/$subnetPrefixLength"
 Write-Host "IPv6 Gateway: $gateway"</pre>
 <p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EU-PdLegiEFAoTlO_yKCXTcB6iUdp0beiWj-9_DIWMoSgQ?e=qCEtYU">cad2023_network_setup.7z</a> (需要下載密碼), 必須以管理者身分執行批次檔案, 因為要藉此身分關閉 IPv4 網路協定.</p>
-<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/Eck0KdLe1uZEk_LJ2tkEf4ABZyW32cmq5WZVl52Fww9C2A?e=i5Dm3t">2023_fall_w7_cadlab_network_setup.7z</a> <span>(需要下載密碼), 必須先放入個人所分配到的 IPv6 位址後, 以管理者身分執行批次檔案, 就能直接完成 cadlab .</span></p><h2>exam</h2>
+<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/Eck0KdLe1uZEk_LJ2tkEf4ABZyW32cmq5WZVl52Fww9C2A?e=i5Dm3t">2023_fall_w7_cadlab_network_setup.7z</a> <span>(需要下載密碼), 必須先放入個人所分配到的 IPv6 位址後, 以管理者身分執行批次檔案, 就能直接完成電腦輔助設計室中電腦的網路連線設定.</span></p>
+<p><span>各學員所分配的固定 IPv6 位址如下:</span></p>
+<p style="padding-left: 30px;">2a 學員展示用 IPv6 位址: 2001:288:6004:17:2023:cada::<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/afc0e4d2267199743ac44bc7aeb0c4b195a30abb/generate_cad2023_2a_site_repo.py">班級名單序號</a></p>
+<p style="padding-left: 30px;"><span>2b 學員展示用 IPv6 位址: 2001:288:6004:17:2023:cadb::</span><a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/afc0e4d2267199743ac44bc7aeb0c4b195a30abb/generate_cad2023_2b_site_repo.py">班級名單序號</a></p><h2>exam</h2>
 <p>在系上 IPv6 網段時, 可以在線上考試主機 <a href="https://exam.cycu.org">https://exam.cycu.org</a> 帳號註冊時段<a href="https://exam.cycu.org/public/code/tce_user_registration.php">進行註冊</a>:</p>
 <p><img alt="" height="201" src="/images/2023_exam_cycu_org_register.png" width="400"/></p>
 <p>其中:</p>
@@ -1044,7 +1053,7 @@ doc["add1to100"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- ########################################## -->
+<!-- editor1 結束 --><hr><!-- ########################################## -->
 <p>從 1 累加到 100 part2:</p>
 <p><button id="add1to100part2">1 add to 100</button><button id="cango_three_gears">cango_three_gears</button><button id="bsnake">BSnake</button><button id="aitetris">AI Tetris</button><button id="threejsblock">Rotating Block</button></p>
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
@@ -1163,7 +1172,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr/>
+<!-- editor2 結束 --><hr>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p>
+</p></hr></hr>
