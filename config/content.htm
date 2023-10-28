@@ -262,6 +262,8 @@ sslVerify = false</pre>
 <li>自架伺服器 + Github</li>
 </ol>
 <p></p><h3>Win11</h3>
+<p>目前擬將近端的靜態網站呈現改為 http, 而非 https 暫時避開下列問題.</p>
+<hr/>
 <p>為了讓 cd2023 內容管理系統在近端 Python 3.12.0 環境啟動時, 能夠順利透過 start_static 模擬靜態系統, 目前的 start_static 原始碼改為:</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">@app.route('/start_static/')
 def start_static():
