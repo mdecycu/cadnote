@@ -1,5 +1,5 @@
 <h1>About</h1>
-<p><a href="https://mde.tw/cadnote">https://mde.tw/cadnote</a></p>
+<p><a href="https://mde.tw/cadnote">https://mde.tw/cadnote</a>, 若 s1511 伺服器提供服務, 經由 IPv6 可連線 <a href="https://s1511.cycu.org/~pj2022/cadnote">https://s1511.cycu.org/~pj2022/cadnote</a>.</p>
 <p>這是國立虎尾科技大學 (National Formosa University, Taiwan) 機械設計工程系大二電腦輔助設計與實習課堂筆記網站，本課程承接大一的計算機程式，並為隨後協同産品設計課程提供必要的零組件設計繪圖與 Web-based 機電系統模擬基礎。</p>
 <p>課程內容將包含機電整合範例系統中 3D 零組件的電腦輔助設計繪圖，以及實體模型製作之前所需的機電控制系統設計與模擬。</p>
 <p>電腦輔助設計繪圖將採用可在 Windows 操作系統中可㩦運作的 Siemens Solid Edge 與 Solvespace，業界普遍採用的 Dassault Solidworks 與 Siemens NX，以及能直接在 PC Web Browser 及手機或平板 App 中使用的 Onshape。</p>
@@ -319,6 +319,8 @@ def start_static():
 <p style="padding-left: 30px;">sim.switchThread is deprecated in favor of <a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simStep.htm">sim.step</a></p>
 <p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/commandLine.htm">Command-line</a> option -H now loads the headless version of the CoppeliaSim library.</p>
 <p>CoppeliaSim 使用者手冊: <a href="https://mde.tw/pjcopsim">https://mde.tw/pjcopsim</a></p>
+<p style="padding-left: 30px;">zmq Remote API: <a href="https://www.coppeliarobotics.com/helpFiles/en/zmqRemoteApiOverview.htm">https://www.coppeliarobotics.com/helpFiles/en/zmqRemoteApiOverview.htm</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/zmqRemoteApi">https://github.com/CoppeliaRobotics/zmqRemoteApi</a></p>
 <p>有關 s1511.cycu.org 主機的使用, 請參考 <a href="https://mde.tw/cpnote">https://mde.tw/cpnote</a> 中各章節頁面內容.</p>
 <p>電腦輔助設計與實習課程分組網站在 s1511.cycu.org 所分配的外部與內部埠號:</p>
 <p style="padding-left: 30px;">cad2023_ag1: 8232, 9232</p>
@@ -334,7 +336,9 @@ def start_static():
 <p style="padding-left: 30px;"><span>cad2023_bg4: 8241, 9241</span></p>
 <p style="padding-left: 30px;"><span>cad2023_bg5: 8242, 9242</span></p>
 <p style="padding-left: 30px;"><span>cad2023_bg6: 8243, 9243</span></p>
-<hr/><h2>網路設定</h2>
+<hr/>
+<p>模擬參考:</p>
+<p style="padding-left: 30px;"><a href="https://www.researchgate.net/publication/263466730_Mathematical_Modeling_of_Electromagnetic_Levitation_Ball_using_Bondgraph">https://www.researchgate.net/publication/263466730_Mathematical_Modeling_of_Electromagnetic_Levitation_Ball_using_Bondgraph</a> </p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
