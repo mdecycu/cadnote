@@ -178,7 +178,11 @@ ProxyCommand /usr/bin/ncat --proxy p4.cycu.org:3128 --proxy-type http %h %p</pre
 <p style="padding-left: 30px;">git clone --recurse-submodules <a href="mailto:git@github.com">git@github.com</a>:帳號/cad2023.git</p>
 <p>接下來必須從 cad2023 取下 server.py 進行編輯, 放入自己分配到的 9xxx 埠後, 再送回.</p>
 <p>就可以利用 python3 server.py 啟動測試是否可以連線到 <a href="https://s1511.cycu.org:8xxxx">https://s1511.cycu.org:8xxxx</a></p>
+<p>由於管理者內建密碼為 admin, 使用者修改後, 編碼字串將存入 config/config, 此檔案必須設為只有管理者可以 read, 若目前位於登入後的工作目錄, 則其指令為:</p>
+<p>chmod og-rwx config/config</p>
+<p>表示要將 others 與 group 針對 config/config 檔案的 read, write 與 execute 權限取消.</p>
 <p>若希望使用者登入後動態網站仍然執行, python3 server.py&amp;</p>
+<hr/>
 <p>電腦輔助設計與實習課程分組網站在 s1511.cycu.org 所分配的外部與內部埠號:</p>
 <p style="padding-left: 30px;">cad2023_ag1: 8232, 9232</p>
 <p style="padding-left: 30px;">cad2023_ag2: 8233, 9233</p>
