@@ -162,10 +162,23 @@ img.add_border {
 <p>遠端登入到 s1511.cycu.org (只支援 IPv6 網路協定), 命令列指令 ssh client, 工具可以使用 Putty</p>
 <p style="padding-left: 30px;">使用 ssh 指令: ssh 帳號@s1511.cycu.org 然後輸入密碼 (鍵入密碼時螢幕並不會顯示字元)</p>
 <p style="padding-left: 30px;">使用 putty.exe 設定 session 令其連接到  s1511.cycu.org</p>
+<p style="padding-left: 30px;">登出指令為 exit</p>
 <p style="padding-left: 30px;">假如在 IPv4 網路協定下, 則 ssh 指令與 putty.exe 都必須透過能支援 IPv6 的代理主機進行連線.</p>
 <p>2b w8 作業: 請根據 <a href="./../downloads/cad2023_2b_w8.txt">cad2023_2b_w8.txt</a> 檔案中的內容, 透過程式的讀取與篩選, 按照時間先後, 列出 2b 修課學員中已經登入 s1511.cycu.org 的學號. (修課學員名單 <span>2a: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0838&amp;column=True">0838</a><span>, 2b: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0851&amp;column=True">0851</a>)</p>
 <p>利用 sftp 從 s1511.cycu.org 取下檔案畫面:</p>
 <p><img alt="" height="114" src="./../images/w8_2b_sftp_commands.png" width="400"/></p>
+<p>利用 ssh-keygen 在 .ssh 目錄建立 id_rsa 與 id_rsa.pub, 之後將 id_rsa.pub 登記到各自帳號下 settings 的 SSH and GPG keys 區域.</p>
+<p><span>.ssh 目錄中的 </span><a href="https://mde.tw/cpnote/downloads/config">config</a><span>, 將 SSH session 名稱設為 github.com:</span></p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Host github.com
+User git
+Hostname github.com
+ProxyCommand /usr/bin/ncat --proxy p4.cycu.org:3128 --proxy-type http %h %p</pre>
+<p>將 上列 config 送到帳號下的 .ssh 目錄之後, 就可以利用 github.com 作為 session, 從 github.com 取下 cad2023 倉儲, 並且已經具備 git push 的權限.</p>
+<p>以 SSH 協定取下 cad2023 的指令:</p>
+<p style="padding-left: 30px;">git clone --recurse-submodules <a href="mailto:git@github.com">git@github.com</a>:帳號/cad2023.git</p>
+<p>接下來必須從 cad2023 取下 server.py 進行編輯, 放入自己分配到的 9xxx 埠後, 再送回.</p>
+<p>就可以利用 python3 server.py 啟動測試是否可以連線到 <a href="https://s1511.cycu.org:8xxxx">https://s1511.cycu.org:8xxxx</a></p>
+<p>若希望使用者登入後動態網站仍然執行, python3 server.py&amp;</p>
 <p>電腦輔助設計與實習課程分組網站在 s1511.cycu.org 所分配的外部與內部埠號:</p>
 <p style="padding-left: 30px;">cad2023_ag1: 8232, 9232</p>
 <p style="padding-left: 30px;">cad2023_ag2: 8233, 9233</p>
