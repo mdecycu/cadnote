@@ -370,6 +370,7 @@ ProxyCommand /usr/bin/ncat --proxy p4.cycu.org:3128 --proxy-type http %h %p</pre
 <p>10)<span style="background-color: #ccffcc;"> 網路連線協定:</span></p>
 <p>將 cad2023 倉儲資料取到 s1511.cycu.org 帳號下, 若使用 SSH 協定且位於只有 IPv6 網路協定, 則分別牽涉以 SSH 及 https 協定連線到 github.com 的設定.</p>
 <p>其中所謂運用 SSH 協定與 github.com 連線, 運用在 git clone --recurse-submodules <a href="mailto:git@github.com:帳號/cad2023.git">git@github.com:帳號/cad2023.git</a> 因為其流程是利用 SSH 協定以 git 作為帳號登入到 session 名稱為 github.com 的連線主機 (即 config 中的 Hostname 設定), 能不能遠端登入則取決於 github.com session (即 config 設定檔案中的 Host 名稱) 後面的帳號是否已經登錄與目前 .ssh/id_rsa 所對應的 public key.</p>
+<p>至於在純 IPv6 網路下的 s1511.cycu.org 其 https 所需的 proxy 設定, 已經由管理者設定於 /etc/environment 中, 因此所有使用者都無需設定.</p>
 <hr/>
 <p>電腦輔助設計與實習課程分組網站在 s1511.cycu.org 所分配的外部與內部埠號:</p>
 <p style="padding-left: 30px;">cad2023_ag1: 8232, 9232</p>
