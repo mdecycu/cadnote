@@ -4,6 +4,7 @@
 <p>課程內容將包含機電整合範例系統中 3D 零組件的電腦輔助設計繪圖，以及實體模型製作之前所需的機電控制系統設計與模擬。</p>
 <p>電腦輔助設計繪圖將採用可在 Windows 操作系統中可㩦運作的 Siemens Solid Edge 與 Solvespace，業界普遍採用的 Dassault Solidworks 與 Siemens NX，以及能直接在 PC Web Browser 及手機或平板 App 中使用的 Onshape。</p>
 <p>控制系統設計將採用最簡單的 PID 自動控制流程，並配合將 3D 零組件模型導入 Coppeliasim，以 Python ZeroMQ Remote API 程式跨網路進行控制後，再利用 Websocket 將機電系統控制與模擬結果，呈現於 PC 、平板或手機的 Web Browser 上，以便在之後的協同産品設計課程中進行應用。</p><h1>上課內容</h1>
+<p><span>教育版帳號 microsoftonline 登入點: </span><a href="https://login.microsoftonline.com/">https://login.microsoftonline.com/</a><span> </span></p>
 <p><a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/afc0e4d2267199743ac44bc7aeb0c4b195a30abb/generate_cad2023_2a_site_repo.py">2a cad2023 學員網站與倉儲連結</a></p>
 <p style="padding-left: 60px;"><a href="https://41123120.github.io/cad2023_ag1">ag1</a> (<a href="https://github.com/41123120/cad2023_ag1">repo</a>)</p>
 <p style="padding-left: 60px;"><a href="https://probe2004.github.io/cad2023_ag2">ag2</a> (<a href="https://github.com/probe2004/cad2023_ag2">repo</a>)</p>
@@ -338,6 +339,48 @@ def start_static():
 <p style="padding-left: 30px;">登出指令為 exit</p>
 <p style="padding-left: 30px;">假如在 IPv4 網路協定下, 則 ssh 指令與 putty.exe 都必須透過能支援 IPv6 的代理主機進行連線.</p>
 <p>2b w8 作業: 請根據 <a href="/downloads/cad2023_2b_w8.txt">cad2023_2b_w8.txt</a> 檔案中的內容, 透過程式的讀取與篩選, 按照時間先後, 列出 2b 修課學員中已經登入 s1511.cycu.org 的學號. (修課學員名單 <span>2a: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0838&amp;column=True">0838</a><span>, 2b: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0851&amp;column=True">0851</a>)</p>
+<p>假如在近端處理, 必須同時儲存兩個檔案後, 進行資料選取:</p>
+<p><a href="/downloads/get_stud_num_from_last_data.py">get_stud_num_from_last_data.py</a> (若採 Brython 編寫, 可以直接<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/f9f2fd6819ae9553d51990901aa694073d51439a/get_stud_num_from_last_data.py">列出結果</a>, 其中 41123227 為管理者最早測試時登入)</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 讀取學號檔案
+with open("2b_user_list.txt", 'r') as user_file:
+    user_lines = user_file.read().splitlines()
+
+# 讀取 last 指令轉出的檔案, 以 last -w &gt; cad2023_2b_w8.txt 建立檔案
+with open("cad2023_2b_w8.txt", 'r') as cad_file:
+    # 以下是利用跳行符號, 將每一行區隔成數列
+    cad_lines = cad_file.read().splitlines()
+#print(cad_lines)
+
+# 從 cad_lines 建立所有登入使用者數列
+login_users = []
+for i in cad_lines:
+    line_list = i.split(" ")
+    login_users.append(line_list[0])
+#print(login_users)
+
+# 根據 https://stackoverflow.com/questions/480214/how-do-i-remove-duplicates-from-a-list-while-preserving-order
+# 數列去除重複元素但仍保持原始次序
+login_users = list(dict.fromkeys(login_users))
+#print(login_users)
+
+# 建立數列存放符合條件的使用者
+valid_users = []
+
+# 取出符合條件的使用者
+for line in login_users:
+    if "cad" in line:
+        # 將 cad 字串去除
+        user_number = line.replace("cad", "")
+        if user_number in user_lines:
+            valid_users.append(user_number)
+            
+# 利用 reverse() 將 valid_users 反向排序
+valid_users.reverse()
+
+# , 最早登入者列在最前面
+for user in valid_users:
+    print(user)
+</pre>
 <p>2)<span style="background-color: #ccffcc;"> 如何取放檔案</span>:</p>
 <p>利用 sftp 從 s1511.cycu.org 取下檔案畫面:</p>
 <p><img alt="" height="114" src="/images/w8_2b_sftp_commands.png" width="400"/></p>
