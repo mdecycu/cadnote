@@ -341,6 +341,7 @@ def start_static():
 <p>2)<span style="background-color: #ccffcc;"> 如何取放檔案</span>:</p>
 <p>利用 sftp 從 s1511.cycu.org 取下檔案畫面:</p>
 <p><img alt="" height="114" src="/images/w8_2b_sftp_commands.png" width="400"/></p>
+<p>進入對應的目錄之後, 以 pwd 確認所在目錄後, 以 get 取下檔案, 以 put 放上檔案, 例如: 進入 images 目錄後, 可以透過 get gd_ex1.png 取下圖檔, 若要將圖檔放入 images 目錄, 則只要確定 sftp 進入後, cd 到 images 目錄, 然後以 put gd_ex1.png 將圖檔送入.</p>
 <p>3)<span style="background-color: #ffff00;"> 如何與 github 帳號彼此信任</span>:</p>
 <p>利用 ssh-keygen 在 .ssh 目錄建立 id_rsa 與 id_rsa.pub, 之後將 id_rsa.pub 登記到各自帳號下 settings 的 SSH and GPG keys 區域.</p>
 <p><span>.ssh 目錄中的 </span><a href="https://mde.tw/cpnote/downloads/config">config</a><span>, 將 SSH session 名稱設為 github.com:</span></p>
