@@ -166,6 +166,7 @@ img.add_border {
 <hr/>
 <p>以下將說明第 3 種方法, 使用 s1511.cycu.org 管理個人與分組網站:</p>
 <p>其中包括 1) <span style="background-color: #ffff00;">如何遠端登入</span>、2 ) <span style="background-color: #ccffcc;">如何取放檔案</span>、3) <span style="background-color: #ffff00;">如何與 github 帳號彼此信任</span>、4) <span style="background-color: #ccffcc;">如何取下 cad2023</span>、5) <span style="background-color: #ffff00;">如何啟動或關閉 cad2023 倉儲</span>、6) <span style="background-color: #ccffcc;">如何連結到動態網站</span>、7) <span style="background-color: #ffff00;">如何設定靜態網站</span>、8) <span style="background-color: #ccffcc;">如何連動動態網站改版與靜態網頁</span>、9) <span style="background-color: #ffff00;">如何對資料進行保全</span>以及 10) <span style="background-color: #ccffcc;">網路連線協定</span>等相關議題.</p>
+<p><a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EV9_amTTTJlLo4Xu5Hj-iR0BXMY_nn_zmcE7ynKV_aGbpw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=7UL9k9">w8_2a_s1511 設定操作影片 part1.mp4</a></p>
 <p>1)<span style="background-color: #ffff00;"> 如何遠端登入</span>:</p>
 <p>遠端登入到 s1511.cycu.org (只支援 IPv6 網路協定), 命令列指令 ssh client, 工具可以使用 Putty</p>
 <p style="padding-left: 30px;">使用 ssh 指令: ssh 帳號@s1511.cycu.org 然後輸入密碼 (鍵入密碼時螢幕並不會顯示字元)</p>
@@ -174,7 +175,7 @@ img.add_border {
 <p style="padding-left: 30px;">假如在 IPv4 網路協定下, 則 ssh 指令與 putty.exe 都必須透過能支援 IPv6 的代理主機進行連線.</p>
 <p>2b w8 作業: 請根據 <a href="./../downloads/cad2023_2b_w8.txt">cad2023_2b_w8.txt</a> 檔案中的內容, 透過程式的讀取與篩選, 按照時間先後, 列出 2b 修課學員中已經登入 s1511.cycu.org 的學號. (修課學員名單 <span>2a: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0838&amp;column=True">0838</a><span>, 2b: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0851&amp;column=True">0851</a>)</p>
 <p>假如在近端處理, 必須同時儲存兩個檔案後, 進行資料選取:</p>
-<p><a href="./../downloads/get_stud_num_from_last_data.py">get_stud_num_from_last_data.py</a> (若採 Brython 編寫, 可以直接<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/f9f2fd6819ae9553d51990901aa694073d51439a/get_stud_num_from_last_data.py">列出結果</a>, 依照登入時間先後排序, 其中 41123227 為管理者最早測試時登入, 若採用 ANSI 編寫: <a href="./../downloads/use_ansi_c_read_last_command_data.7z">use_ansi_c_read_last_command_data.7z</a>)</p>
+<p><a href="./../downloads/get_stud_num_from_last_data.py">get_stud_num_from_last_data.py</a> (若採 Brython 編寫, 可以直接<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/f9f2fd6819ae9553d51990901aa694073d51439a/get_stud_num_from_last_data.py">列出結果</a>, 依照登入時間先後排序, 其中 41123227 為管理者最早測試時登入, 若採用 ANSI 編寫: <a href="./../downloads/c_parse_last_cp2023.7z">c_parse_last_cp2023.7z</a>)</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 讀取學號檔案
 with open("2b_user_list.txt", 'r') as user_file:
     user_lines = user_file.read().splitlines()

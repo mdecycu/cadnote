@@ -345,7 +345,7 @@ def start_static():
 <p style="padding-left: 30px;">假如在 IPv4 網路協定下, 則 ssh 指令與 putty.exe 都必須透過能支援 IPv6 的代理主機進行連線.</p>
 <p>2b w8 作業: 請根據 <a href="/downloads/cad2023_2b_w8.txt">cad2023_2b_w8.txt</a> 檔案中的內容, 透過程式的讀取與篩選, 按照時間先後, 列出 2b 修課學員中已經登入 s1511.cycu.org 的學號. (修課學員名單 <span>2a: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0838&amp;column=True">0838</a><span>, 2b: </span><a href="https://stud.cycu.org:8800/?semester=1121&amp;courseno=0851&amp;column=True">0851</a>)</p>
 <p>假如在近端處理, 必須同時儲存兩個檔案後, 進行資料選取:</p>
-<p><a href="/downloads/get_stud_num_from_last_data.py">get_stud_num_from_last_data.py</a> (若採 Brython 編寫, 可以直接<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/f9f2fd6819ae9553d51990901aa694073d51439a/get_stud_num_from_last_data.py">列出結果</a>, 依照登入時間先後排序, 其中 41123227 為管理者最早測試時登入, 若採用 ANSI 編寫: <a href="/downloads/use_ansi_c_read_last_command_data.7z">use_ansi_c_read_last_command_data.7z</a>)</p>
+<p><a href="/downloads/get_stud_num_from_last_data.py">get_stud_num_from_last_data.py</a> (若採 Brython 編寫, 可以直接<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/f9f2fd6819ae9553d51990901aa694073d51439a/get_stud_num_from_last_data.py">列出結果</a>, 依照登入時間先後排序, 其中 41123227 為管理者最早測試時登入, 若採用 ANSI 編寫: <a href="/downloads/c_parse_last_cp2023.7z">c_parse_last_cp2023.7z</a>)</p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># 讀取學號檔案
 with open("2b_user_list.txt", 'r') as user_file:
     user_lines = user_file.read().splitlines()
@@ -424,7 +424,7 @@ ProxyCommand /usr/bin/ncat --proxy p4.cycu.org:3128 --proxy-type http %h %p</pre
 <p>由於位於 public_html 僅需鏡射位於 github.com 中的倉儲檔案資料, 並不作為 git commit 與 git push 之用, 因此可以利用 git clone --recurse-submodules https://github.com/帳號/倉儲名稱.git 取下 (也就直接以 https 協定取下倉儲內容), 並可在 https://s1511.cycu.org/~帳號/倉儲名稱 中擷取靜態網站資料.</p>
 <p>8) <span style="background-color: #ccffcc;">如何連動動態網站改版與靜態網頁:</span></p>
 <p>當每次 /home/帳號/倉儲 中的檔案改版, 而且資料已經推送到 github.com, 使用者就可以進入 public_html 中的對應倉儲目錄, 以 git pull 指令從 github.com 取得最新的版本資料, 此指令可以採手動, 也可以設法納入倉儲的 acp 指令中:</p>
-<p>acp 必須納入 public_html 目錄中的靜態網站 git pull, 且利用 chmod u+x acp 令其可以執行</p>
+<p>acp 必須納入 public_html 目錄中的靜態網站 git pull, 且利用 chmod u+x acp 令其可以執行.</p>
 <p><a href="/downloads/acp">acp</a> 內容:</p>
 <pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#! /bin/bash
 git add .
@@ -433,6 +433,7 @@ git push
 cd ./../public_html/cad2023
 git pull</pre>
 <p>9)<span style="background-color: #ccffcc;"><span style="background-color: #ffff00;"> 如何對資料進行保全:</span></span></p>
+<p>chmod u+x acp</p>
 <p>chmod og-rwx config/config</p>
 <p>chmod 711 /home/cad學號</p>
 <p>chmoe 755 /home/cad學號/public_html</p>
