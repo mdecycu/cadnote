@@ -338,6 +338,7 @@ def start_static():
 <p>以下將說明第 3 種方法, 使用 s1511.cycu.org 管理個人與分組網站:</p>
 <p>其中包括 1) <span style="background-color: #ffff00;">如何遠端登入</span>、2 ) <span style="background-color: #ccffcc;">如何取放檔案</span>、3) <span style="background-color: #ffff00;">如何與 github 帳號彼此信任</span>、4) <span style="background-color: #ccffcc;">如何取下 cad2023</span>、5) <span style="background-color: #ffff00;">如何啟動或關閉 cad2023 倉儲</span>、6) <span style="background-color: #ccffcc;">如何連結到動態網站</span>、7) <span style="background-color: #ffff00;">如何設定靜態網站</span>、8) <span style="background-color: #ccffcc;">如何連動動態網站改版與靜態網頁</span>、9) <span style="background-color: #ffff00;">如何對資料進行保全</span>以及 10) <span style="background-color: #ccffcc;">網路連線協定</span>等相關議題.</p>
 <p><a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EV9_amTTTJlLo4Xu5Hj-iR0BXMY_nn_zmcE7ynKV_aGbpw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=7UL9k9">w8_2a_s1511 設定操作影片 part1.mp4</a></p>
+<p><a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EcHihSEDROlEg7PrHMrBcRsBzYuLtGvcg5t359aa6IL8lw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=wMzccG">w8_2a_s1511 設定操作影片 part2.mp4</a></p>
 <p>1)<span style="background-color: #ffff00;"> 如何遠端登入</span>:</p>
 <p>遠端登入到 s1511.cycu.org (只支援 IPv6 網路協定), 命令列指令 ssh client, 工具可以使用 Putty</p>
 <p style="padding-left: 30px;">使用 ssh 指令: ssh 帳號@s1511.cycu.org 然後輸入密碼 (鍵入密碼時螢幕並不會顯示字元)</p>
@@ -438,6 +439,8 @@ git pull</pre>
 <p>chmod og-rwx config/config</p>
 <p>chmod 711 /home/cad學號</p>
 <p>chmoe 755 /home/cad學號/public_html</p>
+<p>假如自己所分派到的網路 port 遭到占用, 可以利用下列指令查出使用該埠號的使用者帳號:</p>
+<p>例如要查詢埠號 9210 埠號的使用情形, 指令為 <span>lsof -i :9210, 其中 ls 為 list, of 為 open file, -i 中的 i 為 internet, :9210 表示要求列出與 port 9210 有關 internet 使用相關的資料.</span></p>
 <p>10)<span style="background-color: #ccffcc;"> 網路連線協定:</span></p>
 <p>將 cad2023 倉儲資料取到 s1511.cycu.org 帳號下, 若使用 SSH 協定且位於只有 IPv6 網路協定, 則分別牽涉以 SSH 及 https 協定連線到 github.com 的設定.</p>
 <p>其中所謂運用 SSH 協定與 github.com 連線, 運用在 git clone --recurse-submodules <a href="mailto:git@github.com:帳號/cad2023.git">git@github.com:帳號/cad2023.git</a> 因為其流程是利用 SSH 協定以 git 作為帳號登入到 session 名稱為 github.com 的連線主機 (即 config 中的 Hostname 設定), 能不能遠端登入則取決於 github.com session (即 config 設定檔案中的 Host 名稱) 後面的帳號是否已經登錄與目前 .ssh/id_rsa 所對應的 public key.</p>
