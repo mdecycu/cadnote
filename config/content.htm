@@ -314,14 +314,19 @@ def start_static():
 <p>Y:\portablegit\usr\bin\openssl s_client -connect [Windows 11's IPv6 address]:8445 -tls1_3</p>
 <p>檢查, 發現目前採用 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER) 設定中的 <span>ssl.PROTOCOL_TLS_SERVER, 採用的認證版本可為 tls 1.2 與 1.3 版, 但是</span>如同<a href="https://learn.microsoft.com/en-us/answers/questions/708734/tls-1-3-doesnt-work-on-windows-11-through-schannel">這裡的敘述</a>, 伺服器發出的 tls 1.3 版可以被 Windows 10 操作系統接受, 但卻無法在 Windows 11 操作系統中正確連結採用上述程式碼的靜態網頁伺服器.</p>
 <p>另外, 透過 Windows 11 搜尋輸入 inetcpl.cpl 可以發現 tls 1.3 已經啟用. 因此目前無法得知為何 start_static 啟動後, 無法在 Windows 11 連線到虛擬的系統靜態網站.</p><h2>w8</h2>
-<p>CoppeliaSim 於 2023.10.21 推出 <a href="https://www.coppeliarobotics.com/helpFiles/en/versionInfo.htm">4.6.0 版</a>. (因為更改不多, 目前可以沿用 4.5.1 rev4)</p>
-<p style="padding-left: 30px;">plugin 架構更新, 可加載或卸載 plugin</p>
-<p style="padding-left: 30px;">sim.setThreadAutomaticSwitch is deprecated in favor of <a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simSetStepping.htm">sim.setStepping</a></p>
-<p style="padding-left: 30px;">sim.switchThread is deprecated in favor of <a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simStep.htm">sim.step</a></p>
-<p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/commandLine.htm">Command-line</a> option -H now loads the headless version of the CoppeliaSim library.</p>
+<p>針對 Coppeliasim 4.6.0 版的推出:</p>
+<p style="padding-left: 30px;">CoppeliaSim 於 2023.10.21 推出 <a href="https://www.coppeliarobotics.com/helpFiles/en/versionInfo.htm">4.6.0 版</a>. (因為更改不多, 目前可以沿用 4.5.1 rev4, 但仍必須關注 CoppeliaSim 逐步強化 Python scripting 的趨勢(<a href="https://www.coppeliarobotics.com/helpFiles/en/luaPythonDifferences.htm">1</a>, <a href="https://www.coppeliarobotics.com/helpFiles/en/coppeliaSimLibrary.htm#pythonClient">2</a>), 其目的在於能夠更便於在機電整合場景系統中, 導入更多的 AI 相關 Training)</p>
+<p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/plugins.htm">plugin</a> 架構更新, 可加載或卸載 plugin</p>
+<p style="padding-left: 60px;">sim.setThreadAutomaticSwitch is deprecated in favor of <a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simSetStepping.htm">sim.setStepping</a></p>
+<p style="padding-left: 60px;">sim.switchThread is deprecated in favor of <a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simStep.htm">sim.step</a></p>
+<p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/commandLine.htm">Command-line</a> option -H now loads the headless version of the CoppeliaSim library.</p>
 <p>CoppeliaSim 使用者手冊: <a href="https://mde.tw/pjcopsim">https://mde.tw/pjcopsim</a></p>
 <p style="padding-left: 30px;">zmq Remote API: <a href="https://www.coppeliarobotics.com/helpFiles/en/zmqRemoteApiOverview.htm">https://www.coppeliarobotics.com/helpFiles/en/zmqRemoteApiOverview.htm</a></p>
 <p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/zmqRemoteApi">https://github.com/CoppeliaRobotics/zmqRemoteApi</a></p>
+<p>CoppeliaSim 4.5.1 for IPv6:</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
+<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
+<hr/>
 <p>有關 s1511.cycu.org 主機的使用, 也可以參考 <a href="https://mde.tw/cpnote">https://mde.tw/cpnote</a> 中各章節頁面內容.</p>
 <p>維護網站的三個方式:</p>
 <ol>
@@ -398,16 +403,37 @@ ProxyCommand /usr/bin/ncat --proxy p4.cycu.org:3128 --proxy-type http %h %p</pre
 <p style="padding-left: 30px;">git clone --recurse-submodules <a href="mailto:git@github.com">git@github.com</a>:帳號/cad2023.git</p>
 <p>接下來必須從 cad2023 取下 server.py 進行編輯, 放入自己分配到的 9xxx 埠後, 再送回.</p>
 <p>5)<span style="background-color: #ffff00;"> 如何啟動或關閉 cad2023 倉儲</span>:</p>
-<p>就可以利用 python3 server.py 啟動測試是否可以連線到 <a href="https://s1511.cycu.org:8xxxx">https://s1511.cycu.org:8xxxx</a></p>
+<p>當使用者已經將上述 public key 登錄到 Github 帳號下, 則可以利用 python3 server.py 啟動編輯網站, 並測試是否可以連線到 <a href="https://s1511.cycu.org:8xxxx">https://s1511.cycu.org:8xxxx</a></p>
 <p>由於管理者內建密碼為 admin, 使用者修改後, 編碼字串將存入 config/config, 此檔案必須設為只有管理者可以 read, 若目前位於登入後的工作目錄, 則其指令為:</p>
-<p>chmod og-rwx config/config</p>
+<p style="padding-left: 30px;">chmod og-rwx config/config</p>
 <p>表示要將 others 與 group 針對 config/config 檔案的 read, write 與 execute 權限取消.</p>
 <p>若希望使用者登入後動態網站仍然執行, python3 server.py&amp;</p>
+<p>當 server.py 已經啟動, 使用者登入後可以利用以下指令, 列出各使用者啟動網頁編輯所對應的 PID (Process ID):</p>
+<p style="padding-left: 30px;"><span style="background-color: #ff99cc;">ps -axo pid,comm,uname | grep "python3"</span></p>
+<p>各用戶若希望刪除已經啟動的 Process, 可以找到所啟動的 PID 後, 以下列指令關閉服務 (若 PID = 1234):</p>
+<p style="padding-left: 30px;">kill 1234</p>
+<p>其中, 系統管理者可以刪除所有 Processes, 而各用戶只能刪除各自所啟動的 Process.</p>
 <p>6)<span style="background-color: #ccffcc;"> 如何連結到動態網站</span>:</p>
-<p>python3 server.py 啟動測試是否可以連線到 <a href="https://s1511.cycu.org:8xxxx">https://s1511.cycu.org:8xxxx</a></p>
+<p style="padding-left: 30px;">python3 server.py 啟動測試是否可以連線到 <a href="https://s1511.cycu.org:8xxxx">https://s1511.cycu.org:8xxxx</a></p>
+<p>編輯網站啟動之後, 使用者登入後可以透過 config 指令修改管理者密碼, 而此一密碼的編碼將存入 s1511 主機倉儲檔案中的 config/config 檔案中, 且此一檔案將只會位於 s1511, 而不會被推向 github.com (因為 .gitignore 的設定).</p>
+<p>當使用者決定要進行 git add 與 git commit 之前, 必須先以 git config 設定 user.name 與 user.email, 此設定將會存入 .gitconfig 檔案中.</p>
 <p>7)<span style="background-color: #ffff00;"> 如何設定靜態網站</span>:</p>
+<p>前面已經在 /home/帳號/倉儲目錄 透過 SSH 協定從 github.com 取下檔案內容, 由於 SSH keys 的設定, 此一倉儲一旦改版, 可以在新增提交之後, 可以透過 git push 指令將改版資料推向 github.com.</p>
+<p>當倉儲的靜態網站 git push 至 github.com 後, 將會透過 Github Pages 的設定進行轉檔.</p>
+<p>若使用者希望在 s1511 主機中伺服對應的倉儲靜態網站, 則可以將倉儲檔案放入帳號中的 public_html 目錄中.</p>
+<p>由於位於 public_html 僅需鏡射位於 github.com 中的倉儲檔案資料, 並不作為 git commit 與 git push 之用, 因此可以利用 git clone --recurse-submodules https://github.com/帳號/倉儲名稱.git 取下 (也就直接以 https 協定取下倉儲內容), 並可在 https://s1511.cycu.org/~帳號/倉儲名稱 中擷取靜態網站資料.</p>
 <p>8) <span style="background-color: #ccffcc;">如何連動動態網站改版與靜態網頁:</span></p>
+<p>當每次 /home/帳號/倉儲 中的檔案改版, 而且資料已經推送到 github.com, 使用者就可以進入 public_html 中的對應倉儲目錄, 以 git pull 指令從 github.com 取得最新的版本資料, 此指令可以採手動, 也可以設法納入倉儲的 acp 指令中:</p>
+<p>acp 必須納入 public_html 目錄中的靜態網站 git pull, 且利用 chmod u+x acp 令其可以執行.</p>
+<p><a href="/downloads/acp">acp</a> 內容:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">#! /bin/bash
+git add .
+git commit -m "$1"
+git push
+cd ./../public_html/cad2023
+git pull</pre>
 <p>9)<span style="background-color: #ccffcc;"><span style="background-color: #ffff00;"> 如何對資料進行保全:</span></span></p>
+<p>chmod u+x acp</p>
 <p>chmod og-rwx config/config</p>
 <p>chmod 711 /home/cad學號</p>
 <p>chmoe 755 /home/cad學號/public_html</p>
