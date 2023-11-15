@@ -245,7 +245,7 @@ sslVerify = false</pre>
 <p style="padding-left: 30px;">使用管理者開啟 parametric.psf 加入: ENV=PRO_LANG=english, 表示要使用英文介面. 使用 Chinese Simplified 代號為 chs, 使用 Chinese Traditional 代號為 cht.</p>
 <p style="padding-left: 30px;">安裝 Creo 位置: C:\Program Files\PTC\Creo 10.0.0.0\Parametric\bin</p>
 <p style="padding-left: 30px;">免費使用的教育版授權檔案為: BK100908EDSTUDENTEDUNI_license.dat</p>
-<p>以下為安裝 Creo 10 的過程與說明:</p>
+<p>以下為安裝 Creo 10 的過程與說明 (<a href="/downloads/wink_html.txt">wink_html.txt</a>):</p>
 <div class="winkVideoContainerClass"><video autoplay="autoplay" class="winkVideoClass" controls="controls" data-dirname="/cmsimde/static" data-varname="winkVideoData_creo10" height="630" muted="true" width="1008">
 <source src="/downloads/creo_10_installation_w10.mp4" type="video/mp4"/></video></div>
 <p>Onshape for education: <a href="https://www.onshape.com/en/education/">https://www.onshape.com/en/education/</a></p><h2>w6-w7</h2>
@@ -495,7 +495,12 @@ git pull</pre>
 <p>模擬參考:</p>
 <p style="padding-left: 30px;"><a href="https://www.researchgate.net/publication/263466730_Mathematical_Modeling_of_Electromagnetic_Levitation_Ball_using_Bondgraph">https://www.researchgate.net/publication/263466730_Mathematical_Modeling_of_Electromagnetic_Levitation_Ball_using_Bondgraph</a></p>
 <p style="padding-left: 30px;"><a href="https://hal.science/hal-02408779v1/file/Magnetic_Canon.pdf">https://hal.science/hal-02408779v1/file/Magnetic_Canon.pdf</a></p>
-<h2>w9</h2>
+<h2>w9-w10</h2>
+<p>w10 網路狀態: 目前似乎從學校電腦無法使用 hinet 的 IPv6 DNS 伺服器. 驗證方式: 在命令列中輸入 nslookup, 然後以 server 2001:b000:168::1 指令將 DNS 設為中華電信的符號名稱伺服器, 然後查詢 google.com.</p>
+<p style="padding-left: 30px;">因應方法: 使用機械設計系所建立的 DNS 伺服器, 140.130.17.3 以及 <span style="background-color: #ffff00;">2001:288:6004:17::3</span></p>
+<p style="padding-left: 30px;">無法使用中華電信 DNS 原因: 應該是學校網管修改設定, 禁止跨區設定 DNS 伺服器.</p>
+<p>w10 Ubuntu 問題: 22.04 版更為最新後, netplan 在無 openvswitch 啟動的情況下無法更新設定.</p>
+<p style="padding-left: 30px;"></p>
 <p><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EX45YrR81S1AlJn3EmMISXcBI-ETlNSLSridchdKq4XjTA?e=GYp3x9">creo 10 安裝流程的 wink 專案檔案下載</a> (需要密碼)</p>
 <p>有關線上簡報、網誌與多媒體影片製作工具, 請參考: <a href="https://mde.tw/cpnote/content/w10.html">https://mde.tw/cpnote/content/w10.html</a></p>
 <p>有關學習計算機程式與電腦輔助設計相關課程的心態與方法, 請參考<a href="https://mde.tw/cpnote/content/%E4%B8%8A%E8%AA%B2%E5%85%A7%E5%AE%B9.html">這裡</a>的說明.</p>
@@ -513,8 +518,7 @@ git pull</pre>
 <p style="padding-left: 60px;"><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=9533">Arduino code to CoppeliaSim</a> 展示. (<a href="https://bitbucket.org/afaina/horosim/">Horosim</a>, <a href="https://github.com/mdecycu/horosim">備份</a>), 更早的<a href="https://forum.arduino.cc/t/using-v-rep-to-simulate-an-arduino-sketch/208718/2">討論</a>. 虛實整合: <a href="https://www.youtube.com/watch?v=ZJQV2FlGFBo">1</a>, <a href="https://www.youtube.com/watch?v=Nsgt8YPSDpU">2</a>, <a href="https://github.com/mdecycu/pj5083/releases/tag/v0.0.80">3</a>.</p>
 <p>有關鋼球平衡台 (steel ball balancing platform):</p>
 <p>有關虛實整合彈珠台 (cyber-physical pinball table):</p>
-<p></p>
-<h2>網路設定</h2>
+<p></p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
