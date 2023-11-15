@@ -500,7 +500,12 @@ git pull</pre>
 <p style="padding-left: 30px;">因應方法: 使用機械設計系所建立的 DNS 伺服器, 140.130.17.3 以及 <span style="background-color: #ffff00;">2001:288:6004:17::3</span></p>
 <p style="padding-left: 30px;">無法使用中華電信 DNS 原因: 應該是學校網管修改設定, 禁止跨區設定 DNS 伺服器.</p>
 <p>w10 Ubuntu 問題: 22.04 版更為最新後, netplan 在無 openvswitch 啟動的情況下無法更新設定.</p>
-<p style="padding-left: 30px;">先處理 /etc/netplan/net.yaml 中 DNS 伺服器改為系上主機, 在無法使用 sudo netplan apply 更新 /etc/netplan/net.yaml 設定之前, 可以查詢 /etc/environment 中是否使用 IPv6 address 進行設定 http_proxy 與 https_proxy 變數. 或者修改 /etc/resolv.conf 中的 nameserver 設定, 讓 net.yaml 中的 DNS 設定可以運作. 且利用 sudo apt install openvswitch-switch 安裝並執行 netplan 所需的服務 (其實是 bug, 但為了能讓 netplan 正常運作的權宜之策).</p>
+<p style="padding-left: 30px;">先處理 /etc/netplan/net.yaml 中 DNS 伺服器改為系上主機, 在無法使用 sudo netplan apply 更新 /etc/netplan/net.yaml 設定之前, 可以查詢 /etc/environment 中是否使用 IPv6 address 進行設定 http_proxy 與 https_proxy 變數. 或者修改 /etc/resolv.conf 中的 nameserver 設定, 讓 net.yaml 中的 DNS 設定可以運作. 且利用 <span style="background-color: #ffff00;">sudo apt install openvswitch-switch</span> 安裝並執行 netplan 所需的服務 (其實是 bug, 但為了能讓 netplan 正常運作的權宜之策).</p>
+<p>有關電腦輔助設計室網路設定:</p>
+<p style="padding-left: 30px;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/ESCcmplVTVxJnJYZ2pJWh-oBFWsDJxxSYzVh_5LD5Oa5Gg?e=1EysLk">w10_2b_cadlab_network_setting.7z</a> (需要下載密碼) - 電腦輔助設計室網路設定批次與 Powershell 檔案.</p>
+<p style="padding-left: 30px;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EV5P-1cv-y1Ih5zFT9LyTy0B6vGwNfDVlXYescPWAcMliw?e=LTUnq7">tinyc.7z</a> (需要下載密碼) - 使用 Tiny C Compiler 編譯 C 程式, 包含 gd 與 gnuplot.</p>
+<p style="padding-left: 30px;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EYLeiM_NMzFHiKnUWpcO9pwBHxwDNjNDC-4F3h_d761wMQ?e=NMdPpv">python3114_git_putty.7z</a> (需要下載密碼) - 將近端 cmsimde 啟動並改版後推向 Github 所需的檔案.</p>
+<hr/>
 <p><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EX45YrR81S1AlJn3EmMISXcBI-ETlNSLSridchdKq4XjTA?e=GYp3x9">creo 10 安裝流程的 wink 專案檔案下載</a> (需要密碼)</p>
 <p>有關線上簡報、網誌與多媒體影片製作工具, 請參考: <a href="https://mde.tw/cpnote/content/w10.html">https://mde.tw/cpnote/content/w10.html</a></p>
 <p>有關學習計算機程式與電腦輔助設計相關課程的心態與方法, 請參考<a href="https://mde.tw/cpnote/content/%E4%B8%8A%E8%AA%B2%E5%85%A7%E5%AE%B9.html">這裡</a>的說明.</p>
