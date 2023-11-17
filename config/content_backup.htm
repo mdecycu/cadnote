@@ -554,14 +554,37 @@ git pull</pre>
 <p style="padding-left: 60px;">進入 CoppeliaSim <a href="https://forum.coppeliarobotics.com/">Forum</a>, 搜尋相關討論或發問.</p>
 <p style="padding-left: 60px;"><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=9533">Arduino code to CoppeliaSim</a> 展示. (<a href="https://bitbucket.org/afaina/horosim/">Horosim</a>, <a href="https://github.com/mdecycu/horosim">備份</a>), 更早的<a href="https://forum.arduino.cc/t/using-v-rep-to-simulate-an-arduino-sketch/208718/2">討論</a>. 虛實整合: <a href="https://www.youtube.com/watch?v=ZJQV2FlGFBo">1</a>, <a href="https://www.youtube.com/watch?v=Nsgt8YPSDpU">2</a>, <a href="https://github.com/mdecycu/pj5083/releases/tag/v0.0.80">3</a>.</p>
 <p style="padding-left: 60px;">從既有討論串中學習: <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=3923">1</a>,</p>
-<p style="padding-left: 60px;">了解與磁場有關的研究: <a href="https://nfuedu-my.sharepoint.com/:b:/g/personal/yen_nfu_edu_tw/EcBSJy8fFidLvmxoc_E0cPkB0A1Xxyri2s90CSawtDZNMA?e=BCuoBM">1</a> (需要下載密碼), <a href="https://greenteapress.com/modsimpy/ModSimPy3.pdf">2</a>.</p>
+<p style="padding-left: 60px;">了解與磁場模擬有關的研究: <a href="https://nfuedu-my.sharepoint.com/:b:/g/personal/yen_nfu_edu_tw/EcBSJy8fFidLvmxoc_E0cPkB0A1Xxyri2s90CSawtDZNMA?e=BCuoBM">1</a> (需要下載密碼), <a href="https://greenteapress.com/modsimpy/ModSimPy3.pdf">2</a>, <a href="https://greenteapress.com/modsimpy/ModSimPy3.pdf">3</a>.</p>
 <p style="padding-left: 60px;">從<a href="https://studywolf.wordpress.com/2016/04/18/using-vrep-for-simulation-of-force-controlled-models/">案例</a>中學習.</p>
 <p>有關鋼球平衡台 (steel ball balancing platform):</p>
 <p>有關虛實整合彈珠台 (cyber-physical pinball table):</p>
+<p></p><h3>wink</h3>
+<p>學習如何利用 <a href="https://www.debugmode.com/wink.html">Wink</a> 製作電腦操作流程影片, 並將影片放入個人與分組網頁中.</p>
+<p>首先使用者必須了解 <a href="https://www.debugmode.com/wink.html">Wink</a> 製作影片的功能與 <a href="https://github.com/ShareX/ShareX/releases">ShareX</a> 相同, 都是依賴 <a href="https://ffmpeg.org/download.html">ffmpeg.exe</a>. 意即使用 <a href="https://www.debugmode.com/wink.html">Wink</a> 之前必須在 Preferences 中先行設定 ffmpeg.exe 所在位置, 否則無法對所建立的專案轉為 mp4 檔案.</p>
+<p>另外, 若擷取關鍵影格的電腦螢幕解析度大於 1008 x 630, 通常建立將影格 resize, 以方便使用者在手機上觀看影片.</p>
+<p>利用 Wink 建立操作影片的步驟:</p>
+<ol>
+<li>設定 ffmpeg.exe 所在位置, 若使用隨身碟中的可攜程式系統, 可將 ffmpeg.exe 放在 data 目錄中, 並以 wink_ffmpeg.reg 進行設定, 也可將 Wink 的啟動與 start_ipv6.bat 進行整合.</li>
+<li>開啟 Wink 新專案.</li>
+<li>每按下一次 Pause 鍵, 可擷取操作過程中的畫面影格 (利用 Zoomit 放大所要強調的操作內容, 並以紅線框列).</li>
+<li>操作錄製結束後, 從右下方的 Tray 中, 以滑鼠左鍵點選, 在 Wink 圖示中, 以滑鼠右鍵帶出 Finish Capture 按鍵, 點選後即可回到 Wink 專案區.</li>
+<li>在每一頁影格中加入註解說明 TextBox 之前, 先利用 Project - Resize All Frames 將影格縮小至 1008 x630.</li>
+<li>完成註解說明後, 可以逐一移動各頁面滑鼠游標位置, 並決定各頁面影片播放時的停留時間.</li>
+<li>最後以 Render 按鈕進行轉檔, 並利用 View Rendered Output 檢視所建立的操作影片.</li>
+</ol>
+<p></p>
+<p>wink_ffmpeg.reg 設定檔案內容:</p>
+<pre class="brush:js;auto-links:false;toolbar:false" contenteditable="false">Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Debugmode]
+
+[HKEY_CURRENT_USER\SOFTWARE\Debugmode\Wink\Settings]
+"FfmpegPath"="y:\\ffmpeg.exe"
+
+</pre>
 <p></p><h3>pms</h3>
 <p>平面上滾動的鋼球永動模擬器, 也算 perpetual motion simulator (pms) 中的一種:</p>
-<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/O-FKcK0vzgY?si=wPLxVK4SclNUc-Ls" title="YouTube video player" width="560"></iframe></p>
-<h2>網路設定</h2>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/O-FKcK0vzgY?si=wPLxVK4SclNUc-Ls" title="YouTube video player" width="560"></iframe></p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
@@ -1366,7 +1389,7 @@ doc["add1to100"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr><!-- ########################################## -->
+<!-- editor1 結束 --><hr/><!-- ########################################## -->
 <p>從 1 累加到 100 part2:</p>
 <p><button id="add1to100part2">1 add to 100</button><button id="cango_three_gears">cango_three_gears</button><button id="bsnake">BSnake</button><button id="aitetris">AI Tetris</button><button id="threejsblock">Rotating Block</button></p>
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
@@ -1485,7 +1508,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr>
+<!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p></hr></hr>
+</p>
