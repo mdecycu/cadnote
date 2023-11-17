@@ -488,7 +488,7 @@ git pull</pre>
 <p>chmod u+x acp</p>
 <p>chmod og-rwx config/config</p>
 <p>chmod 711 /home/cad學號</p>
-<p>chmoe 755 /home/cad學號/public_html</p>
+<p>chmod 755 /home/cad學號/public_html</p>
 <p>假如自己所分派到的網路 port 遭到占用, 可以利用下列指令查出使用該埠號的使用者帳號:</p>
 <p>例如要查詢埠號 9210 埠號的使用情形, 指令為 <span>lsof -i :9210, 其中 ls 為 list, of 為 open file, -i 中的 i 為 internet, :9210 表示要求列出與 port 9210 有關 internet 使用相關的資料.</span></p>
 <p>10)<span style="background-color: #ccffcc;"> 網路連線協定:</span></p>
@@ -518,11 +518,10 @@ git pull</pre>
 <p>41123243<br/>41123241<br/>41123249<br/>41123214<br/>41123224<br/>41123228<br/>41123215<br/>41123245<br/>41123216<br/>41123204<br/>41123234<br/>41123244<br/>41123235<br/>41123240<br/>41123229<br/>41123209<br/>41123207<br/>41123246<br/>41123250<br/>41123201<br/>41123217<br/>41123251<br/>41123218</p>
 <p>模擬參考:</p>
 <p style="padding-left: 30px;"><a href="https://www.researchgate.net/publication/263466730_Mathematical_Modeling_of_Electromagnetic_Levitation_Ball_using_Bondgraph">https://www.researchgate.net/publication/263466730_Mathematical_Modeling_of_Electromagnetic_Levitation_Ball_using_Bondgraph</a></p>
-<p style="padding-left: 30px;"><a href="https://hal.science/hal-02408779v1/file/Magnetic_Canon.pdf">https://hal.science/hal-02408779v1/file/Magnetic_Canon.pdf</a></p>
-<h2>w9-w10</h2>
+<p style="padding-left: 30px;"><a href="https://hal.science/hal-02408779v1/file/Magnetic_Canon.pdf">https://hal.science/hal-02408779v1/file/Magnetic_Canon.pdf</a></p><h2>w9-w10</h2>
 <p>雲端、區網與近端環境中的電腦輔助設計環境:</p>
 <p style="padding-left: 30px;">直接在網路上進行電腦輔助設計的好處雖然很多, 但是在<span style="background-color: #ffff00;">商用的雲端系統</span>, 例如: Github 或 Replit, 使用者只能依照服務提供者的方法及流程進行應用, 當 Github 宣布在 2023 年底之前各用戶必須使用 2FA 認證登入, 使用者只能照辦, 否則帳號就可能被禁用.</p>
-<p style="padding-left: 30px;">作為 Replit 的免付費用戶也處於相同的情況, 當服務提供者宣布在 2024 年初開始, 只有付費用戶可以使用廣域的 Webview, 若希望仍維持免付費使用, 屆時再看是否能繼續開啟動態網站編輯, 並將改版內容提交推送到 Github 倉儲, 以便採分散式版次管理流程維護 Github Pages 網站.</p>
+<p style="padding-left: 30px;">作為 Replit 的免付費用戶也處於相同的情況, 當服務提供者宣布在 2024 年初開始, 只有付費用戶可以使用廣域的 Webview, 若希望仍維持免付費使用 (目前 <a href="https://replit.com/pricing">Replit Core 年費</a> 120 美元), 屆時再看是否能繼續開啟動態網站編輯, 並將改版內容提交推送到 Github 倉儲, 以便採分散式版次管理流程維護 Github Pages 網站.</p>
 <p style="padding-left: 30px;">同樣利用網路服務, 但設法將所有超過兩百名用戶集中到<span style="background-color: #ffff00;">自行搭建的廣域網站</span>系統, 也可以擁有類似 Replit 上維護網站內容的優點, 可是壞處是在系上工作站室所設定的軟硬體與網路連線, 都必須自行維護, 可用性與穩定度都遠遠不及商用的雲端系統.</p>
 <p style="padding-left: 30px;">另外, 在無網路連線的情況下, 若先前已經將 Github 上倉儲, git clone 到<span style="background-color: #ffff00;">近端硬碟或隨身碟</span>, 使用者仍可以直接利用可攜程式系統, 執行動態網站並針對電腦輔助流程新增提交改版內容, 等到有網路連線的時段再將資料推送到 Github.</p>
 <p style="padding-left: 30px;">最後, 假如系上的連外網路無法順利與 Github 相連, 所有電腦輔助設計與協同都必須在區網進行, 則可以使用 <a href="https://fossil-scm.org">Fossil SCM</a> 進行各學員的分散式版次管理. (請參考<a href="https://mdecourse.blogspot.com/2021/02/fossil-scm.html">這裡</a>的說明).</p>
@@ -554,9 +553,15 @@ git pull</pre>
 <p style="padding-left: 60px;">透過閱讀 <a href="https://mde.tw/pjcopsim">https://mde.tw/pjcopsim</a> 中的 tutorial 與相關指令說明後, 實際操作測試並在個人網頁中記錄各項功能的使用方法.</p>
 <p style="padding-left: 60px;">進入 CoppeliaSim <a href="https://forum.coppeliarobotics.com/">Forum</a>, 搜尋相關討論或發問.</p>
 <p style="padding-left: 60px;"><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=9533">Arduino code to CoppeliaSim</a> 展示. (<a href="https://bitbucket.org/afaina/horosim/">Horosim</a>, <a href="https://github.com/mdecycu/horosim">備份</a>), 更早的<a href="https://forum.arduino.cc/t/using-v-rep-to-simulate-an-arduino-sketch/208718/2">討論</a>. 虛實整合: <a href="https://www.youtube.com/watch?v=ZJQV2FlGFBo">1</a>, <a href="https://www.youtube.com/watch?v=Nsgt8YPSDpU">2</a>, <a href="https://github.com/mdecycu/pj5083/releases/tag/v0.0.80">3</a>.</p>
+<p style="padding-left: 60px;">從既有討論串中學習: <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=3923">1</a>,</p>
+<p style="padding-left: 60px;">了解與磁場有關的研究: <a href="https://nfuedu-my.sharepoint.com/:b:/g/personal/yen_nfu_edu_tw/EcBSJy8fFidLvmxoc_E0cPkB0A1Xxyri2s90CSawtDZNMA?e=BCuoBM">1</a> (需要下載密碼), <a href="https://greenteapress.com/modsimpy/ModSimPy3.pdf">2</a>.</p>
+<p style="padding-left: 60px;">從<a href="https://studywolf.wordpress.com/2016/04/18/using-vrep-for-simulation-of-force-controlled-models/">案例</a>中學習.</p>
 <p>有關鋼球平衡台 (steel ball balancing platform):</p>
 <p>有關虛實整合彈珠台 (cyber-physical pinball table):</p>
-<p></p><h2>網路設定</h2>
+<p></p><h3>pms</h3>
+<p>平面上滾動的鋼球永動模擬器, 也算 perpetual motion simulator (pms) 中的一種:</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/O-FKcK0vzgY?si=wPLxVK4SclNUc-Ls" title="YouTube video player" width="560"></iframe></p>
+<h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
@@ -612,8 +617,7 @@ Write-Host "IPv6 Gateway: $gateway"</pre>
 <p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/Eck0KdLe1uZEk_LJ2tkEf4ABZyW32cmq5WZVl52Fww9C2A?e=i5Dm3t">2023_fall_w7_cadlab_network_setup.7z</a> <span>(需要下載密碼), 必須先放入個人所分配到的 IPv6 位址後, 以管理者身分執行批次檔案, 就能直接完成電腦輔助設計室中電腦的網路連線設定.</span></p>
 <p><span>各學員所分配的固定 IPv6 位址如下:</span></p>
 <p style="padding-left: 30px;">2a 學員展示用 IPv6 位址: 2001:288:6004:17:2023:cada::<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/afc0e4d2267199743ac44bc7aeb0c4b195a30abb/generate_cad2023_2a_site_repo.py">班級名單序號</a></p>
-<p style="padding-left: 30px;"><span>2b 學員展示用 IPv6 位址: 2001:288:6004:17:2023:cadb::</span><a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/afc0e4d2267199743ac44bc7aeb0c4b195a30abb/generate_cad2023_2b_site_repo.py">班級名單序號</a></p>
-<h2>exam</h2>
+<p style="padding-left: 30px;"><span>2b 學員展示用 IPv6 位址: 2001:288:6004:17:2023:cadb::</span><a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/afc0e4d2267199743ac44bc7aeb0c4b195a30abb/generate_cad2023_2b_site_repo.py">班級名單序號</a></p><h2>exam</h2>
 <p>在系上 IPv6 網段時, 可以在線上考試主機 <a href="https://exam.cycu.org">https://exam.cycu.org</a> 帳號註冊時段<a href="https://exam.cycu.org/public/code/tce_user_registration.php">進行註冊</a>:</p>
 <p><img alt="" height="201" src="/images/2023_exam_cycu_org_register.png" width="400"/></p>
 <p>其中:</p>
@@ -1362,7 +1366,7 @@ doc["add1to100"].bind('click', add)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console1"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div1"></div>
-<!-- editor1 結束 --><hr/><!-- ########################################## -->
+<!-- editor1 結束 --><hr><!-- ########################################## -->
 <p>從 1 累加到 100 part2:</p>
 <p><button id="add1to100part2">1 add to 100</button><button id="cango_three_gears">cango_three_gears</button><button id="bsnake">BSnake</button><button id="aitetris">AI Tetris</button><button id="threejsblock">Rotating Block</button></p>
 <p><!-- 請注意, 這裡使用 Javascript 將 localStorage["kw_py_src2"] 中存在近端瀏覽器的程式碼, 由使用者決定存檔名稱--></p>
@@ -1481,7 +1485,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr/>
+<!-- editor2 結束 --><hr>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p>
+</p></hr></hr>
