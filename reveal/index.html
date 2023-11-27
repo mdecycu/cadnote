@@ -24,408 +24,391 @@
 <div class="reveal">
     <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
-        <section>
-            <a href="https://revealjs.com">
-                <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" alt="reveal.js logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
-            </a>
-            <h3>The HTML Presentation Framework</h3>
-            <p>
-                <small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
-            </p>
-        </section>
+    <section>
+        <a href="https://revealjs.com">
+            <img src="./../images/kmol_1172x340_color_3yrs.png" alt="kmolab logo" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="kmolab-logo">
+        </a>
+        <h3>電腦輔助設計與實習</h3>
+        <p>
+            <small>Created by <a href="http://mde.tw">KMOLAB</a></small>
+        </p>
+    </section>
 
-        <section>
-            <h2>Hello There</h2>
-            <p>
-                reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-            </p>
-        </section>
+    <section>
+        <section data-markdown>
+        <script type="text/template">
+        ## 電腦輔助設計與實習教學內容
+        <small>
 
-        <!-- Example of nested vertical slides -->
-        <section>
-            <section>
-                <h2>Vertical Slides</h2>
-                <p>Slides can be nested inside of each other.</p>
-                <p>Use the <em>Space</em> key to navigate through all slides.</p>
-                <br>
-                <a href="#" class="navigate-down">
-                    <img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
-                </a>
-            </section>
-            <section>
-                <h2>Basement Level 1</h2>
-                <p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-            </section>
-            <section>
-                <h2>Basement Level 2</h2>
-                <p>That's it, time to go back up.</p>
-                <br>
-                <a href="#/2">
-                    <img class="r-frame" style="background: rgba(255,255,255,0.1); transform: rotate(180deg);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Up arrow">
-                </a>
-            </section>
-        </section>
+        - 截至目前 <n style="color:red;">MCAD 零組件繪圖</n>結合 <n style="color:red;">CoppeliaSim</n> 進行機電資整合系統模擬及應用
 
-        <section>
-            <h2>Slides</h2>
-            <p>
-                Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="https://slides.com" target="_blank">https://slides.com</a>.
-            </p>
-        </section>
+        - [課堂筆記](https://mde.tw/cadnote/)
 
-        <section data-auto-animate>
-            <h2 data-id="code-title">Pretty Code</h2>
-            <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
-                import React, { useState } from 'react';
+        - 從電腦輔助機械設計套件的零組件繪圖開始, 轉入 CoppeliaSim 後, 利用 <n style="color:red;">ZeroMQ remote API Python</n> 程式進行控制系統設計與模擬
 
-                function Example() {
-                  const [count, setCount] = useState(0);
+        - MCAD (Mechanical Computer Aided Design) 套件包含 1) <n style="color:red;">PTC Creo</n>、2) <n style="color:red;">AutoDesk Fusion 360</n>、3) <n style="color:red;">AutoDesk Inventor</n>、4) <n style="color:red;">Siemens NX</n>、5) <n style="color:red;">PTC Onshape</n>、6) <n style="color:red;">Dassault SolidWorks</n>、7) <n style="color:red;">Siemens Solid Edge</n> 與 8) <n style="color:red;">Solvespace</n> 等 8 套.
 
-                  return (
-                    ...
-                  );
-                }
-            </code></pre>
-            <p>Code syntax highlighting courtesy of <a href="https://highlightjs.org/usage/">highlight.js</a>.</p>
-        </section>
+        - 希望各分組從<n style="color:red;">套件安裝程式的取得</n>, <n style="color:red;">詳細的安裝過程</n>, 以及實際進行各專案<n style="color:red;">設計繪圖零組件繪製過程</n>進行紀錄, 並整理出各套件的特點或差異
 
-        <section data-auto-animate>
-            <h2 data-id="code-title">With animations</h2>
-            <pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
-                import React, { useState } from 'react';
+        - 學習如何將所設計的專案系統零組件, 導入 CoppeliaSim 後, 利用 ZeroMQ remote API Python 進行控制
 
-                function Example() {
-                  const [count, setCount] = useState(0);
+        -  下載 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼)
 
-                  return (
-                    &lt;div&gt;
-                      &lt;p&gt;You clicked {count} times&lt;/p&gt;
-                      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-                        Click me
-                      &lt;/button&gt;
-                    &lt;/div&gt;
-                  );
-                }
-
-                function SecondExample() {
-                  const [count, setCount] = useState(0);
-
-                  return (
-                    &lt;div&gt;
-                      &lt;p&gt;You clicked {count} times&lt;/p&gt;
-                      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
-                        Click me
-                      &lt;/button&gt;
-                    &lt;/div&gt;
-                  );
-                }
-            </code></pre>
-        </section>
-
-        <section>
-            <h2>Point of View</h2>
-            <p>
-                Press <strong>ESC</strong> to enter the slide overview.
-            </p>
-            <p>
-                Hold down the <strong>alt</strong> key (<strong>ctrl</strong> in Linux) and click on any element to zoom towards it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Click again to zoom back out.
-            </p>
-            <p>
-                (NOTE: Use ctrl + click in Linux.)
-            </p>
-        </section>
-
-        <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-            <h2>Auto-Animate</h2>
-            <p>Automatically animate matching elements across slides with <a href="https://revealjs.com/auto-animate/">Auto-Animate</a>.</p>
-            <div class="r-hstack justify-center">
-                <div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-                <div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-                <div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
-            </div>
-        </section>
-        <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-            <div class="r-hstack justify-center">
-                <div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
-                <div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
-                <div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
-            </div>
-            <h2 style="margin-top: 20px;">Auto-Animate</h2>
-        </section>
-        <section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-            <div class="r-stack">
-                <div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
-                <div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
-                <div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
-            </div>
-            <h2 style="margin-top: 20px;">Auto-Animate</h2>
-        </section>
-
-        <section>
-            <h2>Touch Optimized</h2>
-            <p>
-                Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-            </p>
+        </small>
+        </script>
         </section>
 
         <section data-markdown>
-            <script type="text/template">
-                ## Markdown support
+        <script type="text/template">
+        ## MCAD 套件取得與授權
+        <small>
 
-                Write content using inline or external Markdown.
-                Instructions and more info available in the [readme](https://revealjs.com/markdown/).
+        - 1 <n style="color:red;">PTC Creo</n> [學生版註冊與下載](https://www.ptc.com/en/products/education/free-software/creo-college-download)
 
-                ```[]
-                <section data-markdown>
-                  ## Markdown support
+        - 2 <n style="color:red;">AutoDesk Fusion 360</n> [教育版註冊與下載](https://www.autodesk.com/products/fusion-360/education)
 
-                  Write content using inline or external Markdown.
-                  Instructions and more info available in the [readme](https://revealjs.com/markdown/).
-                </section>
-                ```
-            </script>
+        - 3 <n style="color:red;">AutoDesk Inventor</n> [教育版註冊與下載](https://www.autodesk.com/support/account/education/students-educators/get-started)
+
+        - 4 <n style="color:red;">Siemens NX</n> [NX2027.3401_lite_cad2022.7z 下載](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EdHAOThcQztGj4EZy5Duab0Bvcf3AbzsC_MLsCfmwBXAFg?e=4dPh6O) (需要下載密碼)
+
+        - 5 <n style="color:red;">PTC Onshape</n> [https://onshape.com](https://onshape.com)
+
+        - 6 <n style="color:red;">Dassault SolidWorks</n> [下載 SolidWorks 2022 安裝檔案](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EY9GinJ2ns5Iiy-ih3-y9xwBdgl3H-ajMPZOIxZhd9Nssg?e=jP7Y4T) (16GB for @nfu users only) [安裝導引](https://mde.tw/cadnote/content/solidworks.html)
+
+        - 7 <n style="color:red;">Siemens Solid Edge</n>  [Solid Edge community 版](https://solidedge.siemens.com/en/solutions/users/hobbyists-and-makers/) 或 [Solid Edge 可攜版下載](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/Ef9XW25wCPtCspWavfXRQkYBKeFkOnZDfMyA3Q-1DRhDNA?e=grfmFo) (需要密碼)
+
+        - 8 <n style="color:red;">Solvespace</n> [https://solvespace.com](https://solvespace.com)
+
+        </small>
+        </script>
         </section>
 
-        <section>
-             <section id="fragments">
-                 <h2>Fragments</h2>
-                 <p>Hit the next arrow...</p>
-                 <p class="fragment">... to step through ...</p>
-                 <p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+    </section>
+    <section data-markdown>
+    <script type="text/template">
+    ## 困難的地方在哪?
 
-                 <aside class="notes">
-                     This slide has fragments which are also stepped through in the notes window.
-                 </aside>
-             </section>
-              
-             <section>
-                 <h2>Fragment Styles</h2>
-                 <p>There's different types of fragments, like:</p>
-                 <p class="fragment grow">grow</p>
-                 <p class="fragment shrink">shrink</p>
-                 <p class="fragment fade-out">fade-out</p>
-                 <p>
-                     <span style="display: inline-block;" class="fragment fade-right">fade-right, </span>
-                     <span style="display: inline-block;" class="fragment fade-up">up, </span>
-                     <span style="display: inline-block;" class="fragment fade-down">down, </span>
-                     <span style="display: inline-block;" class="fragment fade-left">left</span>
-                 </p>
-                 <p class="fragment fade-in-then-out">fade-in-then-out</p>
-                 <p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p>
-                 <p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
-             </section>
-        </section>
+    - 各分組要整理多達 8 套 MCAD 系統相關細節資料
 
-        <section id="transitions">
-            <h2>Transition Styles</h2>
-            <p>
-                You can select from different transitions, like: <br>
-                <a href="?transition=none#/transitions">None</a> -
-                <a href="?transition=fade#/transitions">Fade</a> -
-                <a href="?transition=slide#/transitions">Slide</a> -
-                <a href="?transition=convex#/transitions">Convex</a> -
-                <a href="?transition=concave#/transitions">Concave</a> -
-                <a href="?transition=zoom#/transitions">Zoom</a>
-            </p>
+    - 要在雲端、自架 server 與近端維護 Github 上的倉儲與網站內容
+
+    - 許多教材內容都是英文
+
+    - 課後要花許多時間自己練習
+
+    - <del style="color:red;">聽說這門課會當很多人</del>
+    </script>
+    </section>
+
+    <section>
+        <section data-markdown>
+        <script type="text/template">
+        ## 有關網路設定
+
+        - 以下步驟可以將網路設定檔案放入隨身碟
+
+        - 要先從[這裡](https://mde.tw/cadnote/content/links.html)確認你的班級序號
+
+        - 下載[網路設定檔案](https://mde.tw/cpnote/downloads/w11_1a.7z)
+
+        - 同時下載 SCITE 編輯器: [wscite.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EayWXm_Hk4ZKsvXqc8iiJ28BeeZNx-4ib5XMjA7WCv6gVg?e=YxEtWS)
+
+        - 編輯修改 .ps1 中的 IPv6 固定位址, 放入自己的固定 IPv6 address
+
+        - <del style="color:red;">聽說這門課會當很多人</del>, <n style="color:green;">其實只有你當得了你自己!</n>
+        </script>
         </section>
 
-        <section id="themes">
-            <h2>Themes</h2>
-            <p>
-                reveal.js comes with a few themes built in: <br>
-                <!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-                <a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-            </p>
+        <section data-markdown>
+        <script type="text/template">
+        - 1_cadlab_network_setup.bat 檔案內容
+
+        - 開機後, 插入隨身碟, 以管理者身分執行 .bat 指令檔案
+
+        ```[]
+        REM Get-ExecutionPolicy -List
+        REM Set-ExecutionPolicy RemoteSigned
+        echo "disable ipv4 and setup proxy for ipv6"
+        rem powershell start cmd -v runas
+        SET CurrentDir=%~dp0
+        %windir%\system32\reg.exe import %CurrentDir%1_2023_cadlab_network_setup.reg
+        powershell -noexit -executionpolicy bypass -File %CurrentDir%1_disable_ipv4.ps1
+        exit
+        ```
+        </script>
         </section>
-        <section>
-            <section data-background="#dddddd">
-                <h2>Slide Backgrounds</h2>
-                <p>
-                    Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-                </p>
-                <a href="#" class="navigate-down">
-                    <img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
-                </a>
-            </section>
-            <section data-background="https://static.slid.es/reveal/image-placeholder.png">
-                <h2>Image Backgrounds</h2>
-                <pre><code class="hljs html">&lt;section data-background="image.png"&gt;</code></pre>
-            </section>
-            <section data-background="https://static.slid.es/reveal/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-                <h2>Tiled Backgrounds</h2>
-                <pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-            </section>
-            <section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4" data-background-color="#000000">
-                <div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-                    <h2>Video Backgrounds</h2>
-                    <pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-                </div>
-            </section>
-            <section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-                <h2>... and GIFs!</h2>
-            </section>
+        <section data-markdown>
+        <script type="text/template">
+        - 1_2023_cadlab_network_setup.reg 檔案內容
+
+        ```[]
+        Windows Registry Editor Version 5.00
+
+         [HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings]
+         ; disable AutoDetect
+        "AutoDetect"=dword:00000000
+        "MigrateProxy"=dword:00000001
+        ; enable Proxy
+        "ProxyEnable"=dword:00000001 
+        "ProxyHttp1.1"=dword:00000000 
+        "ProxyServer"="http://[2001:288:6004:17::4]:3128"
+        "ProxyOverride"="localhost;2001:288:6004:17;192.168.1.0/24;<local>"
+        ```
+        </script>
+        </section>
+        <section data-markdown>
+        <script type="text/template">
+        - 1_disable_ipv4.ps1 檔案內容
+
+        ```[]
+        # 關閉 IPv4 網路
+        Disable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip
+          
+        # 啟用 IPv6 網路
+        Enable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6
+          
+        # 設置 IPv6 網路中的 mde DNS 伺服器 (設計系)
+        $dnsServers = "2001:288:6004:17::3"
+        Set-DnsClientServerAddress -InterfaceAlias "*" -ServerAddresses $dnsServers
+
+
+        # 設定 IPv6 固定位址 (fixed address), 子網路首碼長度 (subnet prefix) 與網路預設閘道 (gateway) 等三個變數
+        # 以序號 100 為例
+        $ipv6Address = "2001:288:6004:17:2023:cba::100"
+        $subnetPrefixLength = 64
+        $gateway = "2001:288:6004:17::254"
+         
+        # 參考 https://serverfault.com/questions/427234/getting-network-interface-device-name-in-powershell
+        $query = "SELECT * FROM Win32_NetworkAdapter WHERE Manufacturer != 'Microsoft' AND NOT PNPDeviceID LIKE 'ROOT\\%'"
+        $interfaces = Get-WmiObject -Query $query | Sort index
+        $interfaces | ForEach{
+            $friendlyname = $_ | ForEach-Object { $_.NetConnectionID }
+            New-NetIPAddress -AddressFamily "IPv6" -InterfaceAlias $friendlyname -IPAddress $ipv6Address -PrefixLength $subnetPrefixLength -DefaultGateway $gateway
+        }
+
+        # 列出所使用的 IPv6 網路通訊協定內容
+        Write-Host "IPv6 Address: $ipv6Address/$subnetPrefixLength"
+        Write-Host "IPv6 Gateway: $gateway"
+        ```
+        </script>
+        </section>
+    </section>
+    <section>
+        <section data-markdown>
+        <script type="text/template">
+        ## Replit 上維護倉儲內容
+
+        <small>
+
+        - 以電子郵箱註冊作為 Replit 登入帳號後, 登入自己的 Github 帳號
+
+        - 登入 Replit 後, 選擇 account 下方的 Connected services, 點選 Github 右邊的 Connect, 以便連結與 Github 的權限
+
+        - 利用 Replit 的 create Repl 建立專案, 且是利用 Import 的方式選擇 Python 作為 Template, 將 Github 倉儲輸入 Repl
+
+        - 首先輸入 python3 main.py 作為 .replit 的內容, 之後只要按下 Run 就是執行 python3 main.py
+
+        - 利用[密碼產生程式](https://mde.tw/cpnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/b92b16621dd0246c352cf13d6463b333/raw/0bfa669750aba3abe48554509bbd43d65b6e5c82/hashlib_password_generator.py), 建立 secrets 頁面中的 config 管理者登入密碼變數
+
+        - 利用 Shell 指令: <n style="color:red;">git submodule update --init</n> 取下子模組, 並以 <n style="color:red;">pip install flask flask_cors bs4 lxml pelican markdown gevent</n> 安裝 Run 執行所需的 Python 模組
+
+        - 最後按下 Run 就可以啟動編輯網站, 編輯結束利用 Convert 轉為靜態網站, 最後利用 Git 頁面新增提交並 push.
+
+        </small>
+        </script>
         </section>
 
-        <section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-            <h2>Background Transitions</h2>
-            <p>
-                Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-            </p>
-            <pre><code class="hljs javascript">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+        <section data-markdown>
+        <script type="text/template">
+        ## s.cycu.org 上維護倉儲內容
+
+        <small>
+
+        - 登入 s.cycu.org 之後, 以 <n style="color:red;">ssh-keygen</n> 指令, 連續按下三個 Enter, 就可以在 .ssh 目錄建立 id_rsa 與 id_rsa.pub
+
+        - 在 Windows 11 以 sftp 帳號@s.cycu.org 登入遠端檔案傳輸模式後, cd .ssh 之後, 在 .ssh 目錄以 <n style="color:red;">get id_rsa*</n> 取下私鑰與公鑰
+
+        - 利用 SciTE 開啟 id_rsa.pub, 並將公鑰內容送到 Github 帳號 Settings 中的 SSH and GPG keys
+
+        - 下載 [config](https://mde.tw/cpnote/downloads/config) SSH 設定檔案, 利用 sftp 模式, 以 put config 送到 s.cycu.org 帳號下的 .ssh 目錄, 此時在 s.cycu.org 已經可以利用 github.com 昨為代號, 透過代理主機與私鑰, 以 <n style="color:red;">git clone --recurse-submodules git@github.com:帳號/倉儲名稱.git</n> 取下倉儲內容, 並在 python3 server.py 之後啟動編輯網站, 改版後 Convert 轉靜態, 並透過 <n style="color:red;">chmod u+x acp</n> 讓 acp 可以執行.
+
+        - 改版並轉靜態之後, 就可以利用 acp 按鈕執行新增提交與推送
+
+        - 若已知同一倉儲已經在其他地方將改版資料推向 Github, 在 s.cycu.org 執行改版程序之前, 可以利用 <n style="color:red;">git pull</n> 減少之後推送時必須解決的衝突內容
+
+        </small>
+        </script>
         </section>
 
-        <section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-            <h2>Background Transitions</h2>
-            <p>
-                You can override background transitions per-slide.
-            </p>
-            <pre><code class="hljs html" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+        <section data-markdown>
+        <script type="text/template">
+        ## Windows 上維護倉儲內容
+
+        <small>
+
+        - 在 [tinyc.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EV5P-1cv-y1Ih5zFT9LyTy0B6vGwNfDVlXYescPWAcMliw?e=LTUnq7) 中加上 [python3114_git_putty.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EYLeiM_NMzFHiKnUWpcO9pwBHxwDNjNDC-4F3h_d761wMQ?e=NMdPpv), 若已經在 s.cycu.org 登錄 id_rsa.pub 作為 Github 公鑰, 則取下的對應 <n style="color:red;">id_rsa</n> 可以利用 puttygen 轉為 .ppk 使用
+
+        - 利用 putty 建立名稱與連線 session 都選為 <n style="color:red;">github.com</n> 的設定, 讓 Windows 與 s.cycu.org 進行 git clone 有相同的指令
+
+        - 開啟 puttygent, load 進先前從 s.cycu.org 主機 .ssh 目錄取下的 id_rsa, 將原先 OpenSSL 格式的私鑰<n style="color:red;">存為 .ppk 格式</n>
+
+        - 在 putty 所建立的 <n style="color:red;">github.com</n> session 必須指定位於 y: 目錄, 以免之後若隨身碟代號改變而失效
+
+        - github.com session 設定 <n style="color:red;">proxy</n> 與 <n style="color:red;">private key</n> 位置後, 必須利用 Open 測試是否可以 ssh 連線到 github.com
+
+        - putty session 設定完成後, 必須將位於 <n style="color:red;">Computer\HKEY_CURRENT_USER\SOFTWARE\SimonTatham</n> 的 .reg 導出, 之後只要利用滑鼠雙點擊就可以完成 putty session 設定
+
+        - 以 <n style="color:red;">git clone --recurse-submodules git@github.com:帳號/倉儲名稱.git</n> 取下倉儲內容, 進入倉儲後, 以 <n style="color:red;">cms</n> 啟動編輯網站, 改版後 Convert 然後利用 acp 推送到 Github
+
+        </small>
+        </script>
         </section>
 
-        <section data-background-iframe="https://hakim.se" data-background-interactive>
-            <div style="position: absolute; width: 40%; right: 0; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
-                <h2>Iframe Backgrounds</h2>
-                <p>Since reveal.js runs on the web, you can easily embed other web content. Try interacting with the page in the background.</p>
-            </div>
+    </section>
+    <section>
+        <section data-markdown>
+        <script type="text/template">
+        ## STL 零件檔案格式
+
+        <small>
+
+        - [STL 零件檔案](https://en.wikipedia.org/wiki/STL_(file_format))分為 ASCII 與 Binary 兩種格式
+
+        - STL 零件檔案從 MCAD 套件轉出只分零件外殼的<n style="color:red;">三角形</n>精細度, 並<n style="color:red;">沒有尺寸單位</n>
+
+        - 由於從 MCAD 轉出的組立件 STL 零件, 在轉入 CoppeliaSim 後必須進行各零件的分割, 才能進行後續的控制系統設計與模擬, 因此各零件不可共面, 意即<n style="color:red;">各零件間</n>必須存在一定間隙, <n style="color:red;">不可緊密貼合</n>.
+
+        - 當零組件從 MCAD 轉出時, 各零件的組立相對位置與方位必須與隨後實體零件組裝時相同, 因此轉出時必須<n style="color:red;">保持組立時的相對位置與方位</n>．
+
+        - 由於 CoppeliaSim 既有的檔案儲存採 Binary 格式, 因此設計過程若在 MCAD　修改零件尺寸、外型或組立位置或方位時, 將無法在 Binary 檔案中進行修改或替換, 必須將 CoppeliaSim 的場景檔案<n style="color:red;">存為 XML 格式</n>才能在 MCAD 零組件修改時, 直接對模擬場景進行設計變更
+
+        </small>
+        </script>
         </section>
 
-        <section>
-            <h2>Marvelous List</h2>
-            <ul>
-                <li>No order here</li>
-                <li>Or here</li>
-                <li>Or here</li>
-                <li>Or here</li>
-            </ul>
+        <section data-markdown>
+        <script type="text/template">
+        ## CoppeliaSim 尺寸單位
+
+        <small>
+
+        -  <n style="color:red;">cad2023</n> 必須使用修改過的 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼), 才能在 IPv6 環境下運作
+
+        - CoppeliaSim 場景中的尺寸單位為 <n style="color:red;">m</n>, 因此若 MCAD 中的零件繪圖時採 mm 作為製圖單位, 則轉入時必須考量與每塊地板 <n style="color:red;">0.5m x 0.5m</n> 匹配的尺寸
+
+        - CoppeliaSim <n style="color:red;">Import/Export</n> STL [使用說明](https://www.coppeliarobotics.com/helpFiles/en/importExport.htm#mesh)
+
+        - 建議一個模擬場景的總 STL 三角形平面至多 <n style="color:red;">20000</n> 個
+
+        - 利用 Edit > Decimate shape(s) 可以<n style="color:red;">簡化場景中零件的 STL</n> 平面數量
+
+        - 若模擬場景帶有許多零組件, 且總 STL 三角形平面超過 20000 個, 則設為 Dynamic 模式的零件建議使用 <n style="color:red;">Shape Edit Mode</n> 進行編輯, 儘可能利用多個 <n style="color:red;">Primitive Shapes</n> 替代
+
+        - 與零件[輸出入有關的 API 函式](https://www.coppeliarobotics.com/helpFiles/en/simAssimp.htm)
+
+        </small>
+        </script>
         </section>
 
-        <section>
-            <h2>Fantastic Ordered List</h2>
-            <ol>
-                <li>One is smaller than...</li>
-                <li>Two is smaller than...</li>
-                <li>Three!</li>
-            </ol>
+        <section data-markdown>
+        <script type="text/template">
+        ## CoppeliaSim 程式架構
+
+        <small>
+
+        - CoppeliaSim 套件以 [CoppeliaSimLib](https://github.com/CoppeliaRobotics/CoppeliaSimLib) 作為核心, [開放原始碼](https://github.com/CoppeliaRobotics), 屬於開源套件
+
+        - CoppeliaSim 原始碼採[複合授權](https://www.coppeliarobotics.com/helpFiles/en/licensing.htm), 其中最重要的幾何與逆運動學模組採商用授權, 且宣告只允許非營利單位免費使用, 因此追隨研究其原始碼的人數 (核心程式庫 86 stars, forks 數 36) 遠遠不及採完全開放使用的 [Webots](https://github.com/cyberbotics/webots) (2800 stars, forks 數 1500)
+
+        - 由於 [Webots](https://github.com/cyberbotics/webots) 遲至 2019 年才全面開源, 且場景延續 1997 年的 VRML 檔案格式, 程式架構的包袱較大, 但卻擁有較具彈性的 [Documentation](https://github.com/cyberbotics/webots/blob/master/docs/README.md) 維護架構, 以及直接在全球資訊網上進行控制模擬的優勢: [webots.cloud](https://webots.cloud/) (例如: [Bioloid Dogs](https://webots.cloud/Acdx3l6)).
+
+        - 此處的結論: [CoppeliaSimLib](https://github.com/CoppeliaRobotics/CoppeliaSimLib) 與 [Webots](https://github.com/cyberbotics/webots) ([Webots_2023b_portable.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/ETUsrk0REK1Jsfbv4tLmlLoB28XX7k5TyOBqrgmr0ZOkMQ?e=XxvCdY), 需要下載密碼) 是目前最值得深入研究的<n style="color:red;">機電資虛實整合開源套件</n>
+
+        </small>
+        </script>
         </section>
 
-        <section>
-            <h2>Tabular Tables</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Item</th>
-                        <th>Value</th>
-                        <th>Quantity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Apples</td>
-                        <td>$1</td>
-                        <td>7</td>
-                    </tr>
-                    <tr>
-                        <td>Lemonade</td>
-                        <td>$2</td>
-                        <td>18</td>
-                    </tr>
-                    <tr>
-                        <td>Bread</td>
-                        <td>$3</td>
-                        <td>2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h2>Clever Quotes</h2>
-            <p>
-                These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">The nice thing about standards is that there are so many to choose from</q> and block:
-            </p>
-            <blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-                &ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-                reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-            </blockquote>
-        </section>
-        <section>
-            <h2>Intergalactic Interconnections</h2>
-            <p>
-                You can link between slides internally,
-                <a href="#/2/3">like this</a>.
-            </p>
+        <section data-markdown>
+        <script type="text/template">
+        ## 納入 Webots 2023b 可攜套件
+
+        <small>
+
+        - 在 [tinyc.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EV5P-1cv-y1Ih5zFT9LyTy0B6vGwNfDVlXYescPWAcMliw?e=LTUnq7) 中加上 [python3114_git_putty.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EYLeiM_NMzFHiKnUWpcO9pwBHxwDNjNDC-4F3h_d761wMQ?e=NMdPpv), 放入隨身碟後, 將可在任何 64 位元 Windows 電腦中維護 cad2023 倉儲內容
+
+        - 加上 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼), 則可以用來執行機電資整合系統模擬
+
+        - 若再加上 [Webots_2023b_portable.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/ETUsrk0REK1Jsfbv4tLmlLoB28XX7k5TyOBqrgmr0ZOkMQ?e=XxvCdY) (需要下載密碼), 則可以將 webots.reg 與 start_ipv6_with_webots.bat 放入 tinyc 可攜程式系統, 以納入 Webots 的應用
+
+        </small>
+        </script>
         </section>
 
-        <section>
-            <h2>Speaker View</h2>
-            <p>There's a <a href="https://revealjs.com/speaker-view/">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-            <p>Press the <em>S</em> key to try it out.</p>
+    </section>
+    <section>
+        <section data-markdown>
+        <script type="text/template">
+        ## 鋼球永動模擬器
 
-            <aside class="notes">
-                Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-            </aside>
-        </section>
-        <section>
-            <h2>Export to PDF</h2>
-            <p>Presentations can be <a href="https://revealjs.com/pdf-export/">exported to PDF</a>, here's an example:</p>
-            <iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-        </section>
+        <small>
 
-        <section>
-            <h2>Global State</h2>
-            <p>
-                Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-                will be added as a class to the document element when the slide is open. This lets you
-                apply broader style changes, like switching the page background.
-            </p>
+        - 目前市面上已知的<n style="color:red;">鋼球永動模擬器</n> ([Perpetual Motion Simulator](https://www.google.com/search?q=perpetual+motion+simulator))可以透過<n style="color:red;">滾動施力</n>與<n style="color:red;">磁力吸引</n>等兩種方式達成
+
+        - 在此將利用 [Solvespace 3.1](https://github.com/solvespace/solvespace/releases/tag/v3.1) 繪製測試用零組件, 輸入 CoppeliaSim 之後進行模擬
+
+        - 自行從原始碼以 MSYS2 編譯的 [solvespace.exe](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVXmpodaEOJLoAmuNucpSNYBF0rv7pnZmoWgy183ymkLew?e=oRkFQH) 大小僅約 16MB, 兩個檔案放入隨身碟後, 可以用來進行初步的機械設計零組件繪圖
+
+        - 從 [solvespace_ex_with_solvespace_kmol.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EdBN_Pg8dXxHqljsL9jfiQ0BsgRDEMTAfdyFHglV0GSgBQ?e=3OYxHK) 可知鋼球永動模擬器可以採 Solvespace 建置
+
+        - 請大家將網路設定好, 隨身系統準備好, putty session 設定好, 以 SSH 協定 git clone 自己與分組的倉儲到隨身碟中, 嘗試利用 Solvespace 建立鋼球永動模擬器的零組件, 並著手執行 [CoppeliaSim tutorials](https://www.coppeliarobotics.com/helpFiles/en/tutorials.htm)
+
+        </small>
+        </script>
         </section>
 
-        <section data-state="customevent">
-            <h2>State Events</h2>
-            <p>
-                Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-            </p>
-            <pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-        Reveal.on( 'customevent', function() {
-        console.log( '"customevent" has fired' );
-        } );
-            </code></pre>
+        <section data-markdown>
+        <script type="text/template">
+        ## CoppeliaSim 尺寸單位
+
+        <small>
+
+        -  <n style="color:red;">cad2023</n> 必須使用修改過的 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼), 才能在 IPv6 環境下運作
+
+        - CoppeliaSim 場景中的尺寸單位為 <n style="color:red;">m</n>, 因此若 MCAD 中的零件繪圖時採 mm 作為製圖單位, 則轉入時必須考量與每塊地板 <n style="color:red;">0.5m x 0.5m</n> 匹配的尺寸
+
+        - CoppeliaSim <n style="color:red;">Import/Export</n> STL [使用說明](https://www.coppeliarobotics.com/helpFiles/en/importExport.htm#mesh)
+
+        - 建議一個模擬場景的總 STL 三角形平面至多 <n style="color:red;">20000</n> 個
+
+        - 利用 Edit > Decimate shape(s) 可以<n style="color:red;">簡化場景中零件的 STL</n> 平面數量
+
+        - 若模擬場景帶有許多零組件, 且總 STL 三角形平面超過 20000 個, 則設為 Dynamic 模式的零件建議使用 <n style="color:red;">Shape Edit Mode</n> 進行編輯, 儘可能利用多個 <n style="color:red;">Primitive Shapes</n> 替代
+
+        - 與零件[輸出入有關的 API 函式](https://www.coppeliarobotics.com/helpFiles/en/simAssimp.htm)
+
+        </small>
+        </script>
         </section>
 
-        <section>
-            <h2>Take a Moment</h2>
-            <p>
-                Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-            </p>
+        <section data-markdown>
+        <script type="text/template">
+        ## CoppeliaSim 程式架構
+
+        <small>
+
+        - CoppeliaSim 套件以 [CoppeliaSimLib](https://github.com/CoppeliaRobotics/CoppeliaSimLib) 作為核心, [開放原始碼](https://github.com/CoppeliaRobotics), 屬於開源套件
+
+        - CoppeliaSim 原始碼採[複合授權](https://www.coppeliarobotics.com/helpFiles/en/licensing.htm), 其中最重要的幾何與逆運動學模組採商用授權, 且宣告只允許非營利單位免費使用, 因此追隨研究其原始碼的人數 (核心程式庫 86 stars, forks 數 36) 遠遠不及採完全開放使用的 [Webots](https://github.com/cyberbotics/webots) (2800 stars, forks 數 1500)
+
+        - 由於 [Webots](https://github.com/cyberbotics/webots) 遲至 2019 年才全面開源, 且場景延續 1997 年的 VRML 檔案格式, 程式架構的包袱較大, 但卻擁有較具彈性的 [Documentation](https://github.com/cyberbotics/webots/blob/master/docs/README.md) 維護架構, 以及直接在全球資訊網上進行控制模擬的優勢: [webots.cloud](https://webots.cloud/) (例如: [Bioloid Dogs](https://webots.cloud/Acdx3l6)).
+
+        - 此處的結論: [CoppeliaSimLib](https://github.com/CoppeliaRobotics/CoppeliaSimLib) 與 [Webots](https://github.com/cyberbotics/webots) 是目前最值得深入研究的<n style="color:red;">機電資虛實整合開源套件</n>
+
+        </small>
+        </script>
         </section>
 
-        <section>
-            <h2>Much more</h2>
-            <ul>
-                <li>Right-to-left support</li>
-                <li><a href="https://revealjs.com/api/">Extensive JavaScript API</a></li>
-                <li><a href="https://revealjs.com/auto-slide/">Auto-progression</a></li>
-                <li><a href="https://revealjs.com/backgrounds/#parallax-background">Parallax backgrounds</a></li>
-                <li><a href="https://revealjs.com/keyboard/">Custom keyboard bindings</a></li>
-            </ul>
-        </section>
-
-        <section style="text-align: left;">
-            <h1>THE END</h1>
-            <p>
-                - <a href="https://slides.com">Try the online editor</a> <br>
-                - <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-            </p>
-        </section>
+    </section>
     </div>
 </div>
     <script src="dist/reveal.js"></script>

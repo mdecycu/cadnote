@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>電腦輔助設計與實習 - Misc</title><link href="./" rel="alternate"></link><link href="./feeds/misc.atom.xml" rel="self"></link><id>./</id><updated>2023-11-26T16:36:59+08:00</updated><entry><title>2023 Fall CAD 課程</title><link href="./2023-Fall-Intro-to-computer-aided-design.html" rel="alternate"></link><published>2023-11-26T11:00:00+08:00</published><updated>2023-11-26T16:36:59+08:00</updated><author><name>yen</name></author><id>tag:None,2023-11-26:./2023-Fall-Intro-to-computer-aided-design.html</id><summary type="html">&lt;p&gt;2023 Fall 電腦輔助設計與實習的教學主要介紹 CAD 與 機電資整合模擬系統在機械設計流程中的應用.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2023 Fall 電腦輔助設計與實習的教學主要介紹 CAD 與 機電資整合模擬系統在機械設計流程中的應用.&lt;/p&gt;
+
+
+&lt;h2&gt;CAD&lt;/h2&gt;
+&lt;p&gt;電腦輔助機械零組件設計與繪圖&lt;/p&gt;
+&lt;h2&gt;CoppeliaSim&lt;/h2&gt;
+&lt;p&gt;機電資整合模擬系統與機械設計&lt;/p&gt;</content><category term="Misc"></category><category term="2023FallCAD"></category></entry></feed>
