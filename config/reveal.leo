@@ -43,8 +43,8 @@
 </v>
 <v t="leo.20231127111921.1"><vh>專案一鋼球永動模擬器</vh>
 <v t="leo.20231127111921.2"><vh>鋼球永動模擬器</vh></v>
-<v t="leo.20231127111921.3"><vh>CoppeliaSim 尺寸單位</vh></v>
-<v t="leo.20231127111921.4"><vh>CoppeliaSim 程式架構</vh></v>
+<v t="leo.20231127111921.3"><vh>ZMQ remote API Python1</vh></v>
+<v t="leo.20231127111921.4"><vh>ZMQ remote API Python2</vh></v>
 </v>
 </v>
 </v>
@@ -1091,23 +1091,15 @@ Write-Host "IPv6 Gateway: $gateway"
 </t>
 <t tx="leo.20231127111921.3">&lt;section data-markdown&gt;
 &lt;script type="text/template"&gt;
-## CoppeliaSim 尺寸單位
+## ZMQ remote API Python1
 
 &lt;small&gt;
 
--  &lt;n style="color:red;"&gt;cad2023&lt;/n&gt; 必須使用修改過的 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼), 才能在 IPv6 環境下運作
+-  下載已經修改能夠&lt;n style="color:red;"&gt;支援 IPv6 網路協定&lt;/n&gt;的 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼)
 
-- CoppeliaSim 場景中的尺寸單位為 &lt;n style="color:red;"&gt;m&lt;/n&gt;, 因此若 MCAD 中的零件繪圖時採 mm 作為製圖單位, 則轉入時必須考量與每塊地板 &lt;n style="color:red;"&gt;0.5m x 0.5m&lt;/n&gt; 匹配的尺寸
+- 下載可利用 &lt;n style="color:red;"&gt;Python&lt;/n&gt; 操控 CoppeliaSim 場景物件的範例: [zmqRemoteAPI Python for cad2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo) (需要下載密碼)
 
-- CoppeliaSim &lt;n style="color:red;"&gt;Import/Export&lt;/n&gt; STL [使用說明](https://www.coppeliarobotics.com/helpFiles/en/importExport.htm#mesh)
-
-- 建議一個模擬場景的總 STL 三角形平面至多 &lt;n style="color:red;"&gt;20000&lt;/n&gt; 個
-
-- 利用 Edit &gt; Decimate shape(s) 可以&lt;n style="color:red;"&gt;簡化場景中零件的 STL&lt;/n&gt; 平面數量
-
-- 若模擬場景帶有許多零組件, 且總 STL 三角形平面超過 20000 個, 則設為 Dynamic 模式的零件建議使用 &lt;n style="color:red;"&gt;Shape Edit Mode&lt;/n&gt; 進行編輯, 儘可能利用多個 &lt;n style="color:red;"&gt;Primitive Shapes&lt;/n&gt; 替代
-
-- 與零件[輸出入有關的 API 函式](https://www.coppeliarobotics.com/helpFiles/en/simAssimp.htm)
+- 先確定隨身碟中有 [tinyc.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EV5P-1cv-y1Ih5zFT9LyTy0B6vGwNfDVlXYescPWAcMliw?e=LTUnq7) 加上 [python3114_git_putty.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EYLeiM_NMzFHiKnUWpcO9pwBHxwDNjNDC-4F3h_d761wMQ?e=NMdPpv), 並且電腦輔助設計室中電腦的網路是透過隨身碟中的[網路設定檔案](https://mde.tw/cpnote/downloads/w11_1a.7z), 在 .ps1 檔案中加入&lt;n style="color:red;"&gt;各自的固定 IPv6 位址&lt;/n&gt;設定完成.
 
 &lt;/small&gt;
 &lt;/script&gt;
@@ -1116,17 +1108,17 @@ Write-Host "IPv6 Gateway: $gateway"
 </t>
 <t tx="leo.20231127111921.4">&lt;section data-markdown&gt;
 &lt;script type="text/template"&gt;
-## CoppeliaSim 程式架構
+## ZMQ remote API Python2
 
 &lt;small&gt;
 
-- CoppeliaSim 套件以 [CoppeliaSimLib](https://github.com/CoppeliaRobotics/CoppeliaSimLib) 作為核心, [開放原始碼](https://github.com/CoppeliaRobotics), 屬於開源套件
+- 先&lt;n style="color:red;"&gt;啟動 CoppeliaSim 與可攜環境&lt;/n&gt;, 並且在可攜系統的命令列中, 以 &lt;n style="color:red;"&gt;pip install pyzmq cbor keyboard&lt;/n&gt; 安裝執行上列範例所需要的 Python 模組
 
-- CoppeliaSim 原始碼採[複合授權](https://www.coppeliarobotics.com/helpFiles/en/licensing.htm), 其中最重要的幾何與逆運動學模組採商用授權, 且宣告只允許非營利單位免費使用, 因此追隨研究其原始碼的人數 (核心程式庫 86 stars, forks 數 36) 遠遠不及採完全開放使用的 [Webots](https://github.com/cyberbotics/webots) (2800 stars, forks 數 1500)
+- 在 CoppeliaSim 中開啟一個&lt;n style="color:red;"&gt;空白場景&lt;/n&gt;, 並在 SciTE 編輯器中開啟 &lt;n style="color:red;"&gt;mechanical_counter_create_digit1_joint1.py&lt;/n&gt;, 以 Tools - Go 執行, 即可透過 ZMQ Remote API Python 程式, 在場景中建立一個動態轉輪物件
 
-- 由於 [Webots](https://github.com/cyberbotics/webots) 遲至 2019 年才全面開源, 且場景延續 1997 年的 VRML 檔案格式, 程式架構的包袱較大, 但卻擁有較具彈性的 [Documentation](https://github.com/cyberbotics/webots/blob/master/docs/README.md) 維護架構, 以及直接在全球資訊網上進行控制模擬的優勢: [webots.cloud](https://webots.cloud/) (例如: [Bioloid Dogs](https://webots.cloud/Acdx3l6)).
+- 之後與 &lt;n style="color:red;"&gt;ChatGPT 進行對答互動&lt;/n&gt;時就可以利用 [zmqRemoteAPI Python for cad2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo) (需要下載密碼) 作為素材, 要求生成式 AI 提供有關 ZMQ Remote API Python 程式的編寫建議
 
-- 此處的結論: [CoppeliaSimLib](https://github.com/CoppeliaRobotics/CoppeliaSimLib) 與 [Webots](https://github.com/cyberbotics/webots) 是目前最值得深入研究的&lt;n style="color:red;"&gt;機電資虛實整合開源套件&lt;/n&gt;
+- 接下來請根據上述內容, 設法利用 ZMQ Remote API Python 程式, 對鋼球永動模擬器中的 ball 物件, 在通過運行軌道特定位置的&lt;n style="color:red;"&gt;感測元件&lt;/n&gt;時, 模擬&lt;n style="color:red;"&gt;滾輪或電磁鐵&lt;/n&gt;對鋼球施以&lt;n style="color:red;"&gt;特定大小及方向的力&lt;/n&gt; (即實際了解 [simAddForce](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simAddForce.htm)、[simAddForceAndTorque](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simAddForceAndTorque.htm)、[simSetShapeMass](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simSetShapeMass.htm)、[simSetShapeInertia](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simSetShapeInertia.htm)、[simSetEngineFloatParam](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simSetEngineFloatParam.htm) 等函式的用法)
 
 &lt;/small&gt;
 &lt;/script&gt;
