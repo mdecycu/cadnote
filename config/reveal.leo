@@ -23,7 +23,10 @@
 <v t="leo.20231126164033.8"><vh>CAD 教學內容</vh></v>
 <v t="leo.20231126170420.1"><vh>MCAD 套件</vh></v>
 </v>
-<v t="leo.20231126164033.9"><vh>困難的地方在哪?</vh></v>
+<v t="leo.20231128233329.1"><vh>課程所面臨的困難</vh>
+<v t="leo.20231128233329.2"><vh>困難的地方在哪?1</vh></v>
+<v t="leo.20231128233329.3"><vh>困難的地方在哪?2</vh></v>
+</v>
 <v t="leo.20231126164033.10"><vh>網路設定</vh>
 <v t="leo.20231126164033.11"><vh>有關網路設定</vh></v>
 <v t="leo.20231126164033.12"><vh>1_cadlab_network_setup.bat</vh></v>
@@ -951,23 +954,6 @@ Write-Host "IPv6 Gateway: $gateway"
 &lt;/section&gt;
 
 </t>
-<t tx="leo.20231126164033.9">&lt;section data-markdown&gt;
-&lt;script type="text/template"&gt;
-## 困難的地方在哪?
-
-- 各分組要整理多達 8 套 MCAD 系統相關細節資料
-
-- 要在雲端、自架 server 與近端維護 Github 上的倉儲與網站內容
-
-- 許多教材內容都是英文
-
-- 課後要花許多時間自己練習
-
-- &lt;del style="color:red;"&gt;聽說這門課會當很多人&lt;/del&gt;
-&lt;/script&gt;
-&lt;/section&gt;
-
-</t>
 <t tx="leo.20231126170333.1">&lt;section&gt;
     @others
 &lt;/section&gt;</t>
@@ -1136,6 +1122,51 @@ Write-Host "IPv6 Gateway: $gateway"
 - 加上 [CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp) (需要下載密碼), 則可以用來執行機電資整合系統模擬
 
 - 若再加上 [Webots_2023b_portable.7z](https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/ETUsrk0REK1Jsfbv4tLmlLoB28XX7k5TyOBqrgmr0ZOkMQ?e=XxvCdY) (需要下載密碼), 則可以將 webots.reg 與 start_ipv6_with_webots.bat 放入 tinyc 可攜程式系統, 以納入 Webots 的應用
+
+&lt;/small&gt;
+&lt;/script&gt;
+&lt;/section&gt;
+
+</t>
+<t tx="leo.20231128233329.1">&lt;section&gt;
+    @others
+&lt;/section&gt;</t>
+<t tx="leo.20231128233329.2">&lt;section data-markdown&gt;
+&lt;script type="text/template"&gt;
+## 困難的地方在哪?1
+
+- 要先弄清楚電腦的網路設定
+
+- 要在雲端、自架 server 與近端維護 Github 上的倉儲與網站內容
+
+- 許多教材內容都是英文
+
+- 課後要花許多時間自己練習
+
+- &lt;del style="color:red;"&gt;聽說這門課會當很多人&lt;/del&gt;
+&lt;/script&gt;
+&lt;/section&gt;
+
+</t>
+<t tx="leo.20231128233329.3">&lt;section data-markdown&gt;
+&lt;script type="text/template"&gt;
+## 困難的地方在哪?2
+
+&lt;small&gt;
+
+- IPv4 與 IPv6 網路協定&lt;n style="color:red;"&gt;彼此完全不相容&lt;/n&gt;, 使用各種網路客戶端工具, 如 ssh、sftp、http、https 以及 git 指令, 都需要透過&lt;n style="color:red"&gt;設定代理主機&lt;/n&gt;才能從純 IPv6 網路環境, 連接至目前只支援 IPv4 的雲端服務, 例如: github.com 與 replit.com
+
+- 在電腦輔助設計室要讓每一位使用都取得最大網路頻寬, 闢開 IPv4 的 NAT 瓶頸, 只能&lt;n style="color:red"&gt;全面使用 IPv6 設定&lt;/n&gt;
+
+- 為了讓兩百多名使用者在機械設計系網段, 各自擁有一個上課時能直接聯外的 IP 位址, 只能使用 IPv6 設定
+
+- 為了建立上課用的伺服主機, 包括考試用主機、分組協同用主機, 為求取得較高彈性與自由度, 也選擇只設定 IPv6 網路位址
+
+- 學校的 DHCP6 伺服器並&lt;n style="color:red"&gt;沒有完整設定 Gateway 與 DNS 伺服器&lt;/n&gt;, 使用者必須自行設定
+
+- 學校的 &lt;n style="color:red"&gt;dns.nfu.edu.tw&lt;/n&gt; 伺服器的 IPv6 設定, 並沒有正常運作, 且目前已不允許系上使用者跨區將 DNS 伺服器設為較穩定且反應快速的中華電信伺服器
+
+- &lt;del style="color:red;"&gt;聽說這門課會當很多人&lt;/del&gt; 這種說法並不真確, 應該說: 先前是不是&lt;n style="color:red"&gt;太多人提早放棄努力&lt;/n&gt;
 
 &lt;/small&gt;
 &lt;/script&gt;
