@@ -38,6 +38,9 @@
 <v t="leo.20231126164033.36"><vh>s.cycu.org 上維護倉儲內容</vh></v>
 <v t="leo.20231126164033.37"><vh>Windows 上維護倉儲內容</vh></v>
 </v>
+<v t="leo.20231129220213.1"><vh>Solvespace 繪圖</vh>
+<v t="leo.20231129220241.1"><vh>About Solvespace</vh></v>
+</v>
 <v t="leo.20231126202229.1"><vh>MCAD 零組件轉檔</vh>
 <v t="leo.20231126202229.2"><vh>STL 零件檔案格式</vh></v>
 <v t="leo.20231126202229.3"><vh>CoppeliaSim 尺寸單位</vh></v>
@@ -1167,6 +1170,30 @@ Write-Host "IPv6 Gateway: $gateway"
 - 學校的 &lt;n style="color:red"&gt;dns.nfu.edu.tw&lt;/n&gt; 伺服器的 IPv6 設定, 並沒有正常運作, 且目前已不允許系上使用者跨區將 DNS 伺服器設為較穩定且反應快速的中華電信伺服器
 
 - &lt;del style="color:red;"&gt;聽說這門課會當很多人&lt;/del&gt; 這種說法並不真確, 應該說: 先前是不是&lt;n style="color:red"&gt;太多人提早放棄努力&lt;/n&gt;
+
+&lt;/small&gt;
+&lt;/script&gt;
+&lt;/section&gt;
+
+</t>
+<t tx="leo.20231129220213.1">&lt;section&gt;
+    @others
+&lt;/section&gt;</t>
+<t tx="leo.20231129220241.1">&lt;section data-markdown&gt;
+&lt;script type="text/template"&gt;
+## About Solvespace
+
+&lt;small&gt;
+
+- [Solvespace 原始碼](https://github.com/solvespace/solvespace) 於 2008 年啟動開發, 2013 年釋出原始碼成為自由開源套件
+
+- 利用 [MSYS2](https://www.msys2.org/) 編譯 Solvespace 請參考[這個影片](https://youtu.be/OHyeZz6XE8A?si=CPuizQEUo7E8xtyn), 以及[這個網誌](https://mde.tw/blog/compile-solvespace.html)
+
+- [學習使用 Solvespace](https://www.google.com/search?q=learning+solvespce)
+
+- [未經作者授權禁止轉載:-)](https://www.bilibili.com/video/BV1sJ411p75X/)
+
+- [其他範例](http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html)
 
 &lt;/small&gt;
 &lt;/script&gt;
