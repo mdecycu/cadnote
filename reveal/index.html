@@ -449,6 +449,38 @@
         </section>
 
     </section>
+    <section>
+        <section data-markdown>
+        <script type="text/template">
+        ## 分組座位表測驗
+
+        <small>
+
+        - 各班按分組安排座位後, 以 Excel 取各學員的座位座標, 例如: 第一組學員位於<n style="color:red;">第一列最左邊的學員, 其座位座標為 (1,1)</n>, 第一組學員位於第一列最右邊的座位座標為 (1,9), 其餘各組座位依此類推
+
+        - 在取得各班分組座位座標資料後, 將從 Excel 轉存為<n style="color:red;">"學號\t座位座標"</n>格式的 .txt 檔案, 請各學員設法在個人網站上說明在取得該座標資料後, 如何在個人網站中的第一階次, 名稱為 w12 的標題頁面中, <n style="color:red;">將學號印在該學員的座位上, 列出各班的學員座位</n>
+
+        - 各學員除在 w12 頁面說明將如何處理上列實習測驗問題外, 請利用 Wink 錄製處理過程影格, 並<n style="color:red;">加上各頁操作說明後, 將 .mp4 影片檔案放入 w12 </n>頁面中
+
+        </small>
+        </script>
+        </section>
+
+        <section data-markdown>
+        <script type="text/template">
+        ## 鋼球落點座標測驗
+
+        <small>
+
+        - 從[這裡](https://mde.tw/cadnote/reveal/index.html#/7/1)可以取得支援 IPv6 網路協定的 <n style="color:red;">CoppeliaSim 與 ZMQ remote API Python 程式範例</n>, 請利用 Wink 製作執行此一範例程式的<n style="color:red;">操作影片檔</n>後, 放入個人網站中的 w12 頁面中
+
+        - 從上列程式範例, 已知 [simAddForceAndTorque](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simAddForceAndTorque.htm) 可<n style="color:red;">對場景中物體的質心施力與施轉矩</n>, 而 [simAddForce](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simAddForce.htm) 則可對場景中的物體<n style="color:red;">任一位置施力</n>, 此外利用 [simGetObjectPosition](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simGetObjectPosition.htm) 可以在特定時間點取得物件位置, 請根據上列鋼球永動模擬器的場景與 ZMQ remote API Python 程式, 以 platform <n style="color:red;">圓孔上緣作為參考原點座標</n>, 延伸出一個足夠大小的<n style="color:red;">平面範圍</n>, 測試利用上述兩種施力函式, 在鋼球通過感測器時, 對鋼球施以不同大小的力或轉矩後, 進行鋼球在目標平面上的落點分析, 並設法依此<n style="color:red;">落點實驗, 找出能讓鋼球正好落在 platform 範圍的施力或轉矩大小</n>
+
+        </small>
+        </script>
+        </section>
+
+    </section>
     </div>
 </div>
     <script src="dist/reveal.js"></script>

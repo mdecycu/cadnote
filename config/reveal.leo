@@ -52,6 +52,10 @@
 <v t="leo.20231127111921.3"><vh>ZMQ remote API Python1</vh></v>
 <v t="leo.20231127111921.4"><vh>ZMQ remote API Python2</vh></v>
 </v>
+<v t="leo.20231130074328.1"><vh>w12 實習測驗</vh>
+<v t="leo.20231130074349.1"><vh>分組座位表測驗</vh></v>
+<v t="leo.20231130081251.1"><vh>鋼球落點座標測驗</vh></v>
+</v>
 </v>
 </v>
 </v>
@@ -1194,6 +1198,41 @@ Write-Host "IPv6 Gateway: $gateway"
 - [未經作者授權禁止轉載:-)](https://www.bilibili.com/video/BV1sJ411p75X/)
 
 - [其他範例](http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html)
+
+&lt;/small&gt;
+&lt;/script&gt;
+&lt;/section&gt;
+
+</t>
+<t tx="leo.20231130074328.1">&lt;section&gt;
+    @others
+&lt;/section&gt;</t>
+<t tx="leo.20231130074349.1">&lt;section data-markdown&gt;
+&lt;script type="text/template"&gt;
+## 分組座位表測驗
+
+&lt;small&gt;
+
+- 各班按分組安排座位後, 以 Excel 取各學員的座位座標, 例如: 第一組學員位於&lt;n style="color:red;"&gt;第一列最左邊的學員, 其座位座標為 (1,1)&lt;/n&gt;, 第一組學員位於第一列最右邊的座位座標為 (1,9), 其餘各組座位依此類推
+
+- 在取得各班分組座位座標資料後, 將從 Excel 轉存為&lt;n style="color:red;"&gt;"學號\t座位座標"&lt;/n&gt;格式的 .txt 檔案, 請各學員設法在個人網站上說明在取得該座標資料後, 如何在個人網站中的第一階次, 名稱為 w12 的標題頁面中, &lt;n style="color:red;"&gt;將學號印在該學員的座位上, 列出各班的學員座位&lt;/n&gt;
+
+- 各學員除在 w12 頁面說明將如何處理上列實習測驗問題外, 請利用 Wink 錄製處理過程影格, 並&lt;n style="color:red;"&gt;加上各頁操作說明後, 將 .mp4 影片檔案放入 w12 &lt;/n&gt;頁面中
+
+&lt;/small&gt;
+&lt;/script&gt;
+&lt;/section&gt;
+
+</t>
+<t tx="leo.20231130081251.1">&lt;section data-markdown&gt;
+&lt;script type="text/template"&gt;
+## 鋼球落點座標測驗
+
+&lt;small&gt;
+
+- 從[這裡](https://mde.tw/cadnote/reveal/index.html#/7/1)可以取得支援 IPv6 網路協定的 &lt;n style="color:red;"&gt;CoppeliaSim 與 ZMQ remote API Python 程式範例&lt;/n&gt;, 請利用 Wink 製作執行此一範例程式的&lt;n style="color:red;"&gt;操作影片檔&lt;/n&gt;後, 放入個人網站中的 w12 頁面中
+
+- 從上列程式範例, 已知 [simAddForceAndTorque](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simAddForceAndTorque.htm) 可&lt;n style="color:red;"&gt;對場景中物體的質心施力與施轉矩&lt;/n&gt;, 而 [simAddForce](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simAddForce.htm) 則可對場景中的物體&lt;n style="color:red;"&gt;任一位置施力&lt;/n&gt;, 此外利用 [simGetObjectPosition](https://www.coppeliarobotics.com/helpFiles/en/regularApi/simGetObjectPosition.htm) 可以在特定時間點取得物件位置, 請根據上列鋼球永動模擬器的場景與 ZMQ remote API Python 程式, 以 platform &lt;n style="color:red;"&gt;圓孔上緣作為參考原點座標&lt;/n&gt;, 延伸出一個足夠大小的&lt;n style="color:red;"&gt;平面範圍&lt;/n&gt;, 測試利用上述兩種施力函式, 在鋼球通過感測器時, 對鋼球施以不同大小的力或轉矩後, 進行鋼球在目標平面上的落點分析, 並設法依此&lt;n style="color:red;"&gt;落點實驗, 找出能讓鋼球正好落在 platform 範圍的施力或轉矩大小&lt;/n&gt;
 
 &lt;/small&gt;
 &lt;/script&gt;
