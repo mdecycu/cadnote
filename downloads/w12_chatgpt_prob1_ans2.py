@@ -1,5 +1,5 @@
 # 指定檔案路徑
-file_path = "2b_w12_seat.txt"
+file_path = "2a_w12_seat.txt"
 
 # 打開檔案
 with open(file_path, "r", encoding="utf-8") as file:
