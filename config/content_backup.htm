@@ -629,24 +629,30 @@ git pull</pre>
 <p style="padding-left: 30px;"><span>要讀取這個檔案，你可以使用 Python 的檔案處理功能。以下是一個基本的範例程式碼，可以協助你達成這個目標：</span></p>
 <p style="padding-left: 30px;"><span><a href="/downloads/w12_chatgpt_prob1_ans1.py">w12_chatgpt_prob1_ans1.py</a></span></p>
 <p style="padding-left: 30px;"><span>這個程式碼會將學號和座位號的對應關係存儲在一個字典中，然後顯示出來。請注意，這裡使用 strip() 方法來去除空格和換行符號。<br/><br/>請確保你的檔案路徑正確，並注意檔案的編碼，以確保正確讀取中文內容。</span></p>
+<p><span>討論1: 經執行 ChatGPT 回覆的程式, 已經可以讀取資料, 並且列出資料. 但資料沒有排序.</span></p>
 <p><span>輸入2:</span></p>
 <p style="padding-left: 30px;"><span>假如前面程式中的座位號第一個 index 代表"列"而第二個 index 代表行, 請延續上個程式, 由左到右作為每一列的順序, 而且希望陣列排序是列出該位置上的學員學號</span></p>
 <p><span>ChatGPT 回覆2:</span></p>
 <p style="padding-left: 30px;"><span>了解，如果要按照座位號的列和行來排序並列出每個位置上的學號，我們可以修改程式碼來實現。以下是修改後的程式碼：</span></p>
 <p style="padding-left: 30px;"><span><a href="/downloads/w12_chatgpt_prob1_ans2.py">w12_chatgpt_prob1_ans2.py</a></span></p>
 <p style="padding-left: 30px;"><span>這裡我們使用了 sorted 函數，並通過 key 參數指定排序規則，即按照列和行的順序進行排序。最後，我們顯示排序後的結果，列出每個位置上的學號。</span></p>
+<p><span>討論2: 經執行 ChatGPT 回覆的程式, 所讀取的資料已經排序.<br/></span></p>
+<hr/>
 <p><span>輸入3:</span></p>
 <p style="padding-left: 30px;"><span>假如 "2b_w12_seat.txt" 可以從 "https://mde.tw/cadnote/downloads/2b_w12_seat.txt" 這個網址讀取, 而且希望將上一個 Python 程式改用 Brython 編寫, 要如何修改?</span></p>
 <p><span>ChatGPT 回覆3:</span></p>
 <p style="padding-left: 30px;"><span>Brython 是一個允許在瀏覽器中運行 Python 3 代碼的工具，而在瀏覽器中讀取外部檔案通常會涉及到跨網域 (Cross-Origin) 的問題。為了避免這些問題，我們可以使用 JavaScript 來在瀏覽器中讀取檔案，然後將檔案內容傳遞給 Brython。以下是修改後的 Brython 程式碼：</span></p>
 <p style="padding-left: 30px;"><span>(因為我們不使用 ChatGPT 混用 Javascript 與 Brython 的建立, 所以此地<span style="background-color: #ffff99;">不列出其回覆的原始碼</span>)</span></p>
 <p style="padding-left: 30px;"><span>這個 HTML 文件引入了 Brython，然後使用 JavaScript 的 XMLHttpRequest 將檔案內容從指定的 URL 讀取並傳遞給 Brython 的 eval 函數。在 eval 函數中執行 Python 代碼。這樣就可以在瀏覽器中運行 Python 代碼，同時解決了跨網域的問題。請注意，這裡假設檔案是文本格式，如果是二進制檔案，需要進一步處理。</span></p>
+<p><span>討論3: ChatGPT 建議的程式或許也能達成目的, 但是混用 Javascript 與 Brython 並不是目前所需, 因此不採用.<br/></span></p>
+<hr/>
 <p><span>輸入4:</span></p>
 <p style="padding-left: 30px;"><span>假如我們已經知道 Brython 可以利用 open(https://mde.tw/cadnote/downloads/2b_w12_seat.txt).read() 或 open(https://mde.tw/cadnote/downloads/2b_w12_seat.txt).readlines() 讀取到檔案, 可以將上一個程式全部改用 Brython 完成嗎?</span></p>
 <p><span>ChatGPT 回覆4:</span></p>
 <p style="padding-left: 30px;"><span>是的，如果你已經知道 Brython 可以使用 open("https://mde.tw/cadnote/downloads/2b_w12_seat.txt").read() 或 open("https://mde.tw/cadnote/downloads/2b_w12_seat.txt").readlines() 讀取檔案，你可以將上述 Python 程式碼轉換為 Brython 程式碼。以下是修改後的程式碼：</span></p>
 <p style="padding-left: 30px;"><span><a href="/downloads/w12_chatgpt_prob1_ans3_brython.py">w12_chatgpt_prob1_ans3_brython.py</a> (這裡已經配合 cmsite 中的 Brython 環境, 可以<a href="https://mde.tw/cadnote/content/Brython.html?src=https://gist.githubusercontent.com/mdecycu/9215c7c160119721ded887018cda8f4e/raw/f49f1b9fd28ac6545fb3158eae6960a72c2a61f5/w12_chatgpt_prob1_ans3_brython.py">直接從 Gist 取出執行</a>)</span></p>
 <p style="padding-left: 30px;"><span>這個 HTML 文件使用 Brython 在瀏覽器中運行 Python 3 代碼。Brython 的 open 函數會模擬 Python 的 open 函數，讓你能夠在瀏覽器中讀取檔案。這樣就可以使用和在 Python 中一樣的方式處理檔案，同時在瀏覽器中運行。</span></p>
+<p><span>討論4: ChatGPT 因為帶有非常大量的邏輯變數, 因此詢問時若能給予明確指示, 將可能取得更有用的回答.</span></p>
 <p><span>接下來就可以延續上述回覆所得到的程式碼, 加以研究後再修改為其他格式的資料輸出, 例如: <span style="background-color: #ffff99;">直接在 Brython 執行後, 列出所需要的 html 物件</span>.</span></p>
 <p style="padding-left: 30px;"><span></span></p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
@@ -1578,7 +1584,7 @@ doc["threejsblock"].bind("click", threejsblock.do)
 <div style="width: 100%; height: 100%;"><textarea autocomplete="off" id="kw_console2"></textarea></div>
 <p><!-- Brython 程式執行的結果, 都以 brython_div1 作為切入位置 --></p>
 <div id="brython_div2"></div>
-<!-- editor2 結束 --><hr>
+<!-- editor2 結束 --><hr/>
 <p>
 <script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"></script>
-</p></hr>
+</p>
