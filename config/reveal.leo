@@ -1215,7 +1215,7 @@ Write-Host "IPv6 Gateway: $gateway"
 
 - 各班按分組安排座位後, 以 Excel 取各學員的座位座標, 例如: 第一組學員位於&lt;n style="color:red;"&gt;第一列最左邊的學員, 其座位座標為 (1,1)&lt;/n&gt;, 第一組學員位於第一列最右邊的座位座標為 (1,9), 其餘各組座位依此類推
 
-- 在取得各班分組座位座標資料後, 將從 Excel 轉存為&lt;n style="color:red;"&gt;"學號\t座位座標"&lt;/n&gt;格式的 .txt 檔案, 請各學員設法在個人網站上說明在取得該座標資料後, 如何在個人網站中的第一階次, 名稱為 w12 的標題頁面中, &lt;n style="color:red;"&gt;將學號印在該學員的座位上, 列出各班的學員座位&lt;/n&gt;
+- 在取得各班分組座位座標資料後([2b_w12_seat.txt](https://mde.tw/cadnote/downloads/2b_w12_seat.txt)), 將從 Excel 轉存為&lt;n style="color:red;"&gt;"學號\t座位座標"&lt;/n&gt;格式的 .txt 檔案, 請各學員設法在個人網站上說明在取得該座標資料後, 如何在個人網站中的第一階次, 名稱為 w12 的標題頁面中, &lt;n style="color:red;"&gt;將學號印在該學員的座位上, 列出各班的學員座位&lt;/n&gt;
 
 - 各學員除在 w12 頁面說明將如何處理上列實習測驗問題外, 請利用 Wink 錄製處理過程影格, 並&lt;n style="color:red;"&gt;加上各頁操作說明後, 將 .mp4 影片檔案放入 w12 &lt;/n&gt;頁面中
 
