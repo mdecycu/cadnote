@@ -678,7 +678,16 @@ git pull</pre>
 <p style="padding-left: 30px;"><span><a href="/downloads/cad2023_w14.7z">cad2023_w14.7z</a> (需要透過控制系統設計找出能讓鋼球通過感測器時的最佳施力大小)</span></p>
 <p><span><img alt="" height="299" src="/images/w14_pms_coppeliasim.gif" width="400"/></span></p>
 <p><span>參考資料:</span></p>
-<p style="padding-left: 30px;"><a href="https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design">https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design</a> </p><h2>網路設定</h2>
+<p style="padding-left: 30px;"><a href="https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design">https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design</a> </p>
+<p style="padding-left: 30px;">以 API <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=8106">改變重力</a>:</p>
+<p style="padding-left: 60px;">sim.setArrayParameter(sim.arrayparam_gravity,{gx,gy,gz}).</p>
+<p style="padding-left: 30px;"><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=8190">set initial velocity</a>:</p>
+<p style="padding-left: 60px;">sim.setObjectFloatParameter(objectHandle,X,y), where X can be sim.shapefloatparam_init_velocity_x, sim.shapefloatparam_init_velocity_y or sim.shapefloatparam_init_velocity_z, and y the initial velocity in that direction</p>
+<p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simGetObjectVelocity.htm">get object velocity</a>:</p>
+<p style="padding-left: 60px;">list linearVelocity, list angularVelocity = sim.getObjectVelocity(int objectHandle)</p>
+<p style="padding-left: 30px;">Reinforcement Learning:</p>
+<p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm">https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm</a> </p>
+<p style="padding-left: 60px;"><a href="https://github.com/chauby/CoppeliaSimRL">https://github.com/chauby/CoppeliaSimRL</a> </p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
