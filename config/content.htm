@@ -679,7 +679,18 @@ git pull</pre>
 <p style="padding-left: 30px;"><span><a href="/downloads/cad2023_w14_perpetual_motion_simulator_template.py">cad2023_w14_perpetual_motion_simulator_template.py</a></span></p>
 <p><span><img alt="" height="299" src="/images/w14_pms_coppeliasim.gif" width="400"/></span></p>
 <p><span>參考資料:</span></p>
-<p style="padding-left: 30px;"><a href="https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design">https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design</a> </p><h2>網路設定</h2>
+<p style="padding-left: 30px;"><a href="https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design">https://wikis.utexas.edu/display/RMD/Home+-+Robot+Mechanisms+Design</a> </p>
+<p style="padding-left: 30px;">以 API <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=8106">改變重力</a>:</p>
+<p style="padding-left: 60px;">sim.setArrayParameter(sim.arrayparam_gravity,{gx,gy,gz}).</p>
+<p style="padding-left: 30px;"><a href="https://forum.coppeliarobotics.com/viewtopic.php?t=8190">set initial velocity</a>:</p>
+<p style="padding-left: 60px;">sim.setObjectFloatParameter(objectHandle,X,y), where X can be sim.shapefloatparam_init_velocity_x, sim.shapefloatparam_init_velocity_y or sim.shapefloatparam_init_velocity_z, and y the initial velocity in that direction</p>
+<p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/regularApi/simGetObjectVelocity.htm">get object velocity</a>:</p>
+<p style="padding-left: 60px;">list linearVelocity, list angularVelocity = sim.getObjectVelocity(int objectHandle)</p>
+<p style="padding-left: 30px;">Reinforcement Learning:</p>
+<p style="padding-left: 60px;"><a href="https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm">https://www.coppeliarobotics.com/helpFiles/en/PyRep.htm</a></p>
+<p style="padding-left: 60px;"><a href="https://github.com/chauby/CoppeliaSimRL">https://github.com/chauby/CoppeliaSimRL</a></p>
+<p style="padding-left: 60px;"><a href="https://deepreinforcementlearningbook.org/docs/Chap%2016.%20Robot%20Learning%20in%20Simulation/">Deep RL</a> (<a href="https://link.springer.com/book/10.1007/978-981-15-4095-0">ebook on Springer</a>)</p>
+<p style="padding-left: 60px;"><a href="https://github.com/moliqingwa/coppeliasim_deeprl">https://github.com/moliqingwa/coppeliasim_deeprl</a></p><h2>網路設定</h2>
 <p>由於電腦輔助設計室某部分套件, 在 IPv4 網路環境下會被防毒軟體偵測到封包異常而封閉網路, 因此以下將 IPv4 網路關閉, 僅使用 IPv6, 並透過雙網路協定支援的代理主機設定, 以便與僅支援 IPv4 的網路主機連線.</p>
 <p>利用隨身碟上的批次檔案進行電腦輔助設計室網路環境設定 (<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/Ed9GeWN75kJDmWsdXEeEDukBetqQ1g_3tA_PoIY-dHXDgw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=e6bNYA">設定影片</a>):</p>
 <p>1_cadlab_network_setup.bat</p>
@@ -1128,6 +1139,8 @@ function sysCall_actuation()
 <p style="padding-left: 30px;"><a href="http://wcm.cycu.org:88/github/cd2021/content/V-rep.html">http://wcm.cycu.org:88/github/cd2021/content/V-rep.html</a> (只能在系上 IPv6 網段中連結)</p>
 <p style="padding-left: 30px;">利用 Leo Editor 解讀 CoppeliaSim 完整的 XML 檔案格式, <a href="https://groups.google.com/g/leo-editor">Leo Editor Google Group</a></p>
 <p>因為 Python 3.12.0 環境下 Leo Editor 還無法正常透過 pip 安裝, 因此必須手動安裝 PyQt5 之後, 再使用 pip install leo, 所完成的 Python 3.12.0: <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EYf6RiAqXAFJllAizi_-iZ4BT9ZEn8-bT2V8TVjd9p446Q?e=NSCciC">Python312_leo_664_PyQt5.7z</a> (需要下載密碼)</p>
+<h3>zmq remoteapi</h3>
+<p><a href="https://github.com/samuel-cavalcanti/rust_zmqRemoteApi">https://github.com/samuel-cavalcanti/rust_zmqRemoteApi</a> </p>
 <h2>近端可攜</h2>
 <p>下載可攜程式套件:</p>
 <p style="padding-left: 30px;"><a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EbxsXK5kkU1ImhJ_HcYPnTcB9MboGQcfs6FuojXRPlhInA?e=wzLQFt">basic_portable_python.7z</a> (下載 15MB, 解開後 55MB, 只有 CPython 官方基本的解譯系統)</p>
@@ -1145,8 +1158,7 @@ function sysCall_actuation()
 <p style="padding-left: 60px;">可執行 Python 程式, 編輯取自 Github 的動態與靜態網站內容</p>
 <p style="padding-left: 30px;">Github:</p>
 <p style="padding-left: 60px;">利用倉儲建立個人網站與課程作業網站</p>
-<p style="padding-left: 60px;">將程式碼與文字檔案儲存在個人帳號下的 Gist 區域</p>
-<h3>Git</h3>
+<p style="padding-left: 60px;">將程式碼與文字檔案儲存在個人帳號下的 Gist 區域</p><h3>Git</h3>
 <p>Git 電子書:</p>
 <p style="padding-left: 30px;"><a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
 <p style="padding-left: 30px;">簡體字版的 <a href="https://www.liaoxuefeng.com/wiki/896043488029600">Git 教程</a></p>

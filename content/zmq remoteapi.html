@@ -142,67 +142,9 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">Git << <a href='Git.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分<br /><h1>Copsim</h1>
-<p>CoppeliaSim 4.5.1 for IPv6:</p>
-<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
-<p style="padding-left: 30px;">下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
-<p>addOns\simAddOnZMQ remote API server.lua 對原版的修改:</p>
-<p style="padding-left: 30px;">讓 zmqRemoteApi server 開啟 CoppeliaSim 時即啟動.</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function zmqRemoteApi.verbose()
-    -- return sim.getNamedInt32Param('zmqRemoteApi.verbose') or 0
-	-- autoStart
-	return sim.getNamedInt32Param('zmqRemoteApi.verbose') or 1
-end</pre>
-<p style="padding-left: 30px;">讓 zmqRemoteApi server 支援 IPv6.</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
-    if not simZMQ then
-        sim.addLog(sim.verbosity_errors,'zmqRemoteApi: the ZMQ plugin is not available')
-        return {cmd='cleanup'}
-    end
-    simZMQ.__raiseErrors(true) -- so we don't need to check retval with every call
-    rpcPort=sim.getNamedInt32Param('zmqRemoteApi.rpcPort') or 23000
-    cntPort=sim.getNamedInt32Param('zmqRemoteApi.cntPort') or (rpcPort+1)
-    maxTimeSlot=sim.getNamedFloatParam('zmqRemoteApi.maxTimeSlot') or 0.005
-    if zmqRemoteApi.verbose()&gt;0 then
-        sim.addLog(sim.verbosity_scriptinfos,string.format('ZeroMQ Remote API server starting (rpcPort=%d, cntPort=%d)...',rpcPort,cntPort))
-    end
-    -- cbor=require 'cbor' -- encodes strings as buffers, always. DO NOT USE!!
-    cbor=require'org.conman.cbor'
-    context=simZMQ.ctx_new()
-    rpcSocket=simZMQ.socket(context,simZMQ.REP)
-	-- enable IPv6 for ZMQ, default is false to IPv6
-	simZMQ.setsockopt(rpcSocket,simZMQ.IPV6,sim.packUInt32Table{1})
-	-- ZMQ IPv4ONLY default is true: http://api.zeromq.org/4-2:zmq-setsockopt
-	simZMQ.setsockopt(rpcSocket,simZMQ.IPV4ONLY,sim.packUInt32Table{0})
-	--simZMQ.bind(rpcSocket,string.format('tcp://[%s]:%d', '*', rpcPort))
-	-- original IPv4 setup
-    simZMQ.bind(rpcSocket,string.format('tcp://*:%d',rpcPort))
-    cntSocket=simZMQ.socket(context,simZMQ.PUB)
-    simZMQ.setsockopt(cntSocket,simZMQ.CONFLATE,sim.packUInt32Table{1})
-    simZMQ.bind(cntSocket,string.format('tcp://*:%d',cntPort))
-    if zmqRemoteApi.verbose()&gt;0 then
-        sim.addLog(sim.verbosity_scriptinfos,'ZeroMQ Remote API server started')
-    end
-    simulationTimeStepCount=0
-    steppingClients={}
-    steppedClients={}
-end</pre>
-<p>addOns\simAddOnWS remote API server.lua 檔案的修改:</p>
-<p style="padding-left: 30px;">讓 WebSocket server 在 CoppeliaSim 開啟時即啟動.</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function wsRemoteApi.verbose()
-    -- return sim.getNamedInt32Param('wsRemoteApi.verbose') or 0
-	-- autoStart
-	return sim.getNamedInt32Param('wsRemoteApi.verbose') or 1
-end</pre>
-<p>addOns\simAddOnVisualization stream.lua 檔案的修改:</p>
-<p style="padding-left: 30px;">讓 Virtualization Stream server 在 CoppeliaSim 開啟時即啟動:</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_info()
-    autoStart=sim.getNamedBoolParam('visualizationStream.autoStart')
-    if autoStart==nil then autoStart=true end
-    return {autoStart=autoStart,menu='Connectivity\nVisualization stream'}
-end</pre>
-<p></p>
-<br />Git << <a href='Git.html'>Previous</a> <a href='課程評分.html'>Next</a> >> 課程評分</div>
+    <div id="tipue_search_content">coppeliasim << <a href='coppeliasim.html'>Previous</a> <a href='近端可攜.html'>Next</a> >> 近端可攜<br /><h1>zmq remoteapi</h1>
+<p><a href="https://github.com/samuel-cavalcanti/rust_zmqRemoteApi">https://github.com/samuel-cavalcanti/rust_zmqRemoteApi</a> </p>
+<br />coppeliasim << <a href='coppeliasim.html'>Previous</a> <a href='近端可攜.html'>Next</a> >> 近端可攜</div>
         
     <!-- footer -->
       <div class="container">
