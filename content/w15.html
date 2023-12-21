@@ -2,7 +2,7 @@
         <head>
         <title>cadnote</title>
         <meta charset="utf-8">
-<meta property="head" content="H3">
+<meta property="head" content="H2">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
         <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
@@ -142,136 +142,17 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">磁力吸引 << <a href='磁力吸引.html'>Previous</a> <a href='馬達推動.html'>Next</a> >> 馬達推動<br /><h1>magnet</h1>
-<p>利用 Lua 模擬磁力的程式碼:</p>
-<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
-
--- This line defines the beginning of a function called sysCall_init(). This function is a special callback function in CoppeliaSim that gets called once when the simulation starts.
-
-    sensor = sim.getObject('./sensor')
-
--- In this line, the script is getting a reference to an object named "sensor" in the simulation scene. This object is expected to exist within the same hierarchy as the script.
-
-    shape = sim.getObject('.')
-
--- Here, the script is getting a reference to the object where the script is attached. The dot . represents the current object.
-
-    sim.setObjectInt32Param(shape, sim.shapeintparam_static, 0)
-
--- This line is setting an integer parameter for the "shape" object. Specifically, it's setting the sim.shapeintparam_static parameter to 0. This means that the "shape" object is initially not considered as a static object.
-
-    nominalForce = 0.001
-
--- This line sets a variable nominalForce to a value of 0.001. It appears to represent a constant force value used in the script.
-
-    enabled = true
-
--- This line initializes a boolean variable enabled to true. This variable seems to control whether the script should apply forces or not.
-
-    previousPos = sim.getObjectPosition(shape, sim.handle_world)
-
--- Here, the script is getting the initial position of the "shape" object in the world coordinate system and storing it in the previousPos variable. This will be used later for checking if the object has moved.
-
--- The sysCall_init function sets up initial parameters and conditions for the script. It's executed once at the beginning of the simulation.
-
--- Now, let's move on to the sysCall_actuation function:
-
-function sysCall_actuation()
-
--- This line defines the beginning of another special callback function in CoppeliaSim called sysCall_actuation(). This function gets called repeatedly during the simulation to perform actions in each time step.
-
-    if enabled then
-
--- This line checks if the enabled variable is true. If it's true, it means the script should apply forces. If it's false, the script won't apply any forces.
-
-        local r, dist, pt, obj = sim.handleProximitySensor(sensor)
-
--- Here, the script is using the sim.handleProximitySensor function to check if the proximity sensor (defined earlier as "sensor") is detecting any objects nearby. It returns information about the detected object.
-
-        if r &gt; 0 then
-
--- This line checks if r (the return value of the proximity sensor function) is greater than 0. If it is, it means the sensor has detected an object nearby.
-
-            dist = dist + 0.02
-
--- This line adds an offset of 0.02 to the dist variable. This offset is added to prevent an infinite force when objects are in direct contact. It's a safety measure.
-
-            local force = nominalForce / (dist * dist)
-
--- Here, the script calculates the force to be applied based on the nominalForce and the squared distance (dist) between the object and the detected object. This seems to be a simple inverse square law force calculation.
-
-            local m = sim.getObjectMatrix(shape, sim.handle_world)
-            m[4] = 0
-            m[8] = 0
-            m[12] = 0
-
--- These lines retrieve the transformation matrix (m) of the "shape" object with respect to the world coordinate system and set its translational components to 0. This effectively extracts the rotational part of the transformation matrix.
-
-            local forceVector = sim.multiplyVector(m, {0, 0, force})
-
--- This line multiplies the modified transformation matrix m by a force vector {0, 0, force} to obtain a force vector in absolute world coordinates.
-
-            sim.addForceAndTorque(shape, forceVector, {0, 0, 0})
-
--- Here, the script applies the computed forceVector to the "shape" object using sim.addForceAndTorque. This function applies the force to the center of mass of the object for one simulation time step.
-
-            if notFirstPass then
-
--- This line checks if the notFirstPass variable is true. It's used to ensure that this part of the script is executed after the first simulation step.
-
-                local p = sim.getObjectPosition(shape, sim.handle_world)
-
--- Here, the script is getting the current position of the "shape" object in the world coordinate system.
-
-                local dx = {p[1] - previousPos[1], p[2] - previousPos[2], p[3] - previousPos[3]}
-
--- This line calculates the difference in position (dx) between the current position (p) and the previous position (previousPos) of the object in world coordinates.
-
-                local d = math.sqrt(dx[1] * dx[1] + dx[2] * dx[2] + dx[3] * dx[3])
-
--- The script calculates the Euclidean distance d based on the differences in position components dx. This distance is used to check if the object has moved significantly.
-
-                if d &lt; 0.0001 then
-
--- This line checks if the object has moved by comparing d to a small threshold value (0.0001). If d is less than the threshold, it means the object hasn't moved significantly.
-
-                    sim.setObjectInt32Param(shape, sim.shapeintparam_static, 1)
-
--- If the object hasn't moved significantly, this line sets the sim.shapeintparam_static parameter to 1, making the object static in the simulation.
-
-                    sim.resetDynamicObject(shape)
-
--- This line resets the dynamics of the object. It might be necessary to reset the object's dynamics after making it static to avoid any issues.
-
-                    enabled = false
-
--- Finally, this line sets the enabled variable to false, which will prevent the script from applying further forces since the object is now considered static and not moving.
-
-                end
-
--- The if block is closed.
-
-                previousPos = p
-
--- Regardless of whether the object has become static or not, the previousPos variable is updated with the current position for use in the next iteration of the sysCall_actuation function.
-
-            end
-
--- The if notFirstPass block is closed.
-
-        end
-
--- The if r &gt; 0 block is closed.
-
-    end
-
--- The if enabled block is closed.
-
-    notFirstPass = true
-
--- This line sets the notFirstPass variable to `true</pre>
-<p></p>
-<br />磁力吸引 << <a href='磁力吸引.html'>Previous</a> <a href='馬達推動.html'>Next</a> >> 馬達推動</div>
+    <div id="tipue_search_content">w13-w14 << <a href='w13-w14.html'>Previous</a> <a href='網路設定.html'>Next</a> >> 網路設定<br /><h1>w15</h1>
+<p><span style="background-color: #ffff99;">操作考試</span>: 請利用自選的電腦輔助設計套件建立 <a href="https://mde.tw/cadnote/content/pms.html">https://mde.tw/cadnote/content/pms.html</a>  中的零組件 (尺寸與操控內容請自訂), 並加入感測器與適當的設計元件或機構, 說明預計如何令其在接上外部電源後, 能夠讓系統中的鋼球在軌道上進行永動模擬.</p>
+<p>完成零組件與可行系統設計後, 請將零組件轉入 CoppeliaSim 建立模擬場景, 並在分組中自選另一名組員, 經過彼此討論後, 請利用 ZMQ remote API Python 程式互相控制對方的永動模擬場景, 以便完成兩人一組的兩則永動機模擬操作 (若找不到協同對象, 請自行用所分配到的 IPv6 位址進行控制模擬).</p>
+<p>完成上述兩人一組的現場操作考試後, 請利用 Wink 製作 MP4 操作影片, 說明從零組件繪圖至完成互動控制模擬後的各階段細節, 並將上述各項內容放入個人倉儲與網站 (頁面標題請用第一階設定, 名稱為 exam).</p>
+<p>step1: 基本零組件設計繪圖.</p>
+<p>step2: 施力機構設計, 納入軌道下方控制盒中.</p>
+<p>step3: 將軌道、鋼球與簡化後的控制盒輸入 CoppeliaSim.</p>
+<p>step4: 配合控制系統設計, 納入感測器與施力機構或系統.</p>
+<p>step5: 在 localhost 以 IPv6 ZMQ remote API Python 程式, 配合感測器作動對鋼球施力.</p>
+<p>step6: 跨網路對協同組員的場景進行控制模擬.</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" src="https://www.youtube.com/embed/O-FKcK0vzgY?si=Ci-reYmxMRDYzUZN" title="YouTube video player" width="560"></iframe></p><br />w13-w14 << <a href='w13-w14.html'>Previous</a> <a href='網路設定.html'>Next</a> >> 網路設定</div>
         
     <!-- footer -->
       <div class="container">
