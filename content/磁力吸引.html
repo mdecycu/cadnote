@@ -1,0 +1,349 @@
+<!DOCTYPE html><html>
+        <head>
+        <title>cadnote</title>
+        <meta charset="utf-8">
+<meta property="head" content="H3">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/icomoon/style.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/magnific-popup.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/jquery-ui.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/fonts/flaticon/font/flaticon.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/aos.css">
+        <link rel="stylesheet" href="./../cmsimde/static/chimper/css/style.css">
+        <link rel="shortcut icon" href="./../cmsimde/static/favicons.png">
+        
+        <style type='text/css'>
+            .site-section {
+            background-color: #FFFF;
+            padding: 40px 40px;
+            }
+            body > div > div.dropdown.open {
+                display: block;
+            }
+        </style>
+    
+        <!-- <script src="./../cmsimde/static/jquery.js"></script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+        <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/normalize.min.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch_set.js"></script>
+        <script src="tipuesearch_content.js"></script>
+        <link rel="stylesheet" href="./../cmsimde/static/tipuesearch/css/tipuesearch.css">
+        <script src="./../cmsimde/static/tipuesearch/tipuesearch.js"></script>
+        <!-- for Wink3 客製化關閉 -->
+        <!--
+        <link rel="stylesheet" type="text/css" href="./../cmsimde/static/winkPlayer.css" />
+        <script type="text/javascript" src="./../cmsimde/static/winkPlayer.js"></script>
+        -->
+        <script>
+            /* original tipuesearch
+            $(document).ready(function() {
+                 $('#tipue_search_input').tipuesearch();
+            });
+            */
+            // customed doSearch
+            function doSearch() {
+                $('#tipue_search_input').tipuesearch({
+                    newWindow: true, 
+                    minimumLength: 2,
+                    wholeWords: false, // for search 中文
+                });
+            }
+            $(document).ready(doSearch);
+        </script>
+        
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushBash.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDiff.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushHaxe.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushPowerShell.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushLua.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushMojo.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushDart.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shBrushRust.js"></script>
+<link type="text/css" rel="stylesheet" href="./../cmsimde/static/syntaxhighlighter/css/shCoreDefault.css"/>
+<script type="text/javascript">SyntaxHighlighter.all();</script>
+<!-- 暫時不用
+<script src="./../cmsimde/static/fengari-web.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/Cango-13v08-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/CangoAxes-4v01-min.js"></script>
+<script type="text/javascript" src="./../cmsimde/static/gearUtils-05.js"></script>
+-->
+<!-- for Brython 暫時不用
+<script src="https://scrum-3.github.io/web/brython/brython.js"></script>
+<script src="https://scrum-3.github.io/web/brython/brython_stdlib.js"></script>
+-->
+<style>
+img.add_border {
+    border: 3px solid blue;
+}
+</style>
+
+</head>
+<body>
+<div class='container'><nav>
+        
+    <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+            <header class="site-navbar py-4 bg-white" role="banner">
+              <div class="container">
+                <div class="row align-items-center">
+                <h1>cadnote 電腦輔助設計與實習課堂筆記</h1>
+                <div class="pl-4">
+                    <form>
+                    <input type="text" placeholder="Search" name="q" id="tipue_search_input" pattern=".{2,}" title="At least 2 characters" required>
+                    </form>
+                </div>
+                  <!-- <div class="col-11 col-xl-2">
+                    <h1 class="mb-0 site-logo"><a href="index.html" class="text-black h2 mb-0">cadnote 電腦輔助設計與實習課堂筆記</a></h1> 
+                  </div>
+                  -->
+                  <div class="col-12 col-md-10 d-none d-xl-block">
+                    <nav class="site-navigation position-relative text-right" role="navigation">
+    <ul class='site-menu js-clone-nav mr-auto d-none d-lg-block'>
+                        <li class="active has-children"><a href="index.html">Home</a>
+                        <ul class="dropdown">
+                            <li><a href="sitemap.html">SMap</a></li>
+                            <li><a href="./../reveal/index.html">reveal</a></li>
+                            <li><a href="./../blog/index.html">blog</a></li>
+                        </ul>
+                      </li>
+                     <li><a href='About.html'>About</a><li class='has-children'><a href='上課內容.html'>上課內容</a><ul class='dropdown'><li><a href='links.html'>links</a><li class='has-children'><a href='w4-w5.html'>w4-w5</a><ul class='dropdown'><li><a href='solidworks.html'>solidworks</a><li><a href='siemens.html'>siemens</a><li><a href='autodesk.html'>autodesk</a><li><a href='ptc.html'>ptc</a></li></ul><li class='has-children'><a href='w6-w7.html'>w6-w7</a><ul class='dropdown'><li><a href='Win11.html'>Win11</a></li></ul><li><a href='w8.html'>w8</a><li class='has-children'><a href='w9-w11.html'>w9-w11</a><ul class='dropdown'><li><a href='wink.html'>wink</a><li><a href='pms.html'>pms</a></li></ul><li><a href='w12.html'>w12</a><li><a href='w13-w14.html'>w13-w14</a><li><a href='w15.html'>w15</a><li><a href='網路設定.html'>網路設定</a><li><a href='exam.html'>exam</a><li class='has-children'><a href='任務一.html'>任務一</a><ul class='dropdown'><li><a href='磁力吸引.html'>磁力吸引</a><li><a href='magnet.html'>magnet</a><li><a href='馬達推動.html'>馬達推動</a></li></ul><li><a href='Replit.html'>Replit</a><li class='has-children'><a href='coppeliasim.html'>coppeliasim</a><ul class='dropdown'><li><a href='zmq remoteapi.html'>zmq remoteapi</a></li></ul><li class='has-children'><a href='近端可攜.html'>近端可攜</a><ul class='dropdown'><li><a href='Git.html'>Git</a><li><a href='Copsim.html'>Copsim</a></li></li></ul></ul><li class='has-children'><a href='課程評分.html'>課程評分</a><ul class='dropdown'><li><a href='課堂考試.html'>課堂考試</a></li></ul><li class='has-children'><a href='課程主題.html'>課程主題</a><ul class='dropdown'><li><a href='設計繪圖.html'>設計繪圖</a><li><a href='系統模擬.html'>系統模擬</a><li><a href='課程總結.html'>課程總結</a></li></ul><li><a href='QandA.html'>QandA</a><li><a href='Brython.html'>Brython</a></li>
+                      </ul>
+                </nav>
+              </div>
+              <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
+              </div>
+
+            </div>
+          </div>
+          
+        </header>
+    <div id="tipue_search_content">任務一 << <a href='任務一.html'>Previous</a> <a href='magnet.html'>Next</a> >> magnet<br /><h1>磁力吸引</h1>
+<p>有關磁力吸引的鋼球循環運動系統, 請參考<a href="https://youtu.be/r_LG8FDt51U?si=D6TZP_XarNUvVOye">這個影片</a>. <span style="color: #000000;">或者透過課程檔案下載密碼觀看<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EcDmEvU3PKREq_noqkc_FeABZhbpfQ5p-f-3LuZn-PAQ1g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=vF0sTa" style="color: #000000;">這個影片</a>.</span></p>
+<p><span style="color: #000000;">根據<a href="https://www.etsy.com/listing/1253569674/perpetual-machine-simulator-perpetual">這個網站</a>宣稱是此一 Perpetual Motion Simulator 的原始創作者.</span></p>
+<p><span style="color: #000000;">同時參考 <a href="https://nfuedu-my.sharepoint.com/:b:/g/personal/yen_nfu_edu_tw/ETvxcyDptUtMlUj22ato4RYBJc5ekzCuC1pGFcOmUSXK3w?e=2miuR4">A perpetual motion machine powered by electromagnetism.pdf</a> (需要下載密碼)</span></p>
+<p>電腦輔助設計與實習課程的任務一即可根據此一裝置的設計, 先採用電腦輔助設計軟體, 繪製系統所需的 3D 零組件, 然後轉為 STL 格式, import 進入 CoppeliaSim, 接著根據影片說明, 利用近接感測器(例如: <a href="https://shopee.tw/%E9%9B%BB%E6%84%9F%E5%BC%8F-%E6%8E%A5%E8%BF%91%E9%96%8B%E9%97%9C-SN04N-SN04P-SN04Y-NPN-%E7%9B%B4%E6%B5%813%E7%B7%9A-%E5%9F%8B%E5%85%A5%E5%BC%8F-%E6%98%8E%E6%AD%A6%E6%A8%A1%E7%B5%84-i.795631261.18472134425">電感式近接開關</a>, <a href="https://www.amazon.com/-/en/LY346/dp/B07V4PR84Y">Inductive proximity sensor</a>) 控制電磁鐵開關, 設法透過磁力吸引讓鋼球具有足夠動能返回圓形平台.</p>
+<p>有關利用 Arduino 控制卡與相關電路設計產生電磁力控制的模擬, 請參考 <a href="https://mde.tw/cad2023/content/PICSimLab.html">PICSimLab</a> 頁面中的說明.</p>
+<p>一旦完成 CoppeliaSim 與 Arduino 電路設計等機電資系統整合模擬, 就可以進一步利用 3D printer 列印出所需零組件, 結合實體電路設計完成此一系統的虛實整合.</p>
+<p>機電模擬系統:</p>
+<p style="padding-left: 30px;">下載支援 IPv6 網路協定版本 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (需要下載密碼)</p>
+<p style="padding-left: 30px;"><a href="https://www.coppeliarobotics.com/helpFiles/">CoppeliaSim 使用者手冊</a>, <a href="https://mde.tw/pjcopsim">CoppeliaSim 4.3.0 使用手冊網站</a></p>
+<p style="padding-left: 30px;">模擬磁力的<a href="https://forum.coppeliarobotics.com/viewtopic.php?t=3923">討論</a>, <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=1501">1</a>, <a href="https://forum.coppeliarobotics.com/viewtopic.php?t=7187">2</a></p>
+<p style="padding-left: 30px;"><a href="https://studywolf.wordpress.com/2016/04/18/using-vrep-for-simulation-of-force-controlled-models/">Force Control Modeling</a></p>
+<p style="padding-left: 30px;"><a href="https://github.com/CoppeliaRobotics/scenes/raw/master/otherScenes/simpleMagnetDemo.ttt">simpleMagnetDemo.ttt</a></p>
+<p>模擬原理:</p>
+<p style="padding-left: 30px;">Perpetual Motion Simulator 主要的電路設計包含右側軌道下方的電磁鐵, 通電後可產生一定大小的磁吸力, 當圓形鐵球循著軌道由平台孔洞往下滾動, 經過軌道下方近接感測器 (Proximity sensor) 時 (距離 3mm-5mm), 透過感應, 控制電路將會短暫啟動電磁鐵 (10 miliseconds), 促使圓形鐵球加速滾動, 其磁力大小約略與圓形鐵球距離的平方成反比 (<a href="https://en.wikipedia.org/wiki/Computational_electromagnetics">Computational Electromagnetics</a>, <a href="https://javalab.org/en/magnetic_field_around_a_coil_en/">磁場模擬</a>).</p>
+<p style="padding-left: 30px;">因此圓形鐵球除了從平台高度落下時, 將位能轉換為動能外, 與軌道滾動磨擦以及空氣阻力所損耗的運動能, 將額外由電磁鐵開關間所得到的磁力吸引能量進行加速, 以便取得足夠的動能在脫離軌道末端後, 重新回到圓形平台.</p>
+<p style="padding-left: 30px;"><img alt="" height="299" src="./../images/perpetual_motion_simulator.png" width="400"/></p>
+<p style="padding-left: 30px;">(image from <a href="https://www.etsy.com/listing/1253569674/perpetual-machine-simulator-perpetual">here</a>)</p>
+<p style="padding-left: 30px;">電磁力未啟動下的 perpetual motion simulator CoppeliaSim 場景模擬:</p>
+<p style="padding-left: 30px;"><img alt="" height="303" src="./../images/perpetual_motion_simulator.gif" width="400"/></p>
+<p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=650b848e93b8b544db72a044">Images and part files in Onshape</a> (STL file import into CoppeliaSim 尺寸由 mm 放大10 倍至 cm, 且 z 軸向上, 場景中圓球直徑為 12.825 cm, 平台圓孔直徑為 20 cm)</p>
+<p style="padding-left: 30px;"><img alt="" height="329" src="./../images/perpetual_motion_simulator_scene.gif" width="400"/></p>
+<p style="padding-left: 30px;"><a href="https://cad.onshape.com/documents/42e52a740033264a7d82e595/w/2f1d43f82796f4e05a79c0b5/e/f2fa8150f24c8a3d1aa4d036?renderMode=0&amp;uiState=651e2855dd2e77079352b937">Perpetual Motion Simulator in Onshape</a>, 轉入 CoppeliaSim 後放大 10 倍, 且 z 軸向上之模擬場景, 下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVInN4wwqbpAuAv14NeTfpIB-7Q3hshxyaR38R9fd9fbkw?e=jZhpZQ">perpetual motion simulator stage2.7z</a> (需要下載密碼)</p>
+<p>有關如何在 Onshape 繪製零組件, 轉出 STL 檔案, 轉入 CoppeliaSim 並進行組件 divide and group, 請參考這個<a href="https://nfuedu-my.sharepoint.com/:v:/g/personal/yen_nfu_edu_tw/EQkDoYGPTlRBi4iK288VMXQB4dH92ieYRUf1c4h5IjHU0A?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0RpcmVjdCJ9fQ&amp;e=wYUHv2">教學影片</a>.</p>
+<p>以下 Python 程式可在 CoppeliaSim 場景檔案中建立所需的模擬組件:</p>
+<p>啟動 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EfEaYO4E4eBGtTV3QBCP0f0B3JBfrw11LslWmQyqZB75fw?e=Zf7hCp">CoppeliaSimEdu_4.5.1_rev4_for_cd2023.7z</a> (支援 IPv6 網路協定版本, 需要下載密碼), 然後在 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EQTW-mq62DpFtw5It9ao-PIBPXW7z5z8oVsW5gd8zbDXOQ?e=q6gHgf">Portable_2023_fall_1.3g_5g.7z</a> (需要下載密碼) 可攜環境啟動後, 以 pip install pyzmq cbor keyboard 安裝所需模組, 然後執行下列 zmqRemoteAPI IPv6 程式, 將滑鼠在場景中點擊後, 按下 q 鍵即可終止場景模擬:</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false"># zmqRemoteApi_IPv6 為將 zmq 通訊協定修改為 IPv4 與 IPv6 相容
+# pip install pyzmq cbor keyboard
+from zmqRemoteApi_IPv6 import RemoteAPIClient
+import time
+import math
+import keyboard
+
+# 利用 zmqRemoteAPI 以 23000 對場景伺服器進行連線
+client = RemoteAPIClient('localhost', 23000)
+# 以 getObject 方法取得場景物件
+sim = client.getObject('sim')
+box = sim.getObject('/box')
+
+# 啟動模擬
+sim.startSimulation()
+# 建立尺寸數列, 分別定義 x, y, z 方向尺寸
+x = 0.2
+y = 0.2
+z = 0.1
+size = [x, y, z]
+
+# 利用 size 數列, 建立圓柱物件, 2 代表 cylinder
+# 8 表示 respondable, 1 為 質量
+digit1_handle = sim.createPureShape(2, 8, size, 1, None)
+# 將圓柱物件命名為 digit1, 若用於機械計分可做為個位數轉盤
+# 之後可再導入帶有數字組立的外型零件
+sim.setObjectAlias(digit1_handle, 'digit1')
+# 轉角單位為徑度
+sim.setObjectOrientation(digit1_handle, -1, [0, math.pi/2, 0])
+# 起始物件中心位於 [0, 0, 0], 為了位於地板, 往 z 提升一個半徑高度
+sim.setObjectPosition(digit1_handle, -1, [0, 0, x/2])
+
+# 建立 revolute joint 命名為 joint, 且將 joint mode 設為 dynamic, control mode 設為 velocity
+joint1_handle = sim.createJoint(sim.joint_revolute_subtype, sim.jointmode_dynamic, 0, None)
+sim.setObjectInt32Param(joint1_handle, sim.jointintparam_dynctrlmode, sim.jointdynctrl_velocity)
+sim.setObjectAlias(joint1_handle, 'joint1')
+
+# 取得 cylinder 的位置座標
+digit1_pos = sim.getObjectPosition(digit1_handle, -1)
+joint1_pos = [digit1_pos[0], digit1_pos[1], digit1_pos[2]]
+
+# 將 joint1 至於 cylinder 中心
+sim.setObjectPosition(joint1_handle, -1, joint1_pos)
+# 取得 digit1_handle 的方位
+digit1_ori = sim.getObjectOrientation(digit1_handle, -1)
+# 將 joint1_handle 方位與 digit1 對齊
+sim.setObjectOrientation(joint1_handle, -1, digit1_ori)
+
+# 將 joint1 置於 box 上
+sim.setObjectParent(joint1_handle, box, True)
+# 將 cylinder 置於 joint1 上
+sim.setObjectParent(digit1_handle, joint1_handle, True)
+
+# 鎖定 joint1
+sim.setJointForce(joint1_handle, float('inf'))
+
+print("基本場景建立完成!")
+
+# 設定主迴圈
+while True:
+    # 設定 joint1 目標速度
+    sim.setJointTargetVelocity(joint1_handle, 10)
+    # 讓 coppeliasim 有時間按照設定讓 joint1 旋轉
+    time.sleep(0.01) 
+
+    if keyboard.is_pressed('q'):
+        # 可以按下 q 鍵跳出重複執行迴圈
+        break
+
+# 終止模擬
+sim.stopSimulation()</pre>
+<p>下載 <a href="https://nfuedu-my.sharepoint.com/:u:/g/personal/yen_nfu_edu_tw/EVV3NaesdDdNqcoD3xAo96gBqGG4gEJFPknOIt7EfofGlg?e=OfQ4qo">zmqRemoteAPI Python for cad2023.7z</a> (需要下載密碼)</p>
+<p>在 <a href="https://github.com/CoppeliaRobotics/scenes/raw/master/otherScenes/simpleMagnetDemo.ttt">simpleMagnetDemo.ttt</a> 中利用 Lua 以 proximity sensor 感測與物體的距離後, 產生電磁吸引力的範例程式:</p>
+<pre class="brush:lua;auto-links:false;toolbar:false" contenteditable="false">function sysCall_init()
+     -- 初始化 callback 函數，在模擬開始時執行
+     sensor = sim.getObject('./sensor')
+     -- 取得命名為 'sensor' 的物件 handle。 此處使用 proximity 感測器，用於檢測物體之間的距離
+     shape = sim.getObject('.')
+     -- 取得目前 script 所依附的物件 handle，即包含此 script 的物件 handle
+     sim.setObjectInt32Param(shape, sim.shapeintparam_static, 0)
+     -- 將物體設定為非靜態，讓其在模擬中發生動態運動
+     nominalForce = 0.001
+     -- 設定電磁吸引力的標準值
+     enabled = true
+     -- 啟用電磁吸引力
+     previousPos = sim.getObjectPosition(shape, sim.handle_world)
+     -- 取得物體的初始位置並儲存在 previousPos 變數中，用於偵測物體是否移動
+end
+
+function sysCall_actuation()
+     -- 驅動 callback 函數，在每個模擬步驟中執行
+     if enabled then
+         -- 如果啟用電磁吸引力，執行下列程式碼
+         local r, dist, pt, obj = sim.handleProximitySensor(sensor)
+         -- 使用 proximity 感測器偵測物體是否接近
+         if r &gt; 0 then
+             -- 如果偵測到物體
+             dist = dist + 0.02
+             -- 增加一個 offset，以避免物體接觸時產生無限大的吸引力
+             local force = nominalForce / (dist * dist)
+             -- 計算吸引力的大小，與距離的平方成反比
+             local m = sim.getObjectMatrix(shape, sim.handle_world)
+             m[4] = 0
+             m[8] = 0
+             m[12] = 0
+             -- 取得物體的轉換矩陣，不考慮平移部分
+             local forceVector = sim.multiplyVector(m, {0, 0, force})
+             -- 將力向量從局部座標系轉換為絕對座標系
+             sim.addForceAndTorque(shape, forceVector, {0, 0, 0})
+             -- 將計算得到的力應用於物體的質心，持續一個 time step
+             if notFirstPass then
+                 local p = sim.getObjectPosition(shape, sim.handle_world)
+                 local dx = {p[1] - previousPos[1], p[2] - previousPos[2], p[3] - previousPos[3]}
+                 local d = math.sqrt(dx[1] * dx[1] + dx[2] * dx[2] + dx[3] * dx[3])
+                 -- 計算物體是否移動
+                 if d &lt; 0.0001 then
+                     sim.setObjectInt32Param(shape, sim.shapeintparam_static, 1)
+                     sim.resetDynamicObject(shape)
+                     enabled = false
+                     -- 如果物體沒有移動，將其設為靜態
+                 end
+                 previousPos = p
+             end
+         end
+     end
+     notFirstPass = true
+end</pre>
+<p></p>
+<br />任務一 << <a href='任務一.html'>Previous</a> <a href='magnet.html'>Next</a> >> magnet</div>
+        
+    <!-- footer -->
+      <div class="container">
+        <div class="row pt-3 mx-auto">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+        </div>
+      </div>
+    <!-- for footer -->
+    
+        </div> <!-- for site wrap -->
+            <!-- <script src="../cmsimde/static/chimper/js/jquery-3.3.1.min.js"></script> -->
+            <script src="../cmsimde/static/chimper/js/jquery-migrate-3.0.1.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery-ui.js"></script>
+            <script src="../cmsimde/static/chimper/js/popper.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/owl.carousel.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.stellar.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.countdown.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/jquery.magnific-popup.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/bootstrap-datepicker.min.js"></script>
+            <script src="../cmsimde/static/chimper/js/aos.js"></script>
+            <!--
+            <script src="../cmsimde/static/chimper/js/typed.js"></script>
+                    <script>
+                    var typed = new Typed('.typed-words', {
+                    strings: ["Web Apps"," WordPress"," Mobile Apps"],
+                    typeSpeed: 80,
+                    backSpeed: 80,
+                    backDelay: 4000,
+                    startDelay: 1000,
+                    loop: true,
+                    showCursor: true
+                    });
+                    </script>
+            -->
+            <script src="../cmsimde/static/chimper/js/main.js"></script>
+        
+<!-- 啟用 LaTeX equations 編輯 -->
+  <!-- <script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\(', '\)']]}
+  };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>-->
+    </body></html>
+        
